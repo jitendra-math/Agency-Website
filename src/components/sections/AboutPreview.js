@@ -33,48 +33,80 @@ export default function AboutPreview() {
       className="
       relative isolate overflow-hidden
       px-4 py-28
-      bg-white
-      dark:bg-neutral-950
+      bg-gradient-to-b
+      from-neutral-100
+      via-white
+      to-white
+      dark:from-neutral-950
+      dark:via-neutral-950
+      dark:to-neutral-950
     "
     >
 
-      {/* ============================ */}
-      {/* Ambient glow background */}
-      {/* ============================ */}
+      {/* ========================= */}
+      {/* Mesh Glow Continuation */}
+      {/* ========================= */}
 
       <div className="absolute inset-0 pointer-events-none">
 
-        <div className="
-          absolute left-1/2 top-20
-          -translate-x-1/2
-          w-[520px] h-[520px]
+        {/* blue mesh */}
+        <motion.div
+          animate={{ x:[0,30,0], y:[0,-40,0] }}
+          transition={{ duration:14, repeat:Infinity }}
+          className="
+          absolute -top-40 -left-40
+          w-[420px] h-[420px]
           rounded-full
-          bg-gradient-to-r
-          from-blue-400/20
-          via-indigo-400/20
-          to-purple-400/20
+          bg-blue-500/20
           blur-3xl
-        " />
+        "
+        />
+
+        {/* purple mesh */}
+        <motion.div
+          animate={{ x:[0,-20,0], y:[0,40,0] }}
+          transition={{ duration:18, repeat:Infinity }}
+          className="
+          absolute -bottom-40 -right-40
+          w-[420px] h-[420px]
+          rounded-full
+          bg-purple-500/20
+          blur-3xl
+        "
+        />
 
       </div>
 
-      {/* ============================ */}
+      {/* ========================= */}
+      {/* Subtle grid depth */}
+      {/* ========================= */}
+
+      <div
+        className="
+        absolute inset-0 opacity-[0.03]
+        bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
+        bg-[size:44px_44px]
+        dark:opacity-[0.05]
+      "
+      />
+
+      {/* ========================= */}
       {/* Content */}
-      {/* ============================ */}
+      {/* ========================= */}
 
       <div className="relative z-10 mx-auto max-w-6xl">
 
-        {/* Brand statement */}
+        {/* Brand intro */}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: .8 }}
-          viewport={{ once: true }}
+          initial={{ opacity:0, y:28 }}
+          whileInView={{ opacity:1, y:0 }}
+          transition={{ duration:.8 }}
+          viewport={{ once:true }}
           className="text-center max-w-2xl mx-auto"
         >
 
-          <p className="text-xs uppercase tracking-widest text-neutral-500 mb-3">
+          <p className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-3">
             About JSS Originals
           </p>
 
@@ -85,42 +117,43 @@ export default function AboutPreview() {
             dark:text-neutral-100
           "
           >
-            A digital projects lab building
-            the future of web identity
+            Building systems that shape
+            digital identity on the web
           </h2>
 
           <p
             className="
-            mt-5 text-sm leading-relaxed
+            mt-6 text-sm leading-relaxed
             text-neutral-600
             dark:text-neutral-400
           "
           >
-            JSS Originals focuses on creating powerful web platforms,
-            experimental knowledge systems, and scalable SEO identity
-            architectures that strengthen digital presence across the internet.
+            JSS Originals develops scalable web platforms,
+            experimental knowledge systems, and SEO identity
+            architectures designed to create strong long-term
+            presence across the internet.
           </p>
 
         </motion.div>
 
-        {/* ============================ */}
-        {/* Feature grid */}
-        {/* ============================ */}
+        {/* ========================= */}
+        {/* Feature cards */}
+        {/* ========================= */}
 
         <div className="mt-16 grid gap-6">
 
-          {items.map((item, index) => {
+          {items.map((item,index)=>{
 
             const Icon = item.icon;
 
-            return (
+            return(
 
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * .15, duration: .7 }}
-                viewport={{ once: true }}
+                initial={{ opacity:0, y:24 }}
+                whileInView={{ opacity:1, y:0 }}
+                transition={{ delay:index*.15, duration:.7 }}
+                viewport={{ once:true }}
                 className="
                 relative
                 rounded-2xl
@@ -134,17 +167,17 @@ export default function AboutPreview() {
               "
               >
 
-                {/* icon */}
-
-                <div className="
+                <div
+                  className="
                   mb-4
                   flex h-11 w-11
                   items-center justify-center
                   rounded-xl
                   bg-blue-100
                   dark:bg-blue-900/40
-                ">
-                  <Icon size={20} />
+                "
+                >
+                  <Icon size={20}/>
                 </div>
 
                 <h3
@@ -177,14 +210,14 @@ export default function AboutPreview() {
 
       </div>
 
-      {/* ============================ */}
-      {/* Bottom transition glow */}
-      {/* ============================ */}
+      {/* ========================= */}
+      {/* Bottom fade */}
+      {/* ========================= */}
 
       <div
         className="
         absolute bottom-0 left-0 right-0
-        h-32
+        h-28
         bg-gradient-to-b
         from-transparent
         to-white
