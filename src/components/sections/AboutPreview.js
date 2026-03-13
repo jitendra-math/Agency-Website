@@ -32,24 +32,24 @@ export default function AboutPreview() {
     <section
       className="
       relative isolate overflow-hidden
-      px-4 py-28
+      px-4 pt-32 pb-28
       bg-gradient-to-b
-      from-neutral-100
+      from-transparent
       via-white
       to-white
-      dark:from-neutral-950
       dark:via-neutral-950
       dark:to-neutral-950
     "
     >
 
-      {/* ========================= */}
-      {/* Mesh Glow Continuation */}
-      {/* ========================= */}
+      {/* ===== Top transition blend (Hero → About) ===== */}
+
+      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-white dark:to-neutral-950 pointer-events-none" />
+
+      {/* ===== Ambient mesh glow ===== */}
 
       <div className="absolute inset-0 pointer-events-none">
 
-        {/* blue mesh */}
         <motion.div
           animate={{ x:[0,30,0], y:[0,-40,0] }}
           transition={{ duration:14, repeat:Infinity }}
@@ -62,7 +62,6 @@ export default function AboutPreview() {
         "
         />
 
-        {/* purple mesh */}
         <motion.div
           animate={{ x:[0,-20,0], y:[0,40,0] }}
           transition={{ duration:18, repeat:Infinity }}
@@ -75,11 +74,25 @@ export default function AboutPreview() {
         "
         />
 
+        {/* center ambient glow */}
+
+        <div
+          className="
+          absolute left-1/2 top-40
+          -translate-x-1/2
+          w-[520px] h-[520px]
+          rounded-full
+          bg-gradient-to-r
+          from-blue-400/15
+          via-purple-400/15
+          to-indigo-400/15
+          blur-3xl
+        "
+        />
+
       </div>
 
-      {/* ========================= */}
-      {/* Subtle grid depth */}
-      {/* ========================= */}
+      {/* ===== subtle grid depth ===== */}
 
       <div
         className="
@@ -90,23 +103,21 @@ export default function AboutPreview() {
       "
       />
 
-      {/* ========================= */}
-      {/* Content */}
-      {/* ========================= */}
+      {/* ===== Content ===== */}
 
       <div className="relative z-10 mx-auto max-w-6xl">
 
         {/* Brand intro */}
 
         <motion.div
-          initial={{ opacity:0, y:28 }}
+          initial={{ opacity:0, y:30 }}
           whileInView={{ opacity:1, y:0 }}
           transition={{ duration:.8 }}
           viewport={{ once:true }}
           className="text-center max-w-2xl mx-auto"
         >
 
-          <p className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-3">
+          <p className="text-xs uppercase tracking-[0.35em] text-neutral-500 mb-4">
             About JSS Originals
           </p>
 
@@ -136,9 +147,7 @@ export default function AboutPreview() {
 
         </motion.div>
 
-        {/* ========================= */}
-        {/* Feature cards */}
-        {/* ========================= */}
+        {/* ===== Glass feature cards ===== */}
 
         <div className="mt-16 grid gap-6">
 
@@ -157,24 +166,33 @@ export default function AboutPreview() {
                 className="
                 relative
                 rounded-2xl
-                border border-neutral-200
-                dark:border-neutral-800
-                bg-white/70
-                dark:bg-neutral-900/70
-                backdrop-blur
+                border border-white/20
+                dark:border-white/10
+                bg-white/40
+                dark:bg-white/5
+                backdrop-blur-xl
                 p-6
-                shadow-sm
+                shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+                transition-all duration-300
+                hover:-translate-y-1
+                hover:shadow-[0_16px_60px_rgba(0,0,0,0.12)]
               "
               >
+
+                {/* glass highlight */}
+
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
+
+                {/* icon */}
 
                 <div
                   className="
                   mb-4
-                  flex h-11 w-11
-                  items-center justify-center
+                  flex h-11 w-11 items-center justify-center
                   rounded-xl
-                  bg-blue-100
-                  dark:bg-blue-900/40
+                  bg-gradient-to-br
+                  from-blue-500/20
+                  to-purple-500/20
                 "
                 >
                   <Icon size={20}/>
@@ -210,9 +228,7 @@ export default function AboutPreview() {
 
       </div>
 
-      {/* ========================= */}
-      {/* Bottom fade */}
-      {/* ========================= */}
+      {/* ===== bottom fade ===== */}
 
       <div
         className="
