@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <section
       className="
-        relative overflow-hidden
+        relative isolate overflow-hidden
         flex flex-col items-center justify-center
         px-4 pt-32 pb-24
         text-center
@@ -23,8 +23,7 @@ export default function HeroSection() {
       {/* Gradient Glow Background */}
       {/* ================================= */}
 
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         {/* Blue blob */}
         <motion.div
           animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
@@ -77,7 +76,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="
+        className="relative z-10
           max-w-2xl
           text-3xl font-semibold leading-tight
           text-neutral-900 dark:text-neutral-100
