@@ -34,7 +34,7 @@ export default function HeroSection() {
             h-[320px] w-[320px]
             rounded-full
             bg-blue-500/30
-            blur-[60]
+            blur-[60px]
             dark:bg-blue-500/20
           "
         />
