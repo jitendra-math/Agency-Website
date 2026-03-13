@@ -1,0 +1,120 @@
+/* src/app/globals.css */
+
+/* Tailwind Layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Custom Animations */
+@import "../styles/animations.css";
+
+
+/* ----------------------------- */
+/* Font Faces */
+/* ----------------------------- */
+
+/* SF UI Text */
+
+@font-face {
+  font-family: "SF UI Text";
+  src: url("./fonts/sf/SFUIText-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Text";
+  src: url("./fonts/sf/SFUIText-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Text";
+  src: url("./fonts/sf/SFUIText-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Text";
+  src: url("./fonts/sf/SFUIText-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Oatmeal Sans */
+
+@font-face {
+  font-family: "Oatmeal Sans";
+  src: url("./fonts/oatmeal/Oatmeal Sans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* Royal Brand */
+
+@font-face {
+  font-family: "RoyalBrand";
+  src: url("./fonts/royalbrand/RoyalBrand-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ----------------------------- */
+/* Base Styles */
+/* ----------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sf bg-white text-neutral-900;
+}
+
+.dark body {
+  @apply bg-neutral-950 text-neutral-100;
+}
+
+
+/* ----------------------------- */
+/* Selection Style */
+/* ----------------------------- */
+
+::selection {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* ----------------------------- */
+/* Scrollbar Styling */
+/* ----------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #404040;
+}
