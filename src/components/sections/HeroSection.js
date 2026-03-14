@@ -1,4 +1,5 @@
 // src/components/sections/HeroSection.js
+// v1265.33.35
 
 "use client";
 
@@ -85,10 +86,12 @@ export default function HeroSection() {
         dark:text-neutral-100
       "
       >
-        Building Digital Identity
+        Crafting What the Web Deserves
         <br />
-        for the Modern Web
+        Meaningful Projects, Thoughtfully Built
       </motion.h1>
+
+      {/* Subheading */}
 
       <motion.p
         initial={{ opacity: 0, y: 26 }}
@@ -103,10 +106,11 @@ export default function HeroSection() {
         dark:text-neutral-400
       "
       >
-        JSS Originals builds modern web platforms, SEO identity
-        systems, and experimental digital products designed to create
-        powerful online presence.
+        Exploring ideas, building experiments, and shaping thoughtful
+        digital spaces.
       </motion.p>
+
+      {/* Buttons */}
 
       <motion.div
         initial={{ opacity: 0, y: 22 }}
