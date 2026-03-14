@@ -7,7 +7,7 @@ import ShineButton from "@/components/ui/ShineButton";
 import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
-  // Ultra-smooth Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -22,7 +22,7 @@ export default function HeroSection() {
     "
     >
       {/* ===================================== */}
-      {/* DYNAMIC RICH GRADIENTS (Lightweight) */}
+      {/* DYNAMIC RICH GRADIENTS (Cinematic Slow) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {/* Glow 1 - Deep Violet / Indigo */}
@@ -32,7 +32,7 @@ export default function HeroSection() {
             y: [0, -30, 0],
             scale: [1, 1.1, 1],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           className="
             absolute top-[-10%] left-[-10%] sm:top-0 sm:left-1/4
             w-[120vw] h-[120vw] sm:w-[600px] sm:h-[600px]
@@ -50,7 +50,7 @@ export default function HeroSection() {
             y: [0, 40, 0],
             scale: [1, 1.15, 1],
           }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
           className="
             absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
             w-[100vw] h-[100vw] sm:w-[500px] sm:h-[500px]
@@ -64,7 +64,7 @@ export default function HeroSection() {
         {/* Glow 3 - Subtle Rose/Peach for warmth (Center) */}
         <motion.div
           animate={{ opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           className="
             absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
             w-[80vw] h-[80vw] sm:w-[400px] sm:h-[400px]
@@ -99,7 +99,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: smoothEase }}
+          transition={{ duration: 1.5, ease: smoothEase }}
           className="
             mb-8 inline-flex items-center gap-2.5 px-4 py-1.5 
             rounded-full 
@@ -117,31 +117,32 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Main Heading - Rich Metallic Gradient */}
+        {/* Main Heading - Using your favorite Rich Gradient */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.1, ease: smoothEase }}
+          transition={{ duration: 1.5, delay: 0.1, ease: smoothEase }}
           className="
           text-5xl sm:text-7xl md:text-[5.5rem]
           font-extrabold
           tracking-tighter
-          leading-[1.05]
-          text-transparent bg-clip-text
-          bg-gradient-to-br from-neutral-900 via-slate-700 to-neutral-400
-          dark:from-white dark:via-blue-100/90 dark:to-neutral-500
+          leading-[1.1] md:leading-[1.05]
+          text-neutral-900 dark:text-white
           drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]
           py-2
         "
         >
-          Crafting What the <br className="hidden sm:block" /> Web Deserves.
+          Crafting What the <br className="hidden sm:block" /> 
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
+            Web Deserves.
+          </span>
         </motion.h1>
 
         {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: smoothEase }}
+          transition={{ duration: 1.5, delay: 0.25, ease: smoothEase }}
           className="
           mt-8
           max-w-2xl
@@ -162,7 +163,7 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.35, ease: smoothEase }}
+          transition={{ duration: 1.5, delay: 0.4, ease: smoothEase }}
           className="
           mt-12
           flex flex-col sm:flex-row items-center gap-4
@@ -170,7 +171,7 @@ export default function HeroSection() {
         "
         >
           <div className="w-full sm:w-auto">
-             <ShineButton size="lg" className="w-full sm:w-auto shadow-xl shadow-blue-500/10">
+             <ShineButton size="lg" className="w-full sm:w-auto">
               View Projects
             </ShineButton>
           </div>

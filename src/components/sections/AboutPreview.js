@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Globe, Layers, Sparkles } from "lucide-react";
 
 export default function AboutPreview() {
-  // Syncing the easing with Hero Section
+  // Ultra-smooth cinematic Apple-style easing
   const smoothEase = [0.16, 1, 0.3, 1];
 
   const items = [
@@ -40,7 +40,7 @@ export default function AboutPreview() {
     "
     >
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Synced with Hero) */}
+      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {/* Glow 1 - Deep Blue/Indigo */}
@@ -50,7 +50,7 @@ export default function AboutPreview() {
             y: [0, 40, 0],
             scale: [1, 1.1, 1],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           className="
             absolute top-[10%] left-[-10%] sm:top-[20%] sm:left-[10%]
             w-[80vw] h-[80vw] sm:w-[500px] sm:h-[500px]
@@ -68,7 +68,7 @@ export default function AboutPreview() {
             y: [0, -30, 0],
             scale: [1, 1.15, 1],
           }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
           className="
             absolute bottom-[-10%] right-[-10%] sm:bottom-[10%] sm:right-[10%]
             w-[90vw] h-[90vw] sm:w-[600px] sm:h-[600px]
@@ -82,7 +82,7 @@ export default function AboutPreview() {
         {/* Glow 3 - Subtle Purple Center */}
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           className="
             absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
             w-[70vw] h-[70vw] sm:w-[400px] sm:h-[400px]
@@ -115,7 +115,7 @@ export default function AboutPreview() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: smoothEase }}
+          transition={{ duration: 1.5, ease: smoothEase }}
           viewport={{ once: true, margin: "-100px" }}
           className="text-center max-w-3xl mx-auto"
         >
@@ -149,7 +149,7 @@ export default function AboutPreview() {
         </motion.div>
 
         {/* ===================================== */}
-        {/* BENTO BOX FEATURE CARDS */}
+        {/* LIGHTWEIGHT BENTO BOX CARDS */}
         {/* ===================================== */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {items.map((item, index) => {
@@ -161,8 +161,8 @@ export default function AboutPreview() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: index * 0.15,
-                  duration: 0.8,
+                  delay: index * 0.2, // Slightly more delay for a waterfall effect
+                  duration: 1.5, // Cinematic slow
                   ease: smoothEase,
                 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -171,33 +171,31 @@ export default function AboutPreview() {
                 flex flex-col
                 rounded-3xl
                 p-8 sm:p-10
-                bg-white/40 dark:bg-neutral-900/20
-                border border-black/[0.04] dark:border-white/[0.05]
+                bg-white/30 dark:bg-white/[0.02]
+                ring-1 ring-inset ring-black/5 dark:ring-white/10
                 backdrop-blur-2xl
-                transition-all duration-500 ease-out
-                hover:-translate-y-1.5
-                hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]
-                dark:hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.02)]
-                hover:bg-white/60 dark:hover:bg-neutral-900/40
+                transition-all duration-700 ease-out
+                hover:-translate-y-1
+                hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.05)]
+                dark:hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.03)]
+                hover:bg-white/40 dark:hover:bg-white/[0.04]
               "
               >
-                {/* Icon Wrapper - Premium Gradient Touch */}
+                {/* Icon Wrapper - Lightweight Lift */}
                 <div
                   className="
                   mb-8
                   flex h-14 w-14 items-center justify-center
                   rounded-2xl
-                  bg-gradient-to-br from-white to-blue-50/50
-                  dark:from-neutral-800 dark:to-neutral-900/50
-                  border border-black/[0.05] dark:border-white/[0.05]
-                  shadow-inner
-                  group-hover:scale-110 group-hover:shadow-blue-500/10 transition-all duration-500 ease-out
+                  bg-white/50 dark:bg-neutral-800/50
+                  ring-1 ring-inset ring-black/5 dark:ring-white/10
+                  group-hover:-translate-y-1 transition-transform duration-700 ease-out
                 "
                 >
                   <Icon
                     size={24}
                     strokeWidth={1.5}
-                    className="text-blue-600 dark:text-blue-400 transition-colors duration-300"
+                    className="text-blue-600 dark:text-blue-400 transition-colors duration-500"
                   />
                 </div>
 
@@ -220,8 +218,8 @@ export default function AboutPreview() {
                   {item.description}
                 </p>
 
-                {/* Subtle bottom highlight on hover */}
-                <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 dark:via-blue-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-t-full" />
+                {/* Buttery smooth subtle bottom highlight */}
+                <div className="absolute bottom-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 dark:via-blue-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out rounded-t-full" />
               </motion.div>
             );
           })}
