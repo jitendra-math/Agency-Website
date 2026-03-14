@@ -25,47 +25,47 @@ export default function HeroSection() {
       {/* RIBBON DECORATIONS */}
       {/* ===================================== */}
 
-<motion.div
-  animate={{ y: [0, -10, 0] }}
-  transition={{ duration: 20, repeat: Infinity }}
-  className="
-  pointer-events-none
-  absolute
-  -top-40
-  -right-52
-  w-[420px]
-  opacity-25
-  select-none
-"
->
-  <Image
-    src="/bg-ribbon-1.png"
-    alt=""
-    width={1604}
-    height={1338}
-  />
-</motion.div>
+      <motion.div
+        animate={{ y: [0, -14, 0] }}
+        transition={{ duration: 18, repeat: Infinity }}
+        className="
+        pointer-events-none
+        absolute
+        -top-18
+        -right-35
+        w-[360px]
+        opacity-40
+        select-none
+      "
+      >
+        <Image
+          src="/bg-ribbon-1.png"
+          alt=""
+          width={1000}
+          height={1000}
+        />
+      </motion.div>
 
-<motion.div
-  animate={{ y: [0, 12, 0] }}
-  transition={{ duration: 22, repeat: Infinity }}
-  className="
-  pointer-events-none
-  absolute
-  -bottom-40
-  -left-52
-  w-[420px]
-  opacity-25
-  select-none
-"
->
-  <Image
-    src="/bg-ribbon-2.png"
-    alt=""
-    width={1637}
-    height={1670}
-  />
-</motion.div>
+      <motion.div
+        animate={{ y: [0, 14, 0] }}
+        transition={{ duration: 22, repeat: Infinity }}
+        className="
+        pointer-events-none
+        absolute
+        -bottom-20
+        -left-30
+        w-[340px]
+        opacity-40
+        select-none
+      "
+      >
+        <Image
+          src="/bg-ribbon-2.png"
+          alt=""
+          width={900}
+          height={900}
+        />
+      </motion.div>
 
       {/* ===================================== */}
       {/* MULTI LAYER MESH LIGHTING */}
