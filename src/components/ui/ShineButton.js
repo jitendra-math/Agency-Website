@@ -16,9 +16,12 @@ export default function ShineButton({
       size={size}
       shine
       className={cn(
-        "relative bg-blue-600 text-white shadow-lg hover:bg-blue-700",
+        "relative",
+        "bg-blue-600 text-white",
+        "hover:bg-blue-700",
         "dark:bg-blue-500 dark:hover:bg-blue-600",
-        "transition-all duration-300",
+        "transition-colors duration-300",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40",
         className
       )}
       {...props}

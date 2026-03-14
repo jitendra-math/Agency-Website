@@ -6,25 +6,23 @@ import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+const base =
+  "relative inline-flex items-center justify-center font-medium select-none rounded-xl overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60";
+
 const variants = {
   primary: cn(
-    "relative overflow-hidden rounded-xl",
     "bg-blue-600 text-white",
-    "shadow-[0_6px_24px_rgba(37,99,235,0.35)]",
-    "transition-all duration-300 ease-out",
+    "transition-colors duration-300",
     "hover:bg-blue-700",
-    "hover:shadow-[0_8px_30px_rgba(37,99,235,0.45)]",
     "active:scale-[0.97]"
   ),
 
   secondary: cn(
-    "relative overflow-hidden rounded-xl",
     "border border-neutral-300 dark:border-neutral-700",
     "bg-white/60 dark:bg-neutral-900/60 backdrop-blur",
     "text-neutral-900 dark:text-neutral-100",
-    "transition-all duration-300 ease-out",
+    "transition-colors duration-300",
     "hover:bg-neutral-100 dark:hover:bg-neutral-800",
-    "hover:shadow-md",
     "active:scale-[0.97]"
   ),
 };
@@ -50,17 +48,10 @@ const Button = forwardRef(
     return (
       <motion.button
         ref={ref}
-        whileTap={{ scale: 0.95 }}
+        whileTap={{ scale: 0.96 }}
         whileHover={{ y: -1 }}
-        transition={{ type: "spring", stiffness: 400, damping: 20 }}
-        className={cn(
-          "inline-flex items-center justify-center",
-          "font-medium select-none",
-          "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
-          variants[variant],
-          sizes[size],
-          className
-        )}
+        transition={{ type: "spring", stiffness: 420, damping: 26 }}
+        className={cn(base, variants[variant], sizes[size], className)}
         {...props}
       >
         {shine && (
@@ -70,15 +61,15 @@ const Button = forwardRef(
           >
             <span
               className="
-                absolute left-[-150%] top-0
-                h-full w-[200%]
-                rotate-[25deg]
-                bg-gradient-to-r
-                from-transparent
-                via-white/50
-                to-transparent
-                animate-shine
-              "
+              absolute left-[-150%] top-0
+              h-full w-[200%]
+              rotate-[25deg]
+              bg-gradient-to-r
+              from-transparent
+              via-white/50
+              to-transparent
+              animate-shine
+            "
             />
           </span>
         )}
