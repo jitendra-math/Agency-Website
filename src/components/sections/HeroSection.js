@@ -31,10 +31,10 @@ export default function HeroSection() {
         className="
         pointer-events-none
         absolute
-        -top-22
-        -right-39
+        -top-24
+        -right-44
         w-[360px]
-        opacity-40
+        opacity-30
         select-none
       "
       >
@@ -55,7 +55,7 @@ export default function HeroSection() {
         -bottom-28
         -left-40
         w-[340px]
-        opacity-40
+        opacity-30
         select-none
       "
       >
