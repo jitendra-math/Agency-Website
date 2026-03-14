@@ -1,8 +1,9 @@
 // src/components/layout/Navbar.js
-
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Menu } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import ThemeToggle from "@/components/ui/ThemeToggle";
@@ -33,22 +34,37 @@ export default function Navbar() {
       >
         <div
           className="
-            mx-auto flex h-14 max-w-6xl items-center
-            justify-between px-4
-          "
+          mx-auto flex h-16 max-w-6xl items-center
+          justify-between px-4
+        "
         >
           {/* Logo */}
-          <span
-            className="
-              text-sm font-semibold
-              tracking-tight
-              text-neutral-900 dark:text-neutral-100
-            "
+          <Link
+            href="/"
+            className="flex items-center select-none"
           >
-            JSS Originals
-          </span>
+            {/* Light logo */}
+            <Image
+              src="/logo-black.png"
+              alt="JSS Originals"
+              width={140}
+              height={40}
+              priority
+              className="h-6 w-auto dark:hidden"
+            />
 
-          {/* Right side */}
+            {/* Dark logo */}
+            <Image
+              src="/logo-white.png"
+              alt="JSS Originals"
+              width={140}
+              height={40}
+              priority
+              className="hidden h-6 w-auto dark:block"
+            />
+          </Link>
+
+          {/* Right controls */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
 
@@ -56,13 +72,15 @@ export default function Navbar() {
               onClick={() => setMenuOpen(true)}
               aria-label="Open Menu"
               className="
-                flex h-9 w-9 items-center justify-center
-                rounded-lg
-                border border-neutral-200 dark:border-neutral-800
-                bg-white dark:bg-neutral-900
-                transition-all duration-200
-                hover:bg-neutral-100 dark:hover:bg-neutral-800
-              "
+              flex h-9 w-9 items-center justify-center
+              rounded-lg
+              border border-neutral-200 dark:border-neutral-800
+              bg-white/80 dark:bg-neutral-900/80
+              backdrop-blur
+              transition-all duration-200
+              hover:bg-neutral-100 dark:hover:bg-neutral-800
+              active:scale-95
+            "
             >
               <Menu size={18} />
             </button>
