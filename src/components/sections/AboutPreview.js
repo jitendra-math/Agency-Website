@@ -40,15 +40,57 @@ export default function AboutPreview() {
     "
     >
       {/* ===================================== */}
-      {/* AMBIENT GLOW (Synced with Hero) */}
+      {/* RICH AMBIENT GLOWS (Synced with Hero) */}
       {/* ===================================== */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center -z-10">
-        <div
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        {/* Glow 1 - Deep Blue/Indigo */}
+        <motion.div
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           className="
-          w-[100vw] h-[50vh] sm:w-[800px] sm:h-[400px]
-          bg-blue-500/5 dark:bg-blue-500/10
-          blur-[100px] rounded-full
-        "
+            absolute top-[10%] left-[-10%] sm:top-[20%] sm:left-[10%]
+            w-[80vw] h-[80vw] sm:w-[500px] sm:h-[500px]
+            rounded-full
+            bg-blue-300/30 dark:bg-indigo-900/20
+            blur-[80px] sm:blur-[120px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+
+        {/* Glow 2 - Cyan/Teal */}
+        <motion.div
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute bottom-[-10%] right-[-10%] sm:bottom-[10%] sm:right-[10%]
+            w-[90vw] h-[90vw] sm:w-[600px] sm:h-[600px]
+            rounded-full
+            bg-cyan-200/40 dark:bg-cyan-900/15
+            blur-[90px] sm:blur-[130px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+
+        {/* Glow 3 - Subtle Purple Center */}
+        <motion.div
+          animate={{ opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+            w-[70vw] h-[70vw] sm:w-[400px] sm:h-[400px]
+            rounded-full
+            bg-purple-200/30 dark:bg-violet-900/15
+            blur-[100px] sm:blur-[120px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
         />
       </div>
 
@@ -61,7 +103,7 @@ export default function AboutPreview() {
         opacity-[0.03] dark:opacity-[0.05]
         bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
         bg-[size:48px_48px] sm:bg-[size:64px_64px]
-        [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]
+        [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]
       "
       />
 
@@ -90,7 +132,7 @@ export default function AboutPreview() {
           "
           >
             Building systems that shape <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-700 to-neutral-400 dark:from-neutral-300 dark:to-neutral-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 drop-shadow-sm">
               digital identity.
             </span>
           </h2>
@@ -129,14 +171,14 @@ export default function AboutPreview() {
                 flex flex-col
                 rounded-3xl
                 p-8 sm:p-10
-                bg-white/60 dark:bg-white/[0.02]
+                bg-white/40 dark:bg-neutral-900/20
                 border border-black/[0.04] dark:border-white/[0.05]
                 backdrop-blur-2xl
                 transition-all duration-500 ease-out
                 hover:-translate-y-1.5
                 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]
                 dark:hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.02)]
-                hover:bg-white/80 dark:hover:bg-white/[0.04]
+                hover:bg-white/60 dark:hover:bg-neutral-900/40
               "
               >
                 {/* Icon Wrapper - Premium Gradient Touch */}
@@ -145,17 +187,17 @@ export default function AboutPreview() {
                   mb-8
                   flex h-14 w-14 items-center justify-center
                   rounded-2xl
-                  bg-gradient-to-br from-neutral-100 to-neutral-200
-                  dark:from-neutral-800 dark:to-neutral-900
+                  bg-gradient-to-br from-white to-blue-50/50
+                  dark:from-neutral-800 dark:to-neutral-900/50
                   border border-black/[0.05] dark:border-white/[0.05]
                   shadow-inner
-                  group-hover:scale-110 transition-transform duration-500 ease-out
+                  group-hover:scale-110 group-hover:shadow-blue-500/10 transition-all duration-500 ease-out
                 "
                 >
                   <Icon
                     size={24}
                     strokeWidth={1.5}
-                    className="text-neutral-800 dark:text-neutral-200 transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400"
+                    className="text-blue-600 dark:text-blue-400 transition-colors duration-300"
                   />
                 </div>
 
@@ -172,14 +214,14 @@ export default function AboutPreview() {
                 <p
                   className="
                   text-sm sm:text-base leading-relaxed
-                  text-neutral-500 dark:text-neutral-400
+                  text-neutral-600 dark:text-neutral-400
                 "
                 >
                   {item.description}
                 </p>
 
                 {/* Subtle bottom highlight on hover */}
-                <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-t-full" />
+                <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 dark:via-blue-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out rounded-t-full" />
               </motion.div>
             );
           })}
