@@ -7,7 +7,7 @@ import ShineButton from "@/components/ui/ShineButton";
 import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
-  // Apple-like smooth animation easing
+  // Ultra-smooth Apple-style easing
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -15,39 +15,77 @@ export default function HeroSection() {
       className="
       relative isolate overflow-hidden
       flex flex-col items-center justify-center
-      min-h-[90vh] px-6 pt-24 pb-20
+      min-h-[95vh] px-4 pt-28 pb-20
       text-center
-      bg-white dark:bg-neutral-950
+      bg-[#fafafa] dark:bg-[#050505]
+      transition-colors duration-500
     "
     >
       {/* ===================================== */}
-      {/* AMBIENT LUXURY GLOW (Lightweight) */}
+      {/* DYNAMIC RICH GRADIENTS (Lightweight) */}
       {/* ===================================== */}
-      <div className="absolute inset-0 -z-10 pointer-events-none flex justify-center items-center">
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        {/* Glow 1 - Deep Violet / Indigo */}
         <motion.div
-          animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          animate={{
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           className="
-          absolute
-          w-[150vw] h-[150vw] sm:w-[800px] sm:h-[800px]
-          rounded-full
-          bg-gradient-to-tr from-neutral-200 to-transparent dark:from-white/[0.03] dark:to-transparent
-          blur-[80px] sm:blur-[120px]
-          -translate-y-1/4
-        "
+            absolute top-[-10%] left-[-10%] sm:top-0 sm:left-1/4
+            w-[120vw] h-[120vw] sm:w-[600px] sm:h-[600px]
+            rounded-full
+            bg-purple-300/40 dark:bg-violet-900/30
+            blur-[100px] sm:blur-[140px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+
+        {/* Glow 2 - Cyan / Sky Blue */}
+        <motion.div
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
+            w-[100vw] h-[100vw] sm:w-[500px] sm:h-[500px]
+            rounded-full
+            bg-blue-200/50 dark:bg-cyan-900/20
+            blur-[100px] sm:blur-[140px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+        
+        {/* Glow 3 - Subtle Rose/Peach for warmth (Center) */}
+        <motion.div
+          animate={{ opacity: [0.4, 0.6, 0.4] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+            w-[80vw] h-[80vw] sm:w-[400px] sm:h-[400px]
+            rounded-full
+            bg-rose-200/30 dark:bg-fuchsia-900/20
+            blur-[100px] sm:blur-[120px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
         />
       </div>
 
       {/* ===================================== */}
-      {/* REFINED GRID TEXTURE WITH FADE MASK */}
+      {/* LUXURY GRID TEXTURE WITH RADIAL MASK */}
       {/* ===================================== */}
       <div
         className="
         absolute inset-0 -z-20
-        opacity-[0.03] dark:opacity-[0.04]
+        opacity-[0.04] dark:opacity-[0.06]
         bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
-        bg-[size:64px_64px]
-        [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_70%,transparent_100%)]
+        bg-[size:48px_48px] sm:bg-[size:64px_64px]
+        [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_40%,transparent_100%)]
       "
       />
 
@@ -55,45 +93,51 @@ export default function HeroSection() {
       {/* HERO CONTENT */}
       {/* ===================================== */}
 
-      <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto">
         
-        {/* Subtle Announcement Pill */}
+        {/* Glassmorphic Announcement Pill */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: smoothEase }}
           className="
-            mb-8 inline-flex items-center gap-2 px-3 py-1 
-            rounded-full border border-neutral-200 dark:border-neutral-800
-            bg-neutral-50/50 dark:bg-neutral-900/50 backdrop-blur-md
+            mb-8 inline-flex items-center gap-2.5 px-4 py-1.5 
+            rounded-full 
+            border border-black/[0.08] dark:border-white/[0.08]
+            bg-white/40 dark:bg-black/40 
+            backdrop-blur-xl shadow-sm
           "
         >
-          <span className="flex h-2 w-2 rounded-full bg-neutral-900 dark:bg-white" />
-          <span className="text-xs sm:text-sm font-medium tracking-wide text-neutral-600 dark:text-neutral-300 uppercase">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600 dark:bg-blue-400"></span>
+          </span>
+          <span className="text-xs sm:text-sm font-semibold tracking-wide text-neutral-700 dark:text-neutral-200 uppercase">
             Introducing the new standard
           </span>
         </motion.div>
 
-        {/* Main Heading - Ultra Premium Gradient */}
+        {/* Main Heading - Rich Metallic Gradient */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.1, ease: smoothEase }}
           className="
-          text-5xl sm:text-6xl md:text-8xl
-          font-bold
+          text-5xl sm:text-7xl md:text-[5.5rem]
+          font-extrabold
           tracking-tighter
-          leading-[1.1] md:leading-[1.05]
+          leading-[1.05]
           text-transparent bg-clip-text
-          bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-500
-          dark:from-white dark:via-neutral-200 dark:to-neutral-500
-          drop-shadow-sm
+          bg-gradient-to-br from-neutral-900 via-slate-700 to-neutral-400
+          dark:from-white dark:via-blue-100/90 dark:to-neutral-500
+          drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]
+          py-2
         "
         >
           Crafting What the <br className="hidden sm:block" /> Web Deserves.
         </motion.h1>
 
-        {/* Subheading & Paragraph combined for cleaner look */}
+        {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,17 +148,17 @@ export default function HeroSection() {
           text-lg sm:text-xl md:text-2xl
           font-medium
           tracking-tight
-          text-neutral-500
-          dark:text-neutral-400
+          text-neutral-600
+          dark:text-neutral-300
         "
         >
           Meaningful projects, thoughtfully built. <br className="hidden sm:block" />
-          <span className="text-neutral-400 dark:text-neutral-500 font-normal">
+          <span className="text-neutral-500 dark:text-neutral-500 font-normal">
             Exploring ideas and shaping digital spaces.
           </span>
         </motion.p>
 
-        {/* Buttons - Mobile First Stacking */}
+        {/* Buttons - Mobile First Full Width */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,18 +166,17 @@ export default function HeroSection() {
           className="
           mt-12
           flex flex-col sm:flex-row items-center gap-4
-          w-full sm:w-auto
+          w-full sm:w-auto px-4 sm:px-0
         "
         >
-          {/* Ensure your ShineButton and Button components accept full width on mobile if needed */}
           <div className="w-full sm:w-auto">
-             <ShineButton size="lg" className="w-full sm:w-auto">
+             <ShineButton size="lg" className="w-full sm:w-auto shadow-xl shadow-blue-500/10">
               View Projects
             </ShineButton>
           </div>
 
           <div className="w-full sm:w-auto">
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto bg-white/50 dark:bg-black/50 backdrop-blur-md border border-neutral-200 dark:border-neutral-800">
               Join Us
             </Button>
           </div>
@@ -142,17 +185,16 @@ export default function HeroSection() {
       </div>
 
       {/* ===================================== */}
-      {/* BOTTOM FADE */}
+      {/* BOTTOM SEAMLESS FADE */}
       {/* ===================================== */}
       <div
         className="
         pointer-events-none
         absolute bottom-0 left-0 right-0
-        h-40
-        bg-gradient-to-b
-        from-transparent
-        to-white
-        dark:to-neutral-950
+        h-32 md:h-48
+        bg-gradient-to-t
+        from-[#fafafa] dark:from-[#050505]
+        to-transparent
       "
       />
     </section>
