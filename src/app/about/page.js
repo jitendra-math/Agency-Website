@@ -9,12 +9,6 @@ import FounderSection from "@/components/sections/about/FounderSection";
 import FutureVision from "@/components/sections/about/FutureVision";
 import ClosingStatement from "@/components/sections/about/ClosingStatement";
 
-export const metadata = {
-  title: "About | JSS Originals",
-  description:
-    "Learn about JSS Originals — a digital projects lab exploring thoughtful ideas, web platforms, and meaningful internet experiments.",
-};
-
 export default function AboutPage() {
   return (
     <main>
