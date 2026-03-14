@@ -32,87 +32,41 @@ export default function AboutPreview() {
     <section
       className="
       relative isolate overflow-hidden
-      px-4 pt-32 pb-28
-      bg-gradient-to-b
-      from-transparent
-      via-white
-      to-white
-      dark:via-neutral-950
-      dark:to-neutral-950
+      px-4 pt-28 pb-24
+      bg-white
+      dark:bg-neutral-950
     "
     >
 
-      {/* ===== Top transition blend (Hero → About) ===== */}
-
-      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-white dark:to-neutral-950 pointer-events-none" />
-
-      {/* ===== Ambient mesh glow ===== */}
-
-      <div className="absolute inset-0 pointer-events-none">
-
-        <motion.div
-          animate={{ x:[0,30,0], y:[0,-40,0] }}
-          transition={{ duration:14, repeat:Infinity }}
-          className="
-          absolute -top-40 -left-40
-          w-[420px] h-[420px]
-          rounded-full
-          bg-blue-500/20
-          blur-3xl
-        "
-        />
-
-        <motion.div
-          animate={{ x:[0,-20,0], y:[0,40,0] }}
-          transition={{ duration:18, repeat:Infinity }}
-          className="
-          absolute -bottom-40 -right-40
-          w-[420px] h-[420px]
-          rounded-full
-          bg-purple-500/20
-          blur-3xl
-        "
-        />
-
-        {/* center ambient glow */}
-
-        <div
-          className="
-          absolute left-1/2 top-40
-          -translate-x-1/2
-          w-[520px] h-[520px]
-          rounded-full
-          bg-gradient-to-r
-          from-blue-400/15
-          via-purple-400/15
-          to-indigo-400/15
-          blur-3xl
-        "
-        />
-
-      </div>
-
-      {/* ===== subtle grid depth ===== */}
+      {/* Ambient soft spotlight */}
 
       <div
         className="
-        absolute inset-0 opacity-[0.03]
-        bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
-        bg-[size:44px_44px]
-        dark:opacity-[0.05]
+        pointer-events-none absolute inset-0
+        bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.06),transparent_70%)]
+        dark:bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08),transparent_70%)]
       "
       />
 
-      {/* ===== Content ===== */}
+      {/* subtle grid depth */}
+
+      <div
+        className="
+        absolute inset-0 opacity-[0.025]
+        bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
+        bg-[size:44px_44px]
+        dark:opacity-[0.04]
+      "
+      />
 
       <div className="relative z-10 mx-auto max-w-6xl">
 
         {/* Brand intro */}
 
         <motion.div
-          initial={{ opacity:0, y:30 }}
+          initial={{ opacity:0, y:28 }}
           whileInView={{ opacity:1, y:0 }}
-          transition={{ duration:.8 }}
+          transition={{ duration:.7 }}
           viewport={{ once:true }}
           className="text-center max-w-2xl mx-auto"
         >
@@ -147,7 +101,7 @@ export default function AboutPreview() {
 
         </motion.div>
 
-        {/* ===== Glass feature cards ===== */}
+        {/* Feature cards */}
 
         <div className="mt-16 grid gap-6">
 
@@ -161,38 +115,30 @@ export default function AboutPreview() {
                 key={item.title}
                 initial={{ opacity:0, y:24 }}
                 whileInView={{ opacity:1, y:0 }}
-                transition={{ delay:index*.15, duration:.7 }}
+                transition={{ delay:index*.15, duration:.6 }}
                 viewport={{ once:true }}
                 className="
-                relative
+                group
                 rounded-2xl
-                border border-white/20
-                dark:border-white/10
-                bg-white/40
-                dark:bg-white/5
-                backdrop-blur-xl
+                border border-neutral-200
+                dark:border-neutral-800
+                bg-white/70
+                dark:bg-white/[0.03]
+                backdrop-blur-lg
                 p-6
-                shadow-[0_10px_40px_rgba(0,0,0,0.08)]
                 transition-all duration-300
                 hover:-translate-y-1
-                hover:shadow-[0_16px_60px_rgba(0,0,0,0.12)]
+                hover:shadow-xl
               "
               >
-
-                {/* glass highlight */}
-
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
-
-                {/* icon */}
 
                 <div
                   className="
                   mb-4
                   flex h-11 w-11 items-center justify-center
                   rounded-xl
-                  bg-gradient-to-br
-                  from-blue-500/20
-                  to-purple-500/20
+                  bg-blue-500/10
+                  dark:bg-blue-500/20
                 "
                 >
                   <Icon size={20}/>
@@ -228,12 +174,13 @@ export default function AboutPreview() {
 
       </div>
 
-      {/* ===== bottom fade ===== */}
+      {/* bottom fade */}
 
       <div
         className="
+        pointer-events-none
         absolute bottom-0 left-0 right-0
-        h-28
+        h-24
         bg-gradient-to-b
         from-transparent
         to-white
