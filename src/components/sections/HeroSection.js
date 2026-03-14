@@ -13,7 +13,7 @@ export default function HeroSection() {
       className="
       relative isolate overflow-hidden
       flex flex-col items-center justify-center
-      px-4 pt-28 pb-24
+      px-4 pt-40 pb-36
       text-center
       bg-gradient-to-b
       from-white via-neutral-50 to-neutral-100
@@ -21,20 +21,19 @@ export default function HeroSection() {
     "
     >
 
-      {/* =============================== */}
-      {/* RIBBON DECORATIONS (PREMIUM STYLE) */}
-      {/* =============================== */}
+      {/* ===================================== */}
+      {/* RIBBON DECORATIONS */}
+      {/* ===================================== */}
 
-      {/* top right ribbon */}
       <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 16, repeat: Infinity }}
+        animate={{ y: [0, -14, 0] }}
+        transition={{ duration: 18, repeat: Infinity }}
         className="
         pointer-events-none
         absolute
-        -top-20
-        -right-40
-        w-[340px]
+        -top-24
+        -right-44
+        w-[360px]
         opacity-30
         select-none
       "
@@ -42,21 +41,20 @@ export default function HeroSection() {
         <Image
           src="/bg-ribbon-1.png"
           alt=""
-          width={600}
-          height={600}
+          width={700}
+          height={700}
         />
       </motion.div>
 
-      {/* bottom left ribbon */}
       <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 18, repeat: Infinity }}
+        animate={{ y: [0, 14, 0] }}
+        transition={{ duration: 22, repeat: Infinity }}
         className="
         pointer-events-none
         absolute
-        -bottom-24
-        -left-36
-        w-[300px]
+        -bottom-28
+        -left-40
+        w-[340px]
         opacity-30
         select-none
       "
@@ -64,24 +62,23 @@ export default function HeroSection() {
         <Image
           src="/bg-ribbon-2.png"
           alt=""
-          width={600}
-          height={600}
+          width={700}
+          height={700}
         />
       </motion.div>
 
-
-      {/* =============================== */}
-      {/* Soft mesh background */}
-      {/* =============================== */}
+      {/* ===================================== */}
+      {/* MULTI LAYER MESH LIGHTING */}
+      {/* ===================================== */}
 
       <div className="absolute inset-0 pointer-events-none">
 
         <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -40, 0] }}
-          transition={{ duration: 14, repeat: Infinity }}
+          animate={{ x: [0, 60, 0], y: [0, -40, 0] }}
+          transition={{ duration: 18, repeat: Infinity }}
           className="
           absolute -top-40 -left-40
-          h-[360px] w-[360px]
+          h-[420px] w-[420px]
           rounded-full
           bg-blue-500/20
           blur-3xl
@@ -89,23 +86,36 @@ export default function HeroSection() {
         />
 
         <motion.div
-          animate={{ x: [0, -30, 0], y: [0, 50, 0] }}
-          transition={{ duration: 18, repeat: Infinity }}
+          animate={{ x: [0, -40, 0], y: [0, 60, 0] }}
+          transition={{ duration: 22, repeat: Infinity }}
           className="
           absolute -bottom-40 -right-40
-          h-[380px] w-[380px]
+          h-[420px] w-[420px]
           rounded-full
           bg-purple-500/20
           blur-3xl
         "
         />
 
+        <div
+          className="
+          absolute left-1/2 top-1/3
+          -translate-x-1/2
+          h-[520px] w-[520px]
+          rounded-full
+          bg-gradient-to-r
+          from-blue-400/20
+          via-indigo-400/20
+          to-purple-400/20
+          blur-3xl
+        "
+        />
+
       </div>
 
-
-      {/* =============================== */}
-      {/* Grid texture */}
-      {/* =============================== */}
+      {/* ===================================== */}
+      {/* GRID TEXTURE */}
+      {/* ===================================== */}
 
       <div
         className="
@@ -117,20 +127,55 @@ export default function HeroSection() {
       "
       />
 
+      {/* ===================================== */}
+      {/* NOISE TEXTURE */}
+      {/* ===================================== */}
 
-      {/* =============================== */}
-      {/* Hero Content */}
-      {/* =============================== */}
+      <div
+        className="
+        pointer-events-none
+        absolute inset-0
+        opacity-[0.04]
+        mix-blend-soft-light
+        bg-[url('/noise.png')]
+      "
+      />
+
+      {/* ===================================== */}
+      {/* GRADIENT BEAM BEHIND HEADING */}
+      {/* ===================================== */}
+
+      <div
+        className="
+        pointer-events-none
+        absolute
+        left-1/2
+        top-[42%]
+        -translate-x-1/2
+        w-[700px]
+        h-[300px]
+        rounded-full
+        bg-gradient-to-r
+        from-transparent
+        via-blue-400/20
+        to-transparent
+        blur-3xl
+      "
+      />
+
+      {/* ===================================== */}
+      {/* HERO CONTENT */}
+      {/* ===================================== */}
 
       <motion.h1
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.9 }}
         className="
         relative z-10
-        max-w-2xl
-        text-3xl
-        sm:text-4xl
+        max-w-3xl
+        text-4xl
+        sm:text-5xl
         font-semibold
         leading-tight
         tracking-tight
@@ -145,13 +190,13 @@ export default function HeroSection() {
 
 
       <motion.p
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 26 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
+        transition={{ delay: 0.2, duration: 0.9 }}
         className="
-        mt-6
+        mt-8
         max-w-xl
-        text-sm
+        text-base
         leading-relaxed
         text-neutral-600
         dark:text-neutral-400
@@ -166,9 +211,9 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 22 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35, duration: 0.8 }}
+        transition={{ delay: 0.35, duration: 0.9 }}
         className="
-        mt-10
+        mt-12
         flex
         items-center
         gap-4
@@ -184,15 +229,15 @@ export default function HeroSection() {
       </motion.div>
 
 
-      {/* =============================== */}
-      {/* bottom fade */}
-      {/* =============================== */}
+      {/* ===================================== */}
+      {/* BOTTOM FADE */}
+      {/* ===================================== */}
 
       <div
         className="
         pointer-events-none
         absolute bottom-0 left-0 right-0
-        h-28
+        h-36
         bg-gradient-to-b
         from-transparent
         to-white
