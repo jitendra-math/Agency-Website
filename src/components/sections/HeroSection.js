@@ -3,6 +3,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import ShineButton from "@/components/ui/ShineButton";
 import Button from "@/components/ui/Button";
 
@@ -19,16 +20,62 @@ export default function HeroSection() {
       dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-900
     "
     >
+
+      {/* =============================== */}
+      {/* Ribbon Decorations */}
+      {/* =============================== */}
+
+      <motion.div
+        animate={{ y:[0,-20,0] }}
+        transition={{ duration:18, repeat:Infinity }}
+        className="
+        pointer-events-none
+        absolute -top-32 -right-32
+        w-[520px]
+        opacity-20
+        dark:opacity-30
+        blur-xl
+        select-none
+      "
+      >
+        <Image
+          src="/graphics/bg-ribbon-1.png"
+          alt=""
+          width={800}
+          height={800}
+        />
+      </motion.div>
+
+      <motion.div
+        animate={{ y:[0,25,0] }}
+        transition={{ duration:22, repeat:Infinity }}
+        className="
+        pointer-events-none
+        absolute -bottom-40 -left-32
+        w-[520px]
+        opacity-20
+        dark:opacity-30
+        blur-xl
+        select-none
+      "
+      >
+        <Image
+          src="/graphics/bg-ribbon-2.png"
+          alt=""
+          width={800}
+          height={800}
+        />
+      </motion.div>
+
       {/* =============================== */}
       {/* Animated Mesh Gradient */}
       {/* =============================== */}
 
       <div className="absolute inset-0 z-0 pointer-events-none">
 
-        {/* blue mesh */}
         <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -40, 0] }}
-          transition={{ duration: 14, repeat: Infinity }}
+          animate={{ x:[0,40,0], y:[0,-40,0] }}
+          transition={{ duration:14, repeat:Infinity }}
           className="
           absolute -top-40 -left-40
           h-[420px] w-[420px]
@@ -38,10 +85,9 @@ export default function HeroSection() {
         "
         />
 
-        {/* purple mesh */}
         <motion.div
-          animate={{ x: [0, -30, 0], y: [0, 50, 0] }}
-          transition={{ duration: 18, repeat: Infinity }}
+          animate={{ x:[0,-30,0], y:[0,50,0] }}
+          transition={{ duration:18, repeat:Infinity }}
           className="
           absolute -bottom-40 -right-40
           h-[440px] w-[440px]
@@ -51,7 +97,6 @@ export default function HeroSection() {
         "
         />
 
-        {/* center lighting */}
         <div
           className="
           absolute left-1/2 top-1/3
@@ -65,6 +110,7 @@ export default function HeroSection() {
           blur-3xl
         "
         />
+
       </div>
 
       {/* =============================== */}
@@ -85,8 +131,8 @@ export default function HeroSection() {
       {/* =============================== */}
 
       <motion.div
-        animate={{ y: [0, -14, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
+        animate={{ y:[0,-14,0] }}
+        transition={{ duration:6, repeat:Infinity }}
         className="
         absolute left-6 top-40
         hidden sm:block
@@ -102,8 +148,8 @@ export default function HeroSection() {
       </motion.div>
 
       <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 7, repeat: Infinity }}
+        animate={{ y:[0,12,0] }}
+        transition={{ duration:7, repeat:Infinity }}
         className="
         absolute right-6 top-60
         hidden sm:block
@@ -123,9 +169,9 @@ export default function HeroSection() {
       {/* =============================== */}
 
       <motion.h1
-        initial={{ opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity:0, y:28 }}
+        animate={{ opacity:1, y:0 }}
+        transition={{ duration:.8 }}
         className="
         relative z-10
         max-w-2xl
@@ -144,9 +190,9 @@ export default function HeroSection() {
       {/* =============================== */}
 
       <motion.p
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
+        initial={{ opacity:0, y:24 }}
+        animate={{ opacity:1, y:0 }}
+        transition={{ delay:.2, duration:.8 }}
         className="
         mt-6 max-w-xl
         text-sm leading-relaxed
@@ -164,9 +210,9 @@ export default function HeroSection() {
       {/* =============================== */}
 
       <motion.div
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35, duration: 0.8 }}
+        initial={{ opacity:0, y:22 }}
+        animate={{ opacity:1, y:0 }}
+        transition={{ delay:.35, duration:.8 }}
         className="mt-10 flex items-center gap-4"
       >
         <ShineButton size="lg">
@@ -193,6 +239,7 @@ export default function HeroSection() {
         dark:to-neutral-950
       "
       />
+
     </section>
   );
 }
