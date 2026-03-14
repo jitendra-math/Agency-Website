@@ -26,46 +26,25 @@ export default function HeroSection() {
       {/* ===================================== */}
 
       <motion.div
-        animate={{ y: [0, -14, 0] }}
-        transition={{ duration: 18, repeat: Infinity }}
-        className="
-        pointer-events-none
-        absolute
-        -top-24
-        -right-44
-        w-[360px]
-        opacity-30
-        select-none
-      "
-      >
-        <Image
-          src="/bg-ribbon-1.png"
-          alt=""
-          width={700}
-          height={700}
-        />
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 14, 0] }}
-        transition={{ duration: 22, repeat: Infinity }}
-        className="
-        pointer-events-none
-        absolute
-        -bottom-28
-        -left-40
-        w-[340px]
-        opacity-30
-        select-none
-      "
-      >
-        <Image
-          src="/bg-ribbon-2.png"
-          alt=""
-          width={700}
-          height={700}
-        />
-      </motion.div>
+  animate={{ y: [0, -14, 0] }}
+  transition={{ duration: 18, repeat: Infinity }}
+  className="
+  pointer-events-none
+  absolute
+  -top-10
+  -right-32
+  w-[360px]
+  opacity-30
+  select-none
+"
+>
+  <Image
+    src="/bg-ribbon-1.png"
+    alt=""
+    width={700}
+    height={700}
+  />
+</motion.div>
 
       {/* ===================================== */}
       {/* MULTI LAYER MESH LIGHTING */}
