@@ -6,27 +6,26 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const menuVariants = {
-  hidden: {
-    opacity: 0,
-    x: "100%",
-  },
+const panel = {
+  hidden: { x: "100%" },
   visible: {
-    opacity: 1,
     x: 0,
     transition: {
       duration: 0.35,
-      ease: "easeOut",
+      ease: [0.22, 1, 0.36, 1],
+      when: "beforeChildren",
+      staggerChildren: 0.06,
     },
   },
   exit: {
-    opacity: 0,
     x: "100%",
-    transition: {
-      duration: 0.25,
-      ease: "easeIn",
-    },
+    transition: { duration: 0.25 },
   },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0 },
 };
 
 export default function MobileMenu({ isOpen, onClose }) {
@@ -34,7 +33,7 @@ export default function MobileMenu({ isOpen, onClose }) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Overlay */}
+          {/* overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.45 }}
@@ -43,9 +42,9 @@ export default function MobileMenu({ isOpen, onClose }) {
             onClick={onClose}
           />
 
-          {/* Menu */}
+          {/* panel */}
           <motion.div
-            variants={menuVariants}
+            variants={panel}
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -57,16 +56,10 @@ export default function MobileMenu({ isOpen, onClose }) {
               flex flex-col
             "
           >
-            {/* Header */}
+            {/* header */}
             <div className="flex items-center justify-between">
 
-              {/* Logo */}
-              <Link
-                href="/"
-                onClick={onClose}
-                className="flex items-center"
-              >
-                {/* light logo */}
+              <Link href="/" onClick={onClose}>
                 <Image
                   src="/logo-black.png"
                   alt="JSS Originals"
@@ -75,7 +68,6 @@ export default function MobileMenu({ isOpen, onClose }) {
                   className="h-6 w-auto dark:hidden"
                 />
 
-                {/* dark logo */}
                 <Image
                   src="/logo-white.png"
                   alt="JSS Originals"
@@ -85,7 +77,6 @@ export default function MobileMenu({ isOpen, onClose }) {
                 />
               </Link>
 
-              {/* Close button */}
               <button
                 onClick={onClose}
                 className="
@@ -94,72 +85,56 @@ export default function MobileMenu({ isOpen, onClose }) {
                   border border-neutral-200 dark:border-neutral-800
                   bg-white/80 dark:bg-neutral-900/80
                   backdrop-blur
-                  transition-all duration-200
+                  transition-colors
                   hover:bg-neutral-100 dark:hover:bg-neutral-800
-                  active:scale-95
                 "
               >
                 <X size={20} />
               </button>
+
             </div>
 
-            {/* Navigation */}
-            <nav
+            {/* navigation */}
+            <motion.nav
               className="
-              mt-16
-              flex flex-col
-              gap-8
-              text-2xl
-              font-semibold
+              mt-16 flex flex-col gap-8
+              text-2xl font-semibold
               tracking-tight
               text-neutral-900 dark:text-neutral-100
             "
             >
-              <Link
-                href="/"
-                onClick={onClose}
-                className="transition-opacity hover:opacity-60"
-              >
-                Home
-              </Link>
 
-              <Link
-                href="/about"
-                onClick={onClose}
-                className="transition-opacity hover:opacity-60"
-              >
-                About
-              </Link>
+              {[
+                ["Home", "/"],
+                ["About", "/about"],
+                ["Projects", "/projects"],
+                ["Join Us", "/join"],
+                ["Contact", "/contact"],
+              ].map(([label, href]) => (
+                <motion.div key={href} variants={item}>
+                  <Link
+                    href={href}
+                    onClick={onClose}
+                    className="transition-opacity hover:opacity-60"
+                  >
+                    {label}
+                  </Link>
+                </motion.div>
+              ))}
 
-              <Link
-                href="/projects"
-                onClick={onClose}
-                className="transition-opacity hover:opacity-60"
-              >
-                Projects
-              </Link>
+            </motion.nav>
 
-              <Link
-                href="/join"
-                onClick={onClose}
-                className="transition-opacity hover:opacity-60"
-              >
-                Join Us
-              </Link>
-
-              <Link
-                href="/contact"
-                onClick={onClose}
-                className="transition-opacity hover:opacity-60"
-              >
-                Contact
-              </Link>
-            </nav>
-
-            {/* Footer hint */}
-            <div className="mt-auto pt-12 text-sm text-neutral-500 dark:text-neutral-400">
+            {/* footer branding */}
+            <motion.div
+              variants={item}
+              className="
+              mt-auto pt-12
+              text-sm text-neutral-500
+              dark:text-neutral-400
+            "
+            >
               JSS Originals
-            </div>
+            </motion.div>
 
           </motion.div>
         </>
