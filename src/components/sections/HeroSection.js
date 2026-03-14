@@ -31,8 +31,8 @@ export default function HeroSection() {
         className="
         pointer-events-none
         absolute
-        -top-18
-        -right-35
+        -top-25
+        -right-42
         w-[360px]
         opacity-40
         select-none
@@ -41,8 +41,8 @@ export default function HeroSection() {
         <Image
           src="/bg-ribbon-1.png"
           alt=""
-          width={1000}
-          height={1000}
+          width={750}
+          height={750}
         />
       </motion.div>
 
@@ -52,8 +52,8 @@ export default function HeroSection() {
         className="
         pointer-events-none
         absolute
-        -bottom-20
-        -left-30
+        -bottom-40
+        -left-40
         w-[340px]
         opacity-40
         select-none
@@ -62,8 +62,8 @@ export default function HeroSection() {
         <Image
           src="/bg-ribbon-2.png"
           alt=""
-          width={900}
-          height={900}
+          width={750}
+          height={750}
         />
       </motion.div>
 
