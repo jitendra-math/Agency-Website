@@ -1,27 +1,40 @@
 // tailwind.config.js
 
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   darkMode: "class",
 
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/data/**/*.{js,ts,jsx,tsx}",
   ],
 
   theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        "2xl": "1280px",
+      },
+    },
+
     extend: {
+
+      /* ===================================== */
+      /* Fonts */
+      /* ===================================== */
+
       fontFamily: {
         sf: ["SF UI Text", "system-ui", "sans-serif"],
         oatmeal: ["Oatmeal Sans", "sans-serif"],
         royal: ["RoyalBrand", "cursive"],
       },
 
-      container: {
-        center: true,
-        padding: "1rem",
-      },
+      /* ===================================== */
+      /* Shine Animation */
+      /* ===================================== */
 
       keyframes: {
         shine: {
@@ -35,8 +48,9 @@ module.exports = {
       },
 
       animation: {
-        shine: "shine 4s linear infinite",
+        shine: "shine 3s ease-in-out infinite",
       },
+
     },
   },
 
