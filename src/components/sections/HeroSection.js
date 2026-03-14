@@ -31,8 +31,8 @@ export default function HeroSection() {
   className="
   pointer-events-none
   absolute
-  -top-10
-  -right-32
+  -top-15
+  -right-30
   w-[360px]
   opacity-30
   select-none
