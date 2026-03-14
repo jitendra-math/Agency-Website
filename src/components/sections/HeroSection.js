@@ -22,58 +22,56 @@ export default function HeroSection() {
     >
 
       {/* =============================== */}
-      {/* RIBBON BACKGROUND (Mobile First) */}
+      {/* RIBBON DECORATIONS (PREMIUM STYLE) */}
       {/* =============================== */}
 
+      {/* top right ribbon */}
       <motion.div
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 18, repeat: Infinity }}
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 16, repeat: Infinity }}
         className="
         pointer-events-none
         absolute
-        -top-40 -right-40
-        w-[700px]
-        opacity-40
-        blur-lg
-        dark:opacity-50
-        sm:w-[900px]
-        md:w-[1100px]
+        -top-20
+        -right-40
+        w-[340px]
+        opacity-30
+        select-none
       "
       >
         <Image
           src="/bg-ribbon-1.png"
           alt=""
-          width={1100}
-          height={1100}
-          priority
+          width={600}
+          height={600}
         />
       </motion.div>
 
+      {/* bottom left ribbon */}
       <motion.div
-        animate={{ y: [0, 25, 0] }}
-        transition={{ duration: 22, repeat: Infinity }}
+        animate={{ y: [0, 12, 0] }}
+        transition={{ duration: 18, repeat: Infinity }}
         className="
         pointer-events-none
         absolute
-        -bottom-48 -left-40
-        w-[700px]
-        opacity-40
-        blur-lg
-        dark:opacity-50
-        sm:w-[900px]
-        md:w-[1100px]
+        -bottom-24
+        -left-36
+        w-[300px]
+        opacity-30
+        select-none
       "
       >
         <Image
           src="/bg-ribbon-2.png"
           alt=""
-          width={1100}
-          height={1100}
+          width={600}
+          height={600}
         />
       </motion.div>
 
+
       {/* =============================== */}
-      {/* Animated Mesh Glow */}
+      {/* Soft mesh background */}
       {/* =============================== */}
 
       <div className="absolute inset-0 pointer-events-none">
@@ -84,9 +82,8 @@ export default function HeroSection() {
           className="
           absolute -top-40 -left-40
           h-[360px] w-[360px]
-          sm:h-[420px] sm:w-[420px]
           rounded-full
-          bg-blue-500/30
+          bg-blue-500/20
           blur-3xl
         "
         />
@@ -97,32 +94,17 @@ export default function HeroSection() {
           className="
           absolute -bottom-40 -right-40
           h-[380px] w-[380px]
-          sm:h-[440px] sm:w-[440px]
           rounded-full
-          bg-purple-500/30
-          blur-3xl
-        "
-        />
-
-        <div
-          className="
-          absolute left-1/2 top-1/3
-          -translate-x-1/2
-          h-[420px] w-[420px]
-          sm:h-[500px] sm:w-[500px]
-          rounded-full
-          bg-gradient-to-r
-          from-blue-400/20
-          via-indigo-400/20
-          to-purple-400/20
+          bg-purple-500/20
           blur-3xl
         "
         />
 
       </div>
 
+
       {/* =============================== */}
-      {/* GRID TEXTURE */}
+      {/* Grid texture */}
       {/* =============================== */}
 
       <div
@@ -135,48 +117,9 @@ export default function HeroSection() {
       "
       />
 
-      {/* =============================== */}
-      {/* FLOATING TAGS (Desktop only) */}
-      {/* =============================== */}
-
-      <motion.div
-        animate={{ y: [0, -14, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-        className="
-        hidden md:block
-        absolute left-8 top-44
-        rounded-xl
-        border border-neutral-200 dark:border-neutral-800
-        bg-white/80 dark:bg-neutral-900/80
-        backdrop-blur
-        px-4 py-3
-        text-xs
-        shadow-lg
-      "
-      >
-        Jitubanna Wiki
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 7, repeat: Infinity }}
-        className="
-        hidden md:block
-        absolute right-10 top-64
-        rounded-xl
-        border border-neutral-200 dark:border-neutral-800
-        bg-white/80 dark:bg-neutral-900/80
-        backdrop-blur
-        px-4 py-3
-        text-xs
-        shadow-lg
-      "
-      >
-        SEO Identity
-      </motion.div>
 
       {/* =============================== */}
-      {/* HERO CONTENT */}
+      {/* Hero Content */}
       {/* =============================== */}
 
       <motion.h1
@@ -200,6 +143,7 @@ export default function HeroSection() {
         for the Modern Web
       </motion.h1>
 
+
       <motion.p
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -217,6 +161,7 @@ export default function HeroSection() {
         and experimental digital products designed to create powerful
         online presence.
       </motion.p>
+
 
       <motion.div
         initial={{ opacity: 0, y: 22 }}
@@ -238,8 +183,9 @@ export default function HeroSection() {
         </Button>
       </motion.div>
 
+
       {/* =============================== */}
-      {/* BOTTOM FADE */}
+      {/* bottom fade */}
       {/* =============================== */}
 
       <div
