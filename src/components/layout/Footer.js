@@ -8,6 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  // Cinematic slow easing
   const smoothEase = [0.16, 1, 0.3, 1];
 
   // The official network mapped out cleanly
@@ -22,10 +23,31 @@ export default function Footer() {
     <footer className="relative isolate overflow-hidden bg-[#fafafa] dark:bg-[#050505] pt-24 pb-12 transition-colors duration-500">
       
       {/* ===================================== */}
-      {/* AMBIENT TOP FADE & GLOW */}
+      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
       {/* ===================================== */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        {/* Glow 1 - Deep Indigo rising from bottom */}
+        <motion.div
+          animate={{ x: [0, -40, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[-20%] left-[-10%] w-[80vw] sm:w-[600px] h-[80vw] sm:h-[600px] rounded-full bg-indigo-300/20 dark:bg-indigo-900/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen"
+        />
+
+        {/* Glow 2 - Cyan sweeping from top right */}
+        <motion.div
+          animate={{ x: [0, 30, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[-10%] right-[-10%] w-[90vw] sm:w-[500px] h-[90vw] sm:h-[500px] rounded-full bg-cyan-200/20 dark:bg-cyan-900/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen"
+        />
+      </div>
+
+      {/* ===================================== */}
+      {/* SUBTLE GRID DEPTH */}
+      {/* ===================================== */}
+      <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+      {/* Top subtle border fade */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-200 dark:via-neutral-800 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[300px] bg-blue-500/5 dark:bg-blue-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         
@@ -40,7 +62,8 @@ export default function Footer() {
             viewport={{ once: true }}
             className="flex flex-col max-w-xs"
           >
-            <h2 className="text-xl font-bold tracking-tight text-neutral-900 dark:text-white">
+            {/* Using your favorite Rich Gradient here */}
+            <h2 className="text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 drop-shadow-sm">
               JSS Originals
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-neutral-500 dark:text-neutral-400">
@@ -158,9 +181,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* The Mega Text - Clamped for mobile friendliness */}
-          <div className="w-full overflow-hidden select-none flex justify-center mt-4">
-            <h1 className="text-[14vw] sm:text-[12vw] font-black tracking-tighter text-neutral-100 dark:text-neutral-900/50 leading-none">
+          {/* The Mega Text - Fading into the background */}
+          <div className="w-full overflow-hidden select-none flex justify-center mt-4 pointer-events-none">
+            <h1 className="text-[14vw] sm:text-[12vw] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-neutral-200 to-transparent dark:from-neutral-800 dark:to-transparent leading-none opacity-80">
               JSS ORIGINALS
             </h1>
           </div>
