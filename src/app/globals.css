@@ -5,7 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* Custom Animations */
 @import "../styles/animations.css";
 
@@ -18,7 +17,7 @@
 
 @font-face {
   font-family: "SF UI Text";
-  src: url("./fonts/sf/SFUIText-Regular.woff") format("woff");
+  src: url("./fonts/SFUIText-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -26,24 +25,8 @@
 
 @font-face {
   font-family: "SF UI Text";
-  src: url("./fonts/sf/SFUIText-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SF UI Text";
-  src: url("./fonts/sf/SFUIText-Semibold.woff") format("woff");
+  src: url("./fonts/SFUIText-Semibold.woff2") format("woff2");
   font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "SF UI Text";
-  src: url("./fonts/sf/SFUIText-Bold.woff") format("woff");
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -53,8 +36,8 @@
 
 @font-face {
   font-family: "Oatmeal Sans";
-  src: url("./fonts/oatmeal/Oatmeal Sans.woff") format("woff");
-  font-weight: normal;
+  src: url("./fonts/Oatmeal Sans.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -64,8 +47,8 @@
 
 @font-face {
   font-family: "RoyalBrand";
-  src: url("./fonts/royalbrand/RoyalBrand-Regular.woff") format("woff");
-  font-weight: normal;
+  src: url("./fonts/RoyalBrand-Regular.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
