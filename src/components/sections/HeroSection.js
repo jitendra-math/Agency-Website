@@ -31,41 +31,42 @@ export default function HeroSection() {
   className="
   pointer-events-none
   absolute
-  -top-60
-  -right-72
-  w-[900px]
-  opacity-40
+  -top-40
+  -right-52
+  w-[420px]
+  opacity-25
   select-none
 "
 >
   <Image
     src="/bg-ribbon-1.png"
     alt=""
-    width={1200}
-    height={1200}
+    width={1604}
+    height={1338}
   />
 </motion.div>
 
 <motion.div
-  animate={{ y: [0, 14, 0] }}
-  transition={{ duration: 24, repeat: Infinity }}
+  animate={{ y: [0, 12, 0] }}
+  transition={{ duration: 22, repeat: Infinity }}
   className="
   pointer-events-none
   absolute
-  -bottom-64
-  -left-72
-  w-[900px]
-  opacity-40
+  -bottom-40
+  -left-52
+  w-[420px]
+  opacity-25
   select-none
 "
 >
   <Image
     src="/bg-ribbon-2.png"
     alt=""
-    width={1200}
-    height={1200}
+    width={1637}
+    height={1670}
   />
 </motion.div>
+
       {/* ===================================== */}
       {/* MULTI LAYER MESH LIGHTING */}
       {/* ===================================== */}
