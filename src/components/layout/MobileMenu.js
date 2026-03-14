@@ -9,28 +9,21 @@ import Link from "next/link";
 // Apple-style silky smooth easing
 const smoothEase = [0.16, 1, 0.3, 1];
 
+// 100% GPU Accelerated Panel Animation (Zero Lag)
 const panel = {
-  hidden: { 
-    x: "100%", 
-    borderTopLeftRadius: "50%", 
-    borderBottomLeftRadius: "50%" 
-  },
+  hidden: { x: "100%" },
   visible: {
     x: 0,
-    borderTopLeftRadius: "0%",
-    borderBottomLeftRadius: "0%",
     transition: {
-      duration: 0.8,
+      duration: 0.6, // Snappier but extremely smooth
       ease: smoothEase,
       when: "beforeChildren",
-      staggerChildren: 0.1, // Stagger effect for links
+      staggerChildren: 0.08, // Faster waterfall effect for links
     },
   },
   exit: {
     x: "100%",
-    borderTopLeftRadius: "20%",
-    borderBottomLeftRadius: "20%",
-    transition: { duration: 0.6, ease: smoothEase },
+    transition: { duration: 0.5, ease: smoothEase },
   },
 };
 
@@ -39,7 +32,7 @@ const item = {
   visible: { 
     opacity: 1, 
     x: 0, 
-    transition: { duration: 0.8, ease: smoothEase } 
+    transition: { duration: 0.5, ease: smoothEase } 
   },
 };
 
@@ -55,7 +48,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
             className="fixed inset-0 z-40 bg-black/20 dark:bg-black/40 backdrop-blur-sm"
             onClick={onClose}
           />
@@ -71,8 +64,8 @@ export default function MobileMenu({ isOpen, onClose }) {
             className="
               fixed right-0 top-0 z-50
               h-screen w-full sm:w-[400px]
-              bg-white/70 dark:bg-[#050505]/60
-              backdrop-blur-3xl
+              bg-white/70 dark:bg-[#050505]/70
+              backdrop-blur-2xl
               shadow-2xl
               border-l border-white/20 dark:border-white/5
               px-6 pt-8 pb-10
@@ -80,18 +73,10 @@ export default function MobileMenu({ isOpen, onClose }) {
               overflow-hidden
             "
           >
-            {/* RICH GLOWS INSIDE THE MENU (Lightweight) */}
-            <div className="absolute inset-0 -z-10 pointer-events-none opacity-50 dark:opacity-40">
-              <motion.div
-                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 w-64 h-64 bg-blue-400/30 dark:bg-indigo-600/30 rounded-full blur-[80px]"
-              />
-              <motion.div
-                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-20 left-[-20%] w-72 h-72 bg-cyan-300/30 dark:bg-cyan-600/20 rounded-full blur-[90px]"
-              />
+            {/* STATIC RICH GLOWS (Zero Performance Hit) */}
+            <div className="absolute inset-0 -z-10 pointer-events-none opacity-60 dark:opacity-40">
+              <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-blue-400/30 dark:bg-indigo-600/30 rounded-full blur-[80px]" />
+              <div className="absolute bottom-20 left-[-20%] w-72 h-72 bg-cyan-300/30 dark:bg-cyan-600/20 rounded-full blur-[90px]" />
             </div>
 
             {/* HEADER */}
@@ -120,13 +105,13 @@ export default function MobileMenu({ isOpen, onClose }) {
                   group flex h-11 w-11 items-center justify-center
                   rounded-full
                   border border-black/5 dark:border-white/10
-                  bg-white/50 dark:bg-black/50
+                  bg-white/60 dark:bg-black/60
                   backdrop-blur-md
                   transition-all duration-300
-                  hover:scale-105 hover:bg-white dark:hover:bg-neutral-800
+                  active:scale-90
                 "
               >
-                <X size={20} className="text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors" />
+                <X size={20} className="text-neutral-700 dark:text-neutral-300 group-active:text-neutral-900 dark:group-active:text-white transition-colors" />
               </button>
             </div>
 
@@ -153,8 +138,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                     className="
                       inline-block
                       transition-all duration-300 ease-out
-                      hover:translate-x-2
-                      hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-500 dark:hover:from-blue-400 dark:hover:to-cyan-300
+                      active:scale-95 active:text-blue-600 dark:active:text-blue-400
                     "
                   >
                     {label}
@@ -178,7 +162,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                 href="https://jssoriginals.in" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 transition-colors"
+                className="text-sm font-medium text-neutral-500 dark:text-neutral-400 active:text-neutral-900 dark:active:text-neutral-200 transition-colors"
               >
                 jssoriginals.in
               </a>
