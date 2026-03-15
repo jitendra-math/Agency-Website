@@ -1,11 +1,11 @@
-// src/components/sections/about/AboutStory.js
+// src/components/sections/about/AboutStory.js (Optimized)
 
 "use client";
 
 import { motion } from "framer-motion";
 
 export default function AboutStory() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -18,18 +18,18 @@ export default function AboutStory() {
     "
     >
       {/* ===================================== */}
-      {/* SUBTLE AMBIENT GLOW */}
+      {/* SUBTLE AMBIENT GLOW (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-        <motion.div
-          animate={{ x: [0, 30, 0], y: [0, -30, 0], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        <div
           className="
             absolute top-1/4 left-[-10%] sm:left-[10%]
             w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px]
             rounded-full bg-blue-500/5 dark:bg-blue-600/10
             blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-story-glow
+            will-change-transform
           "
         />
       </div>
@@ -79,7 +79,7 @@ export default function AboutStory() {
         {/* ===================================== */}
         <div className="relative pl-6 sm:pl-10">
           
-          {/* Animated Left Border Gradient */}
+          {/* Animated Left Border Gradient (still motion, lightweight) */}
           <motion.div
             initial={{ scaleY: 0, opacity: 0 }}
             whileInView={{ scaleY: 1, opacity: 1 }}

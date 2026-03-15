@@ -1,4 +1,4 @@
-// src/components/sections/ContactCTA.js
+// src/components/sections/ContactCTA.js (Optimized)
 
 "use client";
 
@@ -8,25 +8,23 @@ import Link from "next/link";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
 export default function ContactCTA() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content animations)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
     <section className="relative isolate overflow-hidden px-6 py-24 sm:py-32 bg-[#fafafa] dark:bg-[#050505] transition-colors duration-500">
       
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
+      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ x: [0, -30, 0], y: [0, 40, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] right-[-10%] w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px] rounded-full bg-blue-300/20 dark:bg-indigo-900/15 blur-[100px] mix-blend-multiply dark:mix-blend-screen"
+        {/* Glow 1 - Blue (CSS animated - exact motion) */}
+        <div
+          className="absolute top-[20%] right-[-10%] w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px] rounded-full bg-blue-300/20 dark:bg-indigo-900/15 blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-float-contact-1 will-change-transform"
         />
-        <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-10%] left-[-10%] w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px] rounded-full bg-cyan-200/30 dark:bg-cyan-900/10 blur-[100px] mix-blend-multiply dark:mix-blend-screen"
+        {/* Glow 2 - Cyan (CSS animated - exact motion) */}
+        <div
+          className="absolute bottom-[-10%] left-[-10%] w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px] rounded-full bg-cyan-200/30 dark:bg-cyan-900/10 blur-[100px] mix-blend-multiply dark:mix-blend-screen animate-float-contact-2 will-change-transform"
         />
       </div>
 

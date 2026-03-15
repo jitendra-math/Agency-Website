@@ -111,7 +111,7 @@
   animation: float 6s ease-in-out infinite;
 }
 
-/* Existing float-slow (vertical only) */
+/* Vertical float - slow */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -121,7 +121,17 @@
   animation: float-slow 12s ease-in-out infinite;
 }
 
-/* NEW: Horizontal + vertical + scale animations for glows */
+/* Vertical float - slower */
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+}
+
+.animate-float-slower {
+  animation: float-slower 18s ease-in-out infinite;
+}
+
+/* Horizontal + vertical + scale for glows (fast) */
 @keyframes float-slow-xy {
   0%, 100% {
     transform: translate(0, 0) scale(1);
@@ -136,6 +146,7 @@
   will-change: transform;
 }
 
+/* Horizontal + vertical + scale for glows (slower) */
 @keyframes float-slower-xy {
   0%, 100% {
     transform: translate(0, 0) scale(1);
@@ -215,7 +226,74 @@
 }
 
 /* ================================================= */
-/* 5. UTILITY ANIMATIONS                             */
+/* 5. SECTION-SPECIFIC GLOWS (Added from optimizations) */
+/* ================================================= */
+
+/* ContactCTA - two specific glows */
+@keyframes float-contact-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-30px, 40px) scale(1.1);
+  }
+}
+
+.animate-float-contact-1 {
+  animation: float-contact-1 25s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float-contact-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.15);
+  }
+}
+
+.animate-float-contact-2 {
+  animation: float-contact-2 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* AboutStory glow */
+@keyframes story-glow {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(30px, -30px);
+    opacity: 0.5;
+  }
+}
+
+.animate-story-glow {
+  animation: story-glow 25s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* ContactOptions glow */
+@keyframes contact-options-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.animate-contact-options-glow {
+  animation: contact-options-glow 20s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* ================================================= */
+/* 6. UTILITY ANIMATIONS                             */
 /* ================================================= */
 
 @keyframes rotate-slow {

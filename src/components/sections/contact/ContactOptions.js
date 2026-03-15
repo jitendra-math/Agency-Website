@@ -1,4 +1,4 @@
-// src/components/sections/contact/ContactOptions.js
+// src/components/sections/contact/ContactOptions.js (Optimized)
 
 "use client";
 
@@ -15,7 +15,7 @@ const icons = {
 };
 
 export default function ContactOptions() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -28,17 +28,17 @@ export default function ContactOptions() {
     "
     >
       {/* ===================================== */}
-      {/* AMBIENT GLOWS (Cinematic Slow) */}
+      {/* AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
-        <motion.div
-          animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.05, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        <div
           className="
             w-[100vw] sm:w-[800px] h-[40vh] sm:h-[400px]
             bg-blue-400/10 dark:bg-indigo-500/10
             blur-[100px] sm:blur-[140px] rounded-full
             mix-blend-multiply dark:mix-blend-screen
+            animate-contact-options-glow
+            will-change-transform
           "
         />
       </div>

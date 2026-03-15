@@ -1,4 +1,5 @@
-// src/components/layout/MobileMenu.js
+// src/components/layout/MobileMenu.js (Optimized)
+
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,16 +10,16 @@ import Link from "next/link";
 // Apple-style silky smooth easing
 const smoothEase = [0.16, 1, 0.3, 1];
 
-// 100% GPU Accelerated Panel Animation (Zero Lag)
+// Panel animation with GPU hint
 const panel = {
   hidden: { x: "100%" },
   visible: {
     x: 0,
     transition: {
-      duration: 0.6, // Snappier but extremely smooth
+      duration: 0.6,
       ease: smoothEase,
       when: "beforeChildren",
-      staggerChildren: 0.08, // Faster waterfall effect for links
+      staggerChildren: 0.08,
     },
   },
   exit: {
@@ -41,9 +42,7 @@ export default function MobileMenu({ isOpen, onClose }) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* ===================================== */}
-          {/* BACKDROP BLUR OVERLAY */}
-          {/* ===================================== */}
+          {/* Backdrop - still using motion for smooth fade, but lightweight */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -53,14 +52,13 @@ export default function MobileMenu({ isOpen, onClose }) {
             onClick={onClose}
           />
 
-          {/* ===================================== */}
-          {/* GLASSMORPHIC PANEL */}
-          {/* ===================================== */}
+          {/* Glassmorphic panel with will-change hint */}
           <motion.div
             variants={panel}
             initial="hidden"
             animate="visible"
             exit="exit"
+            style={{ willChange: 'transform' }} // GPU acceleration hint
             className="
               fixed right-0 top-0 z-50
               h-screen w-full sm:w-[400px]
@@ -73,13 +71,13 @@ export default function MobileMenu({ isOpen, onClose }) {
               overflow-hidden
             "
           >
-            {/* STATIC RICH GLOWS (Zero Performance Hit) */}
+            {/* Static rich glows (no animation, so no performance hit) */}
             <div className="absolute inset-0 -z-10 pointer-events-none opacity-60 dark:opacity-40">
               <div className="absolute top-[-10%] right-[-10%] w-64 h-64 bg-blue-400/30 dark:bg-indigo-600/30 rounded-full blur-[80px]" />
               <div className="absolute bottom-20 left-[-20%] w-72 h-72 bg-cyan-300/30 dark:bg-cyan-600/20 rounded-full blur-[90px]" />
             </div>
 
-            {/* HEADER */}
+            {/* Header */}
             <div className="flex items-center justify-between relative z-10">
               <Link href="/" onClick={onClose} className="drop-shadow-sm">
                 <Image
@@ -98,7 +96,6 @@ export default function MobileMenu({ isOpen, onClose }) {
                 />
               </Link>
 
-              {/* Polished Close Button */}
               <button
                 onClick={onClose}
                 className="
@@ -115,7 +112,7 @@ export default function MobileMenu({ isOpen, onClose }) {
               </button>
             </div>
 
-            {/* NAVIGATION LINKS */}
+            {/* Navigation links with staggered animation */}
             <motion.nav
               className="
               mt-20 flex flex-col gap-6
@@ -147,7 +144,7 @@ export default function MobileMenu({ isOpen, onClose }) {
               ))}
             </motion.nav>
 
-            {/* FOOTER BRANDING */}
+            {/* Footer branding */}
             <motion.div
               variants={item}
               className="

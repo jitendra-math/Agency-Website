@@ -1,4 +1,4 @@
-// src/components/layout/Footer.js
+// src/components/layout/Footer.js (Optimized)
 
 "use client";
 
@@ -23,21 +23,17 @@ export default function Footer() {
     <footer className="relative isolate overflow-hidden bg-[#fafafa] dark:bg-[#050505] pt-24 pb-12 transition-colors duration-500">
       
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
+      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Indigo rising from bottom */}
-        <motion.div
-          animate={{ x: [0, -40, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-20%] left-[-10%] w-[80vw] sm:w-[600px] h-[80vw] sm:h-[600px] rounded-full bg-indigo-300/20 dark:bg-indigo-900/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen"
+        {/* Glow 1 - Deep Indigo rising from bottom (CSS animated) */}
+        <div
+          className="absolute bottom-[-20%] left-[-10%] w-[80vw] sm:w-[600px] h-[80vw] sm:h-[600px] rounded-full bg-indigo-300/20 dark:bg-indigo-900/20 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-float-slow-xy will-change-transform"
         />
 
-        {/* Glow 2 - Cyan sweeping from top right */}
-        <motion.div
-          animate={{ x: [0, 30, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[-10%] right-[-10%] w-[90vw] sm:w-[500px] h-[90vw] sm:h-[500px] rounded-full bg-cyan-200/20 dark:bg-cyan-900/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen"
+        {/* Glow 2 - Cyan sweeping from top right (CSS animated) */}
+        <div
+          className="absolute top-[-10%] right-[-10%] w-[90vw] sm:w-[500px] h-[90vw] sm:h-[500px] rounded-full bg-cyan-200/20 dark:bg-cyan-900/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-float-slower-xy will-change-transform"
         />
       </div>
 

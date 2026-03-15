@@ -1,11 +1,11 @@
-// src/components/sections/about/Philosophy.js
+// src/components/sections/about/Philosophy.js (Optimized)
 
 "use client";
 
 import { motion } from "framer-motion";
 
 export default function Philosophy() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -18,17 +18,17 @@ export default function Philosophy() {
     "
     >
       {/* ===================================== */}
-      {/* CENTRAL AMBIENT GLOW (The Core) */}
+      {/* CENTRAL AMBIENT GLOW (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        <div
           className="
             w-[100vw] sm:w-[600px] h-[50vh] sm:h-[600px]
             bg-blue-400/10 dark:bg-cyan-500/10
             blur-[100px] sm:blur-[140px] rounded-full
             mix-blend-multiply dark:mix-blend-screen
+            animate-pulse-slow
+            will-change-transform
           "
         />
       </div>
