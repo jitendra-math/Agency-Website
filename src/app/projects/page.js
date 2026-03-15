@@ -1,4 +1,4 @@
-// src/app/projects/page.js
+// src/app/projects/page.js (Optimized)
 
 "use client";
 
@@ -7,7 +7,7 @@ import ShineButton from "@/components/ui/ShineButton";
 import { MessageCircle } from "lucide-react";
 
 export default function ProjectsPage() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -22,13 +22,11 @@ export default function ProjectsPage() {
     "
     >
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
+      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Indigo */}
-        <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 1 - Deep Indigo (CSS animated) */}
+        <div
           className="
             absolute top-[10%] left-[10%] sm:top-0 sm:left-1/4
             w-[100vw] sm:w-[500px] h-[100vw] sm:h-[500px]
@@ -36,13 +34,13 @@ export default function ProjectsPage() {
             bg-indigo-300/20 dark:bg-indigo-900/15
             blur-[100px] sm:blur-[120px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slow-xy
+            will-change-transform
           "
         />
 
-        {/* Glow 2 - Cyan Sweep */}
-        <motion.div
-          animate={{ x: [0, -40, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 2 - Cyan Sweep (CSS animated) */}
+        <div
           className="
             absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
             w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
@@ -50,13 +48,13 @@ export default function ProjectsPage() {
             bg-cyan-200/20 dark:bg-cyan-900/15
             blur-[100px] sm:blur-[130px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slower-xy
+            will-change-transform
           "
         />
 
-        {/* Glow 3 - The Soft Violet Core */}
-        <motion.div
-          animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 3 - The Soft Violet Core (CSS animated) */}
+        <div
           className="
             absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
             w-[70vw] sm:w-[400px] h-[70vw] sm:h-[400px]
@@ -64,6 +62,8 @@ export default function ProjectsPage() {
             bg-violet-300/15 dark:bg-purple-900/10
             blur-[120px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-pulse-center
+            will-change-transform
           "
         />
       </div>
