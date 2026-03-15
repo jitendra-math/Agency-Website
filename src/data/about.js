@@ -1,22 +1,21 @@
 // src/data/about.js
 
 export const aboutHero = {
-  title: "About JSS Originals",
-  subtitle: "A digital space for thoughtful web projects",
+  title: "About JSS Originals.",
+  highlightText: "JSS Originals.", // Component is word par gradient lagayega
+  subtitle: "A digital space for thoughtful web projects.",
   description:
     "JSS Originals is an independent digital projects lab exploring meaningful ideas for the modern web. From experimental platforms to carefully crafted online systems, the goal is to create digital experiences that feel simple, useful, and original.",
 };
 
 export const story = {
   label: "The Story",
-  title: "The Beginning of JSS Originals",
+  title: "The Beginning of JSS Originals.",
+  highlightText: "JSS Originals.",
   paragraphs: [
     "JSS Originals started from a simple belief — the internet still has countless ideas waiting to be explored. In a world where many websites look and feel the same, the goal was to build projects that carry originality, purpose, and thoughtful design.",
-
     "Instead of creating random platforms, the focus has always been on meaningful digital work. Some ideas grow into full-scale web platforms, while others remain experiments that explore new possibilities on the internet.",
-
     "Every project begins with curiosity. Questions lead the process: what value does this idea bring, who will use it, and how can it remain useful in the long run? These small questions often turn into larger projects that shape the direction of JSS Originals.",
-
     "Over time, JSS Originals has evolved into a digital space where experiments, platforms, and thoughtful ideas come together. It is less about building many things and more about building the right things for the web.",
   ],
 };
@@ -41,14 +40,12 @@ export const whatWeBuild = [
 
 export const philosophy = {
   label: "Philosophy",
-  title: "How We Think About the Web",
+  title: "How We Think About the Web.",
+  highlightText: "About the Web.",
   paragraphs: [
     "The internet is more than a collection of websites. It is a living space where ideas, people, and communities connect. Every project built for the web becomes a small part of that larger ecosystem.",
-
     "At JSS Originals, the goal is not simply to build more things, but to build the right things. Projects are designed to be clear, useful, and thoughtfully crafted so they can remain valuable over time.",
-
     "Simplicity plays a central role in this philosophy. The best digital experiences are often the ones that feel effortless to use. When technology becomes invisible, ideas are allowed to shine.",
-
     "This approach guides every project developed within JSS Originals — focusing on meaningful ideas, careful execution, and a genuine respect for the open web.",
   ],
 };
@@ -77,7 +74,8 @@ export const projectApproach = [
 ];
 
 export const founder = {
-  name: "Jitendra Singh",
+  name: "Jitendra Singh.",
+  highlightText: "Jitendra Singh.",
   description:
     "JSS Originals is created and led by Jitendra Singh, an independent web developer and digital experimenter focused on building thoughtful projects for the modern web.",
   email: "me@jitubanna.com",
@@ -86,18 +84,18 @@ export const founder = {
 
 export const futureVision = {
   label: "Looking Ahead",
-  title: "The Future of JSS Originals",
+  title: "The Future of JSS Originals.",
+  highlightText: "JSS Originals.",
   paragraphs: [
     "The internet continues to evolve every day, bringing new ideas, technologies, and opportunities. JSS Originals aims to remain a space where thoughtful digital projects can grow and meaningful experiments can take shape.",
-
     "Future work will continue exploring areas such as digital identity systems, modern web platforms, and creative internet experiments that challenge traditional ways of building online experiences.",
-
     "Rather than focusing on building many things, the goal is to build the right things — projects that remain useful, simple, and valuable for the people who use them.",
   ],
 };
 
 export const closing = {
   title: "The web is still being written.",
+  highlightText: "being written.",
   description:
     "JSS Originals is simply one place where new chapters begin.",
 };

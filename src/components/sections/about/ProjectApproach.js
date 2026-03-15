@@ -28,93 +28,117 @@ const steps = [
 ];
 
 export default function ProjectApproach() {
+  // Ultra-smooth cinematic Apple-style easing
+  const smoothEase = [0.16, 1, 0.3, 1];
+
   return (
     <section
       className="
-      relative px-4 py-24
-      bg-neutral-50
-      dark:bg-neutral-900
+      relative isolate overflow-hidden
+      px-6 py-32 sm:py-40
+      bg-[#fafafa] dark:bg-[#050505]
+      transition-colors duration-500
     "
     >
-      <div className="mx-auto max-w-5xl">
-
-        {/* Section label */}
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+      {/* ===================================== */}
+      {/* AMBIENT GLOW (Lightweight Anchor) */}
+      {/* ===================================== */}
+      <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.05, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
           className="
-          text-xs uppercase tracking-[0.35em]
-          text-neutral-500
-          text-center
-        "
-        >
-          Project Approach
-        </motion.p>
+            w-[100vw] sm:w-[600px] h-[50vh] sm:h-[400px]
+            bg-blue-400/10 dark:bg-indigo-500/10
+            blur-[100px] sm:blur-[140px] rounded-full
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+      </div>
 
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 22 }}
+      {/* Subtle Grid Depth */}
+      <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+      <div className="mx-auto max-w-5xl relative z-10">
+
+        {/* ===================================== */}
+        {/* HEADER */}
+        {/* ===================================== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="
-          mt-4
-          text-3xl font-semibold
-          tracking-tight
-          text-neutral-900
-          dark:text-neutral-100
-          text-center
-        "
+          transition={{ duration: 1.5, ease: smoothEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-20"
         >
-          How Projects Take Shape
-        </motion.h2>
+          {/* Glass Pill */}
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-white/40 dark:bg-black/40 backdrop-blur-xl shadow-sm mb-6">
+            <span className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
+              Methodology
+            </span>
+          </div>
 
-        {/* Steps */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-neutral-900 dark:text-white leading-[1.1]">
+            How Projects <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 drop-shadow-sm">
+              Take Shape.
+            </span>
+          </h2>
+        </motion.div>
 
+        {/* ===================================== */}
+        {/* THE GLASS STEPS GRID */}
+        {/* ===================================== */}
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.12, duration: 0.6 }}
-              viewport={{ once: true }}
+              transition={{ delay: index * 0.15, duration: 1.5, ease: smoothEase }}
+              viewport={{ once: true, margin: "-50px" }}
               className="
-              rounded-xl
-              border border-neutral-200
-              dark:border-neutral-800
-              bg-white/70
-              dark:bg-neutral-900/60
-              backdrop-blur
-              p-6
-              transition-all duration-300
-              hover:-translate-y-1
-            "
+                group relative overflow-hidden flex flex-col
+                rounded-[2rem] sm:rounded-[2.5rem]
+                bg-white/30 dark:bg-white/[0.02]
+                ring-1 ring-inset ring-black/5 dark:ring-white/10
+                backdrop-blur-2xl
+                p-8 sm:p-10
+                transition-all duration-700 ease-out
+                hover:-translate-y-2
+                hover:bg-white/50 dark:hover:bg-white/[0.04]
+                hover:shadow-[0_24px_48px_-12px_rgba(37,99,235,0.08)]
+                dark:hover:shadow-[0_24px_48px_-12px_rgba(59,130,246,0.04)]
+              "
             >
+              {/* Massive Watermark Number */}
+              <div className="absolute -top-6 -right-4 text-[8rem] font-black leading-none text-black/[0.02] dark:text-white/[0.02] select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-translate-x-4">
+                0{index + 1}
+              </div>
 
-              {/* Step number */}
+              {/* Step Badge */}
               <div
                 className="
-                flex h-8 w-8 items-center justify-center
-                rounded-full
-                bg-blue-500/10
-                text-sm font-semibold
-                text-blue-600
-                dark:text-blue-400
+                mb-8
+                flex h-12 w-12 items-center justify-center
+                rounded-2xl
+                bg-white/60 dark:bg-neutral-800/60
+                ring-1 ring-inset ring-black/5 dark:ring-white/10
+                text-base font-bold
+                text-blue-600 dark:text-blue-400
+                transition-transform duration-700 ease-out
+                group-hover:scale-110 group-hover:shadow-sm
               "
               >
-                {index + 1}
+                0{index + 1}
               </div>
 
               {/* Title */}
               <h3
                 className="
-                mt-4
-                text-lg font-semibold
-                text-neutral-900
-                dark:text-neutral-100
+                text-xl sm:text-2xl font-bold tracking-tight
+                text-neutral-900 dark:text-white
+                mb-4 relative z-10
               "
               >
                 {step.title}
@@ -123,19 +147,20 @@ export default function ProjectApproach() {
               {/* Description */}
               <p
                 className="
-                mt-2
-                text-sm leading-relaxed
-                text-neutral-600
-                dark:text-neutral-400
+                text-base sm:text-lg leading-relaxed
+                text-neutral-600 dark:text-neutral-400
+                relative z-10
               "
               >
                 {step.description}
               </p>
 
+              {/* Glowing Bottom Accent */}
+              <div className="absolute bottom-0 left-10 right-10 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 dark:via-blue-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out rounded-t-full" />
             </motion.div>
           ))}
-
         </div>
+
       </div>
     </section>
   );
