@@ -1,11 +1,11 @@
-// src/components/sections/about/FutureVision.js
+// src/components/sections/about/FutureVision.js (Optimized)
 
 "use client";
 
 import { motion } from "framer-motion";
 
 export default function FutureVision() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content animations)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -18,13 +18,11 @@ export default function FutureVision() {
     "
     >
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
+      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Blue/Indigo */}
-        <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 1 - Deep Blue/Indigo (CSS animated) */}
+        <div
           className="
             absolute top-0 right-[-10%] sm:right-[10%]
             w-[80vw] sm:w-[600px] h-[80vw] sm:h-[600px]
@@ -32,13 +30,13 @@ export default function FutureVision() {
             bg-blue-300/20 dark:bg-indigo-900/20
             blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slow
+            will-change-transform
           "
         />
 
-        {/* Glow 2 - Cyan/Teal */}
-        <motion.div
-          animate={{ x: [0, -40, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 2 - Cyan/Teal (CSS animated) */}
+        <div
           className="
             absolute bottom-[-10%] left-[-10%] sm:left-[10%]
             w-[90vw] sm:w-[500px] h-[90vw] sm:h-[500px]
@@ -46,6 +44,8 @@ export default function FutureVision() {
             bg-cyan-200/20 dark:bg-cyan-900/15
             blur-[100px] sm:blur-[130px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slower
+            will-change-transform
           "
         />
       </div>

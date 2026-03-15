@@ -1,4 +1,4 @@
-// src/components/sections/contact/CollaborationSection.js
+// src/components/sections/contact/CollaborationSection.js (Optimized)
 
 "use client";
 
@@ -14,7 +14,7 @@ const services = [
 ];
 
 export default function CollaborationSection() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -28,29 +28,33 @@ export default function CollaborationSection() {
     "
     >
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
+      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 1 - Blue/Indigo (CSS animated) */}
+        <div
           className="
             absolute top-[-10%] sm:top-0 right-[-10%] sm:right-[20%]
             w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px]
+            rounded-full
             bg-blue-400/20 dark:bg-indigo-600/20
-            blur-[100px] sm:blur-[140px] rounded-full
+            blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-pulse-slow
+            will-change-transform
           "
         />
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 2 - Cyan (CSS animated) */}
+        <div
           className="
             absolute bottom-[-10%] sm:bottom-0 left-[-10%] sm:left-[20%]
             w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
+            rounded-full
             bg-cyan-300/20 dark:bg-cyan-600/15
-            blur-[100px] sm:blur-[140px] rounded-full
+            blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-pulse-slower
+            will-change-transform
           "
         />
       </div>
@@ -123,7 +127,7 @@ export default function CollaborationSection() {
         </motion.p>
 
         {/* ===================================== */}
-        {/* GLASSMORPHIC SERVICE PILLS (Replaced Bullets) */}
+        {/* GLASSMORPHIC SERVICE PILLS */}
         {/* ===================================== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

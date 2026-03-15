@@ -1,4 +1,4 @@
-// src/components/sections/contact/WhatsAppCTA.js
+// src/components/sections/contact/WhatsAppCTA.js (Optimized)
 
 "use client";
 
@@ -7,7 +7,7 @@ import ShineButton from "@/components/ui/ShineButton";
 import { MessageCircle } from "lucide-react";
 
 export default function WhatsAppCTA() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content animations)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -20,32 +20,34 @@ export default function WhatsAppCTA() {
     "
     >
       {/* ===================================== */}
-      {/* AMBIENT EMERALD GLOWS (Cinematic Slow) */}
+      {/* AMBIENT EMERALD GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
-        {/* Glow 1 - Deep Emerald */}
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 1 - Deep Emerald (CSS animated) */}
+        <div
           className="
             absolute top-[-10%] sm:top-0 right-[-10%] sm:right-[15%]
             w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px]
+            rounded-full
             bg-emerald-400/20 dark:bg-emerald-600/15
-            blur-[100px] sm:blur-[140px] rounded-full
+            blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-pulse-slow
+            will-change-transform
           "
         />
 
-        {/* Glow 2 - Teal Sweep */}
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        {/* Glow 2 - Teal Sweep (CSS animated) */}
+        <div
           className="
             absolute bottom-[-10%] sm:bottom-0 left-[-10%] sm:left-[15%]
             w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
+            rounded-full
             bg-teal-300/20 dark:bg-teal-600/10
-            blur-[100px] sm:blur-[140px] rounded-full
+            blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-pulse-slower
+            will-change-transform
           "
         />
       </div>
@@ -162,7 +164,6 @@ export default function WhatsAppCTA() {
               rel="noopener noreferrer"
               className="block w-full group"
             >
-              {/* Added emerald shadow to match the WhatsApp theme */}
               <ShineButton size="lg" className="w-full sm:w-auto flex items-center justify-center gap-2 shadow-xl shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow duration-500">
                 <MessageCircle size={20} className="group-hover:scale-110 transition-transform duration-300" />
                 <span>Chat on WhatsApp</span>

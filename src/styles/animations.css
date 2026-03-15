@@ -9,11 +9,9 @@
     transform: translateX(-150%) skewX(-20deg);
   }
   20% {
-    /* Fast sweep across the entire button */
     transform: translateX(200%) skewX(-20deg);
   }
   100% {
-    /* Sophisticated pause for the remaining 80% */
     transform: translateX(200%) skewX(-20deg);
   }
 }
@@ -46,7 +44,6 @@
 }
 
 .animate-fade-up {
-  /* Using a custom cubic-bezier for that silky smooth stop */
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -114,6 +111,7 @@
   animation: float 6s ease-in-out infinite;
 }
 
+/* Existing float-slow (vertical only) */
 @keyframes float-slow {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -123,6 +121,69 @@
   animation: float-slow 12s ease-in-out infinite;
 }
 
+/* NEW: Horizontal + vertical + scale animations for glows */
+@keyframes float-slow-xy {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+}
+
+.animate-float-slow-xy {
+  animation: float-slow-xy 25s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float-slower-xy {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.15);
+  }
+}
+
+.animate-float-slower-xy {
+  animation: float-slower-xy 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Pulse animations for scale+opacity glows */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 25s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes pulse-slower {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slower {
+  animation: pulse-slower 30s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Keep existing glow-breathe and pulse-soft if used */
 @keyframes glow-breathe {
   0%, 100% {
     opacity: 0.5;

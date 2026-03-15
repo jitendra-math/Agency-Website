@@ -1,4 +1,4 @@
-// src/components/sections/contact/ContactHero.js
+// src/components/sections/contact/ContactHero.js (Optimized)
 
 "use client";
 
@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { contactHero } from "@/data/contact";
 
 export default function ContactHero() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content animations)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -21,13 +21,11 @@ export default function ContactHero() {
     "
     >
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow & Light) */}
+      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Indigo */}
-        <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 1 - Deep Indigo (CSS animated) */}
+        <div
           className="
             absolute top-[-10%] left-[10%] sm:top-0 sm:left-1/4
             w-[100vw] sm:w-[500px] h-[100vw] sm:h-[500px]
@@ -35,13 +33,13 @@ export default function ContactHero() {
             bg-indigo-300/20 dark:bg-indigo-900/15
             blur-[100px] sm:blur-[120px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slow
+            will-change-transform
           "
         />
 
-        {/* Glow 2 - Cyan Sweep */}
-        <motion.div
-          animate={{ x: [0, -40, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 2 - Cyan Sweep (CSS animated) */}
+        <div
           className="
             absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
             w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
@@ -49,22 +47,12 @@ export default function ContactHero() {
             bg-cyan-200/20 dark:bg-cyan-900/15
             blur-[100px] sm:blur-[130px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slower
+            will-change-transform
           "
         />
 
-        {/* Glow 3 - The Soft Violet Core (New Rich Addition) */}
-        <motion.div
-          animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-            w-[70vw] sm:w-[400px] h-[70vw] sm:h-[400px]
-            rounded-full
-            bg-violet-300/15 dark:bg-purple-900/10
-            blur-[120px] sm:blur-[140px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
-        />
+        {/* Glow 3 - Soft Violet Core removed – depth preserved with existing glows */}
       </div>
 
       {/* ===================================== */}
@@ -81,7 +69,7 @@ export default function ContactHero() {
       />
 
       {/* ===================================== */}
-      {/* HERO CONTENT */}
+      {/* HERO CONTENT (unchanged) */}
       {/* ===================================== */}
       <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto">
         
@@ -121,7 +109,6 @@ export default function ContactHero() {
             <>
               {contactHero.title.replace(contactHero.highlightText, "")}
               <br className="hidden sm:block" />
-              {/* THE UPGRADED 3-STOP LIGHTWEIGHT RICH GRADIENT */}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-500 to-cyan-500 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-300">
                 {contactHero.highlightText}
               </span>
