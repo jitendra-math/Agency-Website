@@ -21,7 +21,7 @@ export default function ContactHero() {
     "
     >
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
+      {/* RICH AMBIENT GLOWS (Cinematic Slow & Light) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {/* Glow 1 - Deep Indigo */}
@@ -32,7 +32,7 @@ export default function ContactHero() {
             absolute top-[-10%] left-[10%] sm:top-0 sm:left-1/4
             w-[100vw] sm:w-[500px] h-[100vw] sm:h-[500px]
             rounded-full
-            bg-indigo-300/20 dark:bg-indigo-900/20
+            bg-indigo-300/20 dark:bg-indigo-900/15
             blur-[100px] sm:blur-[120px]
             mix-blend-multiply dark:mix-blend-screen
           "
@@ -46,8 +46,22 @@ export default function ContactHero() {
             absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
             w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
             rounded-full
-            bg-cyan-200/30 dark:bg-cyan-900/15
+            bg-cyan-200/20 dark:bg-cyan-900/15
             blur-[100px] sm:blur-[130px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+
+        {/* Glow 3 - The Soft Violet Core (New Rich Addition) */}
+        <motion.div
+          animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+            w-[70vw] sm:w-[400px] h-[70vw] sm:h-[400px]
+            rounded-full
+            bg-violet-300/15 dark:bg-purple-900/10
+            blur-[120px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
           "
         />
@@ -80,16 +94,16 @@ export default function ContactHero() {
             mb-8 inline-flex items-center px-4 py-1.5 
             rounded-full 
             border border-black/[0.08] dark:border-white/[0.08]
-            bg-white/40 dark:bg-black/40 
+            bg-white/40 dark:bg-white/[0.02] 
             backdrop-blur-xl shadow-sm
           "
         >
-          <span className="text-xs sm:text-sm font-semibold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
+          <span className="text-xs sm:text-sm font-semibold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300 uppercase">
             {contactHero.label || "Get In Touch"}
           </span>
         </motion.div>
 
-        {/* Main Heading with Smart Rich Gradient Logic */}
+        {/* Main Heading with 3-Stop Rich Gradient */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,7 +121,8 @@ export default function ContactHero() {
             <>
               {contactHero.title.replace(contactHero.highlightText, "")}
               <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
+              {/* THE UPGRADED 3-STOP LIGHTWEIGHT RICH GRADIENT */}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-violet-500 to-cyan-500 dark:from-blue-400 dark:via-indigo-400 dark:to-cyan-300">
                 {contactHero.highlightText}
               </span>
             </>
