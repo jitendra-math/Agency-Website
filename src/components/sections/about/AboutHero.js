@@ -1,11 +1,11 @@
-// src/components/sections/about/AboutHero.js
+// src/components/sections/about/AboutHero.js (Optimized)
 
 "use client";
 
 import { motion } from "framer-motion";
 
 export default function AboutHero() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content animations)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -20,13 +20,11 @@ export default function AboutHero() {
     "
     >
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
+      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Indigo */}
-        <motion.div
-          animate={{ x: [0, 40, 0], y: [0, -30, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 1 - Deep Indigo (CSS animated) */}
+        <div
           className="
             absolute top-[-10%] left-[10%] sm:top-0 sm:left-1/4
             w-[100vw] sm:w-[500px] h-[100vw] sm:h-[500px]
@@ -34,13 +32,13 @@ export default function AboutHero() {
             bg-indigo-300/20 dark:bg-indigo-900/20
             blur-[100px] sm:blur-[120px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slow
+            will-change-transform
           "
         />
 
-        {/* Glow 2 - Cyan Sweep */}
-        <motion.div
-          animate={{ x: [0, -40, 0], y: [0, 40, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 2 - Cyan Sweep (CSS animated) */}
+        <div
           className="
             absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
             w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
@@ -48,6 +46,8 @@ export default function AboutHero() {
             bg-cyan-200/30 dark:bg-cyan-900/15
             blur-[100px] sm:blur-[130px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slower
+            will-change-transform
           "
         />
       </div>
@@ -66,7 +66,7 @@ export default function AboutHero() {
       />
 
       {/* ===================================== */}
-      {/* HERO CONTENT */}
+      {/* HERO CONTENT (unchanged, lightweight) */}
       {/* ===================================== */}
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto">

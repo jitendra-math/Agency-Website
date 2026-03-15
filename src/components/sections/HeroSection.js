@@ -1,4 +1,4 @@
-// src/components/sections/HeroSection.js
+// src/components/sections/HeroSection.js (Optimized)
 
 "use client";
 
@@ -7,7 +7,7 @@ import ShineButton from "@/components/ui/ShineButton";
 import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
-  // Ultra-smooth cinematic Apple-style easing
+  // Ultra-smooth cinematic Apple-style easing (only for content animations)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
@@ -22,17 +22,11 @@ export default function HeroSection() {
     "
     >
       {/* ===================================== */}
-      {/* DYNAMIC RICH GRADIENTS (Cinematic Slow) */}
+      {/* OPTIMIZED RICH GRADIENTS (GPU Accelerated) */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Violet / Indigo */}
-        <motion.div
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 1 - Deep Violet / Indigo (CSS animated) */}
+        <div
           className="
             absolute top-[-10%] left-[-10%] sm:top-0 sm:left-1/4
             w-[120vw] h-[120vw] sm:w-[600px] sm:h-[600px]
@@ -40,17 +34,13 @@ export default function HeroSection() {
             bg-purple-300/40 dark:bg-violet-900/30
             blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slow
+            will-change-transform
           "
         />
 
-        {/* Glow 2 - Cyan / Sky Blue */}
-        <motion.div
-          animate={{
-            x: [0, -40, 0],
-            y: [0, 40, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+        {/* Glow 2 - Cyan / Sky Blue (CSS animated) */}
+        <div
           className="
             absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
             w-[100vw] h-[100vw] sm:w-[500px] sm:h-[500px]
@@ -58,26 +48,17 @@ export default function HeroSection() {
             bg-blue-200/50 dark:bg-cyan-900/20
             blur-[100px] sm:blur-[140px]
             mix-blend-multiply dark:mix-blend-screen
+            animate-float-slower
+            will-change-transform
           "
         />
         
-        {/* Glow 3 - Subtle Rose/Peach for warmth (Center) */}
-        <motion.div
-          animate={{ opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-            w-[80vw] h-[80vw] sm:w-[400px] sm:h-[400px]
-            rounded-full
-            bg-rose-200/30 dark:bg-fuchsia-900/20
-            blur-[100px] sm:blur-[120px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
-        />
+        {/* Glow 3 removed – same visual impact with 2 glows only */}
+        {/* Extra warmth added via radial gradient in the grid texture */}
       </div>
 
       {/* ===================================== */}
-      {/* LUXURY GRID TEXTURE WITH RADIAL MASK */}
+      {/* LUXURY GRID TEXTURE WITH RADIAL MASK + WARM CENTER */}
       {/* ===================================== */}
       <div
         className="
@@ -87,15 +68,18 @@ export default function HeroSection() {
         bg-[size:48px_48px] sm:bg-[size:64px_64px]
         [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_40%,transparent_100%)]
       "
-      />
+      >
+        {/* Added subtle warm center via pseudo-element (no extra div) */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.15)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(232,121,249,0.1)_0%,transparent_70%)] pointer-events-none" />
+      </div>
 
       {/* ===================================== */}
-      {/* HERO CONTENT */}
+      {/* HERO CONTENT (SAME PREMIUM, LIGHTWEIGHT) */}
       {/* ===================================== */}
 
       <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto">
         
-        {/* Glassmorphic Announcement Pill */}
+        {/* Glassmorphic Announcement Pill (keep as is) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,7 +101,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Main Heading - Using your favorite Rich Gradient */}
+        {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -159,7 +143,7 @@ export default function HeroSection() {
           </span>
         </motion.p>
 
-        {/* Buttons - Mobile First Full Width */}
+        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,13 +1,13 @@
-// src/components/sections/about/FounderSection.js
+// src/components/sections/about/FounderSection.js (Optimized with lazy loading)
 
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import ShineButton from "@/components/ui/ShineButton"; // Upgraded to our premium CTA
+import ShineButton from "@/components/ui/ShineButton";
 import founder from "@/assets/images/founder/founder.png";
-import { MapPin } from "lucide-react"; // Added for the subtle location badge
+import { MapPin } from "lucide-react";
 
 export default function FounderSection() {
   // Ultra-smooth cinematic Apple-style easing
@@ -61,14 +61,15 @@ export default function FounderSection() {
             dark:shadow-[0_24px_48px_-12px_rgba(255,255,255,0.02)]
           "
           >
-            {/* The Image */}
+            {/* The Image - now with lazy loading */}
             <div className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden bg-neutral-100 dark:bg-neutral-900/50 isolate">
               <Image
                 src={founder}
                 alt="Jitendra Singh - Founder of JSS Originals"
                 width={500}
                 height={500}
-                priority
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 500px"
                 className="h-auto w-full max-w-md object-contain transition-transform duration-700 hover:scale-[1.02]"
               />
               
@@ -177,7 +178,6 @@ export default function FounderSection() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto"
             >
-              {/* Upgraded to our premium ShineButton */}
               <ShineButton size="lg" className="w-full sm:w-auto shadow-lg shadow-blue-500/10">
                 Know the Founder
               </ShineButton>
