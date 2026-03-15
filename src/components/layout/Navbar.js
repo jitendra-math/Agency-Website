@@ -60,8 +60,8 @@ export default function Navbar() {
             <Image
               src="/logo-black.png"
               alt="JSS Originals"
-              width={160} 
-              height={48} 
+              width={150} 
+              height={45} 
               priority
               className="h-8 sm:h-[2.1rem] w-auto dark:hidden transition-transform duration-500 ease-out group-hover:scale-105"
             />
@@ -70,8 +70,8 @@ export default function Navbar() {
             <Image
               src="/logo-white.png"
               alt="JSS Originals"
-              width={180}
-              height={54}
+              width={190}
+              height={60}
               priority
               className="hidden h-8 sm:h-[2.1rem] w-auto dark:block transition-transform duration-500 ease-out group-hover:scale-105"
             />
