@@ -118,7 +118,7 @@ export default function NimodHero() {
           {/* Title */}
           <motion.h1
             variants={fadeUp}
-            className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter leading-[1] text-neutral-900 dark:text-white"
+            className="text-5xl sm:text-6xl md:text-8xl font-extrabold leading-[1] text-neutral-900 dark:text-white"
           >
             {before}
             <span
