@@ -1,37 +1,40 @@
 // src/components/sections/nimod/NimodProjectStructure.js
-
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Folder, FolderOpen, FileCode, FileJson, Image as ImageIcon, File } from "lucide-react";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 // ==========================================
-// SMART NODE COMPONENT (Handles File Logic)
+// OPTIMIZED NODE COMPONENT (Memoized)
 // ==========================================
-function Node({ name, children, defaultOpen = false }) {
+const Node = React.memo(function Node({ name, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
 
-  // Intelligent Icon & Color Logic based on File Extension
-  let Icon = File;
-  let iconColor = "text-neutral-500 dark:text-neutral-400";
-  
-  if (children) {
-    Icon = open ? FolderOpen : Folder;
-    iconColor = "text-emerald-600 dark:text-emerald-400";
-  } else if (name.endsWith('.js') || name.endsWith('.mjs')) {
-    Icon = FileCode;
-    iconColor = "text-cyan-600 dark:text-cyan-400";
-  } else if (name.endsWith('.json')) {
-    Icon = FileJson;
-    iconColor = "text-amber-500 dark:text-amber-400";
-  } else if (name.endsWith('.png') || name.endsWith('.jpg')) {
-    Icon = ImageIcon;
-    iconColor = "text-purple-500 dark:text-purple-400";
-  } else if (name.endsWith('.css')) {
-    Icon = FileCode;
-    iconColor = "text-blue-500 dark:text-blue-400";
-  }
+  // Intelligent Icon & Color Logic – memoized
+  const { Icon, iconColor } = useMemo(() => {
+    let IconComponent = File;
+    let color = "text-neutral-500 dark:text-neutral-400";
+    
+    if (children) {
+      IconComponent = open ? FolderOpen : Folder;
+      color = "text-emerald-600 dark:text-emerald-400";
+    } else if (name.endsWith('.js') || name.endsWith('.mjs')) {
+      IconComponent = FileCode;
+      color = "text-cyan-600 dark:text-cyan-400";
+    } else if (name.endsWith('.json')) {
+      IconComponent = FileJson;
+      color = "text-amber-500 dark:text-amber-400";
+    } else if (name.endsWith('.png') || name.endsWith('.jpg')) {
+      IconComponent = ImageIcon;
+      color = "text-purple-500 dark:text-purple-400";
+    } else if (name.endsWith('.css')) {
+      IconComponent = FileCode;
+      color = "text-blue-500 dark:text-blue-400";
+    }
+    return { Icon: IconComponent, iconColor: color };
+  }, [name, children, open]);
 
   return (
     <div className="font-mono text-sm sm:text-base">
@@ -55,7 +58,7 @@ function Node({ name, children, defaultOpen = false }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: "easeInOut" }} // shorter & cheaper easing
             className="overflow-hidden"
           >
             <div className="ml-[9px] pl-4 border-l border-neutral-200 dark:border-neutral-800 flex flex-col gap-0.5 mt-0.5 mb-1.5">
@@ -66,11 +69,58 @@ function Node({ name, children, defaultOpen = false }) {
       </AnimatePresence>
     </div>
   );
-}
+});
 
 export default function NimodProjectStructure() {
-  // Ultra-smooth cinematic Apple-style easing
-  const smoothEase = [0.16, 1, 0.3, 1];
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  // Optimized variants
+  const fadeUpVariants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 30 },
+      show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: isMobile ? 1.0 : 1.2,
+          ease: "easeOut",
+        },
+      },
+    }),
+    [isMobile]
+  );
+
+  const cardVariants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 40 },
+      show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: isMobile ? 1.0 : 1.2,
+          ease: "easeOut",
+        },
+      },
+    }),
+    [isMobile]
+  );
+
+  // Glow animations – simplified on mobile
+  const glow1Animation = useMemo(
+    () => ({
+      scale: isMobile ? [1, 1.03, 1] : [1, 1.05, 1],
+      opacity: isMobile ? [0.15, 0.2, 0.15] : [0.15, 0.25, 0.15],
+    }),
+    [isMobile]
+  );
+
+  const glow2Animation = useMemo(
+    () => ({
+      scale: isMobile ? [1, 1.05, 1] : [1, 1.1, 1],
+      opacity: isMobile ? [0.15, 0.2, 0.15] : [0.15, 0.25, 0.15],
+    }),
+    [isMobile]
+  );
 
   return (
     <section
@@ -82,48 +132,57 @@ export default function NimodProjectStructure() {
       "
     >
       {/* ===================================== */}
-      {/* AMBIENT GLOWS (Subtle Emerald/Teal) */}
+      {/* AMBIENT GLOWS – Optimized */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
         <motion.div
-          animate={{ scale: [1, 1.05, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          animate={glow1Animation}
+          transition={{
+            duration: isMobile ? 16 : 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{ willChange: "transform, opacity" }}
           className="
             absolute top-[30%] left-[-10%] sm:left-[20%]
             w-[70vw] sm:w-[500px] h-[70vw] sm:h-[500px]
             rounded-full
             bg-emerald-400/20 dark:bg-emerald-700/15
-            blur-[100px] sm:blur-[140px]
+            blur-[80px] sm:blur-[120px]
             mix-blend-multiply dark:mix-blend-screen
           "
         />
         <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          animate={glow2Animation}
+          transition={{
+            duration: isMobile ? 20 : 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{ willChange: "transform, opacity" }}
           className="
             absolute bottom-[-10%] right-[-10%] sm:right-[20%]
             w-[80vw] sm:w-[600px] h-[80vw] sm:h-[600px]
             rounded-full
             bg-cyan-300/15 dark:bg-teal-800/15
-            blur-[100px] sm:blur-[140px]
+            blur-[80px] sm:blur-[120px]
             mix-blend-multiply dark:mix-blend-screen
           "
         />
       </div>
 
-      {/* Luxury Grid Texture */}
+      {/* Luxury Grid Texture – unchanged */}
       <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
 
       <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
-
         {/* ===================================== */}
         {/* HEADER SECTION */}
         {/* ===================================== */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={fadeUpVariants}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.5, ease: smoothEase }}
           className="text-center max-w-3xl flex flex-col items-center"
         >
           {/* Glassmorphic Pill */}
@@ -147,13 +206,14 @@ export default function NimodProjectStructure() {
         </motion.div>
 
         {/* ===================================== */}
-        {/* THE GLASS CODE EDITOR WINDOW */}
+        {/* THE GLASS CODE EDITOR WINDOW – Optimized */}
         {/* ===================================== */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ delay: 0.2, duration: 1.5, ease: smoothEase }}
+          transition={{ delay: 0.2 }}
           className="
             mt-16 sm:mt-20 w-full
             rounded-2xl sm:rounded-[2rem]
@@ -177,7 +237,6 @@ export default function NimodProjectStructure() {
           {/* Editor Body (File Tree) */}
           <div className="p-4 sm:p-8 overflow-x-auto custom-scrollbar">
             <Node name="nimod-cooperative-bank" defaultOpen>
-
               <Node name="public" defaultOpen>
                 <Node name="images" defaultOpen>
                   <Node name="logo-dark.png" />
@@ -185,9 +244,7 @@ export default function NimodProjectStructure() {
                   <Node name="nimod-gate.jpg" />
                 </Node>
               </Node>
-
               <Node name="src" defaultOpen>
-
                 <Node name="app">
                   <Node name="about/page.js" />
                   <Node name="contact/page.js" />
@@ -198,56 +255,43 @@ export default function NimodProjectStructure() {
                   <Node name="layout.js" />
                   <Node name="page.js" />
                 </Node>
-
                 <Node name="components">
-
                   <Node name="about">
                     <Node name="AboutHero.js" />
                     <Node name="AboutIntro.js" />
                   </Node>
-
                   <Node name="contact">
                     <Node name="ContactHero.js" />
                     <Node name="ContactForm.js" />
                   </Node>
-
                   <Node name="layout">
                     <Node name="Navbar.js" />
                     <Node name="Footer.js" />
                   </Node>
-
                   <Node name="nimod">
                     <Node name="NimodHero.js" />
                     <Node name="NimodOverview.js" />
                     <Node name="NimodProjectStructure.js" />
                   </Node>
-
                   <Node name="ui">
                     <Node name="ThemeToggle.js" />
                     <Node name="ShineButton.js" />
                   </Node>
-
                 </Node>
-
                 <Node name="data">
                   <Node name="nimodProject.js" />
                 </Node>
-
                 <Node name="lib">
                   <Node name="utils.js" />
                 </Node>
-
               </Node>
-
               <Node name="jsconfig.json" />
               <Node name="next.config.mjs" />
               <Node name="package.json" />
               <Node name="tailwind.config.js" />
-
             </Node>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
