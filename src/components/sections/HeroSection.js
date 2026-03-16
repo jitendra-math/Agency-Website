@@ -117,8 +117,8 @@ export default function HeroSection() {
         "
         >
           Crafting What the <br className="hidden sm:block" /> 
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
-            Web <span className="font-oatmeal tracking-normal"> Deserves.</span>
+          <span className="text-transparent font-oatmeal tracking-normal bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
+            Web Deserves.
           </span>
         </motion.h1>
 
