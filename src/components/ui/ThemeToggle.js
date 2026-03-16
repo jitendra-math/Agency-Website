@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
-import { initTheme, toggleTheme, getCurrentTheme } from "@/lib/theme";
+import { initTheme, toggleTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 export default function ThemeToggle({ className }) {
@@ -25,18 +25,19 @@ export default function ThemeToggle({ className }) {
       onClick={handleToggle}
       aria-label="Toggle Theme"
       className={cn(
-        "relative flex h-9 w-9 items-center justify-center rounded-lg",
-        "border border-neutral-200 dark:border-neutral-700",
-        "bg-white dark:bg-neutral-900",
+        "flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center",
+        "rounded-full",
+        "bg-transparent",
         "transition-all duration-300",
-        "hover:bg-neutral-100 dark:hover:bg-neutral-800",
+        "hover:bg-black/5 dark:hover:bg-white/10",
+        "active:scale-90",
         className
       )}
     >
       {theme === "dark" ? (
         <Sun size={18} className="text-yellow-500" />
       ) : (
-        <Moon size={18} className="text-neutral-700" />
+        <Moon size={18} className="text-neutral-700 dark:text-neutral-300" />
       )}
     </button>
   );
