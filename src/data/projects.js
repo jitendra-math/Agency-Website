@@ -16,11 +16,11 @@ export const projects = [
     slug: "jitubanna-seo-identity",
   },
   {
-    id: "nimod-cooperative-bank",
-    name: "Nimod Cooperative Bank Website",
+    id: "vca-school-website",
+    name: "VCA School Website",
     tag: "Client Project",
     description:
-      "Modern website concept for Bhuudesiya Prathmik Gram Seva Sahkari Society Nimod.",
-    slug: "nimod-cooperative-bank",
+      "Modern school website designed to showcase academic programs, campus activities, and institutional information with a clean and accessible interface.",
+    slug: "vca-school-website",
   },
 ];
