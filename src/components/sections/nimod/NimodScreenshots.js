@@ -1,6 +1,7 @@
 // src/components/sections/nimod/NimodScreenshots.js
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
@@ -164,7 +165,7 @@ export default function NimodScreenshots() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.2 }} // delay only, duration from variant
+              transition={{ delay: index * 0.2 }}
               className="
                 group relative 
                 rounded-[1.5rem] sm:rounded-[2.5rem]
@@ -180,7 +181,6 @@ export default function NimodScreenshots() {
                 dark:hover:shadow-[0_32px_64px_-12px_rgba(16,185,129,0.08)]
               "
             >
-              {/* Image Inner Container */}
               <div className="relative w-full aspect-[16/10] rounded-[1rem] sm:rounded-[2rem] overflow-hidden bg-neutral-100 dark:bg-neutral-900 isolate ring-1 ring-inset ring-black/5 dark:ring-white/10">
                 <Image
                   src={item.src}
@@ -190,11 +190,9 @@ export default function NimodScreenshots() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
-                {/* Subtle Inner Bezel Overlay */}
                 <div className="absolute inset-0 rounded-[1rem] sm:rounded-[2rem] ring-1 ring-inset ring-black/5 dark:ring-white/10 pointer-events-none z-10" />
               </div>
 
-              {/* Floating iOS-style Label */}
               <div
                 className="
                 absolute top-6 left-6 sm:top-10 sm:left-10 z-20
