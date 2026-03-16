@@ -44,6 +44,10 @@ export default function NimodHero() {
   const stagger = useStagger();
   const fadeUp = useFadeUp();
 
+  const name = nimodProject.name || "";
+  const before = name.split("Cooperative")[0];
+  const after = name.split("Cooperative")[1] || "";
+
   const blob1Animation = useMemo(
     () =>
       isMobile
@@ -116,10 +120,10 @@ export default function NimodHero() {
             variants={fadeUp}
             className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter leading-[1] text-neutral-900 dark:text-white"
           >
-            Nimod{" "}
+            {before}
             <span
               className="
-              font-[Oatmeal Sans]
+              font-oatmeal
               text-transparent
               bg-clip-text
               bg-gradient-to-r
@@ -132,8 +136,8 @@ export default function NimodHero() {
               "
             >
               Cooperative
-            </span>{" "}
-            Society
+            </span>
+            {after}
           </motion.h1>
 
           {/* Description */}
