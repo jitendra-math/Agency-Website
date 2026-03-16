@@ -5,110 +5,134 @@
 import { motion } from "framer-motion";
 import nimodProject from "@/data/nimodProject";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
 export default function NimodFeatures() {
   const { highlights } = nimodProject;
+
+  // Ultra-smooth cinematic Apple-style easing
+  const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
     <section
       className="
-      relative px-4 py-24
-      bg-white
-      dark:bg-neutral-950
+      relative isolate overflow-hidden
+      px-6 py-32 sm:py-40
+      bg-[#fafafa] dark:bg-[#050505]
+      transition-colors duration-500
       "
     >
-      <div className="mx-auto max-w-6xl">
-
-        {/* heading */}
+      {/* ===================================== */}
+      {/* AMBIENT GLOWS (Emerald & Cyan Core) */}
+      {/* ===================================== */}
+      <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-center max-w-xl mx-auto"
-        >
-          <p className="text-xs uppercase tracking-[0.35em] text-neutral-500">
-            Key Features
-          </p>
+          animate={{ scale: [1, 1.05, 1], opacity: [0.15, 0.25, 0.15] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute top-[10%] left-[-10%] sm:left-[10%]
+            w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px]
+            rounded-full
+            bg-emerald-400/10 dark:bg-emerald-600/10
+            blur-[100px] sm:blur-[140px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute bottom-[-10%] right-[-10%] sm:right-[10%]
+            w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
+            rounded-full
+            bg-cyan-300/10 dark:bg-teal-700/10
+            blur-[100px] sm:blur-[140px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+      </div>
 
-          <h2
-            className="
-            mt-4
-            text-3xl sm:text-4xl
-            font-semibold
-            tracking-tight
-            text-neutral-900
-            dark:text-neutral-100
-            "
-          >
-            What Makes This Platform Work
+      {/* Luxury Grid Texture */}
+      <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+      <div className="mx-auto max-w-6xl relative z-10">
+
+        {/* ===================================== */}
+        {/* HEADER SECTION */}
+        {/* ===================================== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: smoothEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center max-w-3xl mx-auto flex flex-col items-center"
+        >
+          {/* Glassmorphic Pill */}
+          <div className="mb-6 sm:mb-8 inline-flex items-center px-4 py-1.5 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-white/40 dark:bg-black/40 backdrop-blur-xl shadow-sm">
+            <span className="text-xs sm:text-sm font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">
+              Key Features
+            </span>
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-neutral-900 dark:text-white leading-[1.1]">
+            What Makes This <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 dark:from-emerald-400 dark:via-teal-300 dark:to-cyan-300 drop-shadow-sm">
+              Platform Work.
+            </span>
           </h2>
 
-          <p
-            className="
-            mt-6
-            text-base leading-relaxed
-            text-neutral-600
-            dark:text-neutral-400
-            "
-          >
+          <p className="mt-8 text-lg sm:text-xl font-medium leading-relaxed text-neutral-500 dark:text-neutral-400">
             The platform was designed to balance clarity, performance,
             and accessibility while keeping the experience simple for
             rural users.
           </p>
         </motion.div>
 
-        {/* features grid */}
-        <div
-          className="
-          mt-16
-          grid gap-6
-          sm:grid-cols-2
-          lg:grid-cols-3
-          "
-        >
+        {/* ===================================== */}
+        {/* FEATURES BENTO GRID */}
+        {/* ===================================== */}
+        <div className="mt-16 sm:mt-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {highlights.map((feature, index) => (
             <motion.div
               key={index}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15, duration: 1.5, ease: smoothEase }}
+              viewport={{ once: true, margin: "-50px" }}
               className="
-              relative
-              rounded-2xl
-              border border-neutral-200 dark:border-neutral-800
-              bg-neutral-50 dark:bg-neutral-900
-              p-6
-              transition-all duration-300
-              hover:-translate-y-1
-              hover:shadow-lg
+                group relative flex flex-col justify-start
+                rounded-[2rem] sm:rounded-[2.5rem]
+                bg-white/40 dark:bg-white/[0.02]
+                ring-1 ring-inset ring-black/5 dark:ring-white/10
+                backdrop-blur-2xl
+                p-8 sm:p-10
+                transition-all duration-700 ease-out
+                hover:-translate-y-2
+                hover:bg-white/60 dark:hover:bg-white/[0.04]
+                hover:shadow-[0_24px_48px_-12px_rgba(16,185,129,0.08)]
+                dark:hover:shadow-[0_24px_48px_-12px_rgba(16,185,129,0.04)]
+                overflow-hidden
               "
             >
-              {/* glow highlight */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/20 to-transparent pointer-events-none"/>
+              {/* Subtle top light highlight inside the card */}
+              <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/40 dark:from-white/5 to-transparent pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                
+                {/* The "Tech Dot" Indicator */}
+                <div className="mb-6 flex items-center justify-between">
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
+                  <span className="text-xs font-bold tracking-widest text-neutral-400 dark:text-neutral-600">
+                    0{index + 1}
+                  </span>
+                </div>
 
-              <p
-                className="
-                text-sm leading-relaxed
-                text-neutral-700
-                dark:text-neutral-300
-                "
-              >
-                {feature}
-              </p>
+                <p className="text-base sm:text-lg font-medium leading-relaxed text-neutral-700 dark:text-neutral-300">
+                  {feature}
+                </p>
+
+              </div>
+
+              {/* Glowing bottom line on hover */}
+              <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/30 dark:via-emerald-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out rounded-t-full" />
             </motion.div>
           ))}
         </div>

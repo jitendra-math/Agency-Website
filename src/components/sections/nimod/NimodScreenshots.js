@@ -6,128 +6,159 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import nimodProject from "@/data/nimodProject";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 26 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
 export default function NimodScreenshots() {
   const { screenshots } = nimodProject;
 
   const items = [
     {
-      src: screenshots.light,
+      src: screenshots?.light || "/images/placeholder-light.jpg", // Fallback if data is missing
       label: "Light Mode",
     },
     {
-      src: screenshots.dark,
+      src: screenshots?.dark || "/images/placeholder-dark.jpg",
       label: "Dark Mode",
     },
   ];
 
+  // Ultra-smooth cinematic Apple-style easing
+  const smoothEase = [0.16, 1, 0.3, 1];
+
   return (
     <section
       className="
-      relative px-4 py-24
-      bg-neutral-50
-      dark:bg-neutral-900
+      relative isolate overflow-hidden
+      px-6 py-32 sm:py-40
+      bg-[#fafafa] dark:bg-[#050505]
+      transition-colors duration-500
       "
     >
-      <div className="mx-auto max-w-6xl">
-
-        {/* heading */}
+      {/* ===================================== */}
+      {/* AMBIENT GLOWS (Emerald & Cyan Core) */}
+      {/* ===================================== */}
+      <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="text-center max-w-xl mx-auto"
-        >
-          <p className="text-xs uppercase tracking-[0.35em] text-neutral-500">
-            Interface
-          </p>
+          animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute top-[20%] right-[-10%] sm:right-[10%]
+            w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px]
+            rounded-full
+            bg-emerald-400/15 dark:bg-emerald-600/15
+            blur-[100px] sm:blur-[140px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
+          className="
+            absolute bottom-[-10%] left-[-10%] sm:left-[10%]
+            w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px]
+            rounded-full
+            bg-cyan-300/15 dark:bg-teal-800/15
+            blur-[100px] sm:blur-[140px]
+            mix-blend-multiply dark:mix-blend-screen
+          "
+        />
+      </div>
 
-          <h2
-            className="
-            mt-4
-            text-3xl sm:text-4xl
-            font-semibold
-            tracking-tight
-            text-neutral-900
-            dark:text-neutral-100
-            "
-          >
-            Interface Design
+      {/* Luxury Grid Texture */}
+      <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+      <div className="mx-auto max-w-7xl relative z-10 flex flex-col items-center">
+
+        {/* ===================================== */}
+        {/* HEADER SECTION */}
+        {/* ===================================== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: smoothEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center max-w-3xl flex flex-col items-center"
+        >
+          {/* Glassmorphic Pill */}
+          <div className="mb-6 sm:mb-8 inline-flex items-center px-4 py-1.5 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-white/40 dark:bg-black/40 backdrop-blur-xl shadow-sm">
+            <span className="text-xs sm:text-sm font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">
+              Interface
+            </span>
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-neutral-900 dark:text-white leading-[1.1]">
+            Seamless Interface <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 dark:from-emerald-400 dark:via-teal-300 dark:to-cyan-300 drop-shadow-sm">
+              Design.
+            </span>
           </h2>
 
-          <p
-            className="
-            mt-6
-            text-base leading-relaxed
-            text-neutral-600
-            dark:text-neutral-400
-            "
-          >
+          <p className="mt-8 text-lg sm:text-xl font-medium leading-relaxed text-neutral-500 dark:text-neutral-400 max-w-2xl">
             A modern interface designed for clarity, accessibility,
-            and performance across all devices.
+            and performance across all devices, ensuring rural users feel at home.
           </p>
         </motion.div>
 
-        {/* screenshots */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
+        {/* ===================================== */}
+        {/* IMMERSIVE SCREENSHOTS GALLERY */}
+        {/* ===================================== */}
+        <div className="mt-16 sm:mt-24 w-full grid gap-8 lg:gap-12 lg:grid-cols-2">
 
           {items.map((item, index) => (
             <motion.div
               key={index}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 1.5, ease: smoothEase }}
+              viewport={{ once: true, margin: "-50px" }}
               className="
-              group relative overflow-hidden
-              rounded-2xl
-              border border-neutral-200 dark:border-neutral-800
-              bg-white dark:bg-neutral-950
-              shadow-[0_10px_40px_rgba(0,0,0,0.08)]
-              transition-all duration-500
-              hover:-translate-y-1
-              hover:shadow-[0_16px_60px_rgba(0,0,0,0.12)]
+                group relative 
+                rounded-[1.5rem] sm:rounded-[2.5rem]
+                bg-white/40 dark:bg-white/[0.02]
+                ring-1 ring-inset ring-black/5 dark:ring-white/10
+                backdrop-blur-3xl
+                p-2 sm:p-4
+                shadow-[0_8px_30px_rgb(0,0,0,0.04)]
+                dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)]
+                transition-all duration-700 ease-out
+                hover:-translate-y-2
+                hover:shadow-[0_32px_64px_-12px_rgba(16,185,129,0.15)]
+                dark:hover:shadow-[0_32px_64px_-12px_rgba(16,185,129,0.08)]
               "
             >
-
-              {/* image */}
-              <div className="relative w-full aspect-[16/10]">
+              {/* Image Inner Container (The Display Frame) */}
+              <div className="relative w-full aspect-[16/10] rounded-[1rem] sm:rounded-[2rem] overflow-hidden bg-neutral-100 dark:bg-neutral-900 isolate ring-1 ring-inset ring-black/5 dark:ring-white/10">
                 <Image
                   src={item.src}
-                  alt={item.label}
+                  alt={`Nimod PACS ${item.label}`}
                   fill
-                  priority={false}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  priority={index === 0} // Load first image faster
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top transition-transform duration-1000 ease-[0.16,1,0.3,1] group-hover:scale-105"
                 />
+                
+                {/* Subtle Inner Bezel Overlay */}
+                <div className="absolute inset-0 rounded-[1rem] sm:rounded-[2rem] ring-1 ring-inset ring-black/5 dark:ring-white/10 pointer-events-none z-10" />
               </div>
 
-              {/* label */}
+              {/* Floating iOS-style Label */}
               <div
                 className="
-                absolute top-3 left-3
-                px-3 py-1
+                absolute top-6 left-6 sm:top-10 sm:left-10 z-20
+                flex items-center gap-2
+                px-4 py-2
                 rounded-full
-                text-[11px] md:text-xs
-                font-medium
-                bg-black/60
-                text-white
-                backdrop-blur
+                bg-white/80 dark:bg-black/80
+                backdrop-blur-md
+                ring-1 ring-inset ring-black/5 dark:ring-white/10
+                shadow-lg shadow-black/5
+                transition-transform duration-700 ease-out
+                group-hover:scale-105 group-hover:bg-white dark:group-hover:bg-neutral-900
                 "
               >
-                {item.label}
+                {/* Active indicator dot */}
+                <div className={`w-2 h-2 rounded-full ${index === 0 ? "bg-amber-400" : "bg-indigo-400"} shadow-sm`} />
+                <span className="text-xs sm:text-sm font-semibold tracking-wide text-neutral-900 dark:text-white">
+                  {item.label}
+                </span>
               </div>
 
             </motion.div>
