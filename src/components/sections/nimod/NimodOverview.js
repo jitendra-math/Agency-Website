@@ -1,14 +1,15 @@
 // src/components/sections/nimod/NimodOverview.js
-
 "use client";
 
 import { motion } from "framer-motion";
+import { useMemo } from "react";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import nimodProject from "@/data/nimodProject";
 
 export default function NimodOverview() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const { client, details } = nimodProject;
 
-  // Formatting data for the Bento Grid mapping
   const overviewStats = [
     { label: "Client", value: client?.name || "Nimod Society" },
     { label: "Project Type", value: details?.projectType || "Web Platform" },
@@ -16,8 +17,30 @@ export default function NimodOverview() {
     { label: "Year", value: details?.year || "2024" },
   ];
 
-  // Ultra-smooth cinematic Apple-style easing
-  const smoothEase = [0.16, 1, 0.3, 1];
+  // Optimized variants – memoized
+  const fadeUpVariants = useMemo(
+    () => ({
+      hidden: { opacity: 0, y: 30 },
+      show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: isMobile ? 1.0 : 1.2, // slightly shorter on mobile
+          ease: "easeOut", // cheaper than custom bezier
+        },
+      },
+    }),
+    [isMobile]
+  );
+
+  // Glow animation – reduced intensity on mobile
+  const glowAnimation = useMemo(
+    () => ({
+      scale: isMobile ? [1, 1.02, 1] : [1, 1.05, 1],
+      opacity: isMobile ? [0.1, 0.15, 0.1] : [0.1, 0.2, 0.1],
+    }),
+    [isMobile]
+  );
 
   return (
     <section
@@ -29,37 +52,41 @@ export default function NimodOverview() {
       "
     >
       {/* ===================================== */}
-      {/* SUBTLE AMBIENT GLOW (Lightweight Core) */}
+      {/* SUBTLE AMBIENT GLOW – Optimized */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
         <motion.div
-          animate={{ scale: [1, 1.05, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          animate={glowAnimation}
+          transition={{
+            duration: isMobile ? 18 : 20,
+            repeat: Infinity,
+            ease: "linear", // linear is cheaper
+          }}
+          style={{ willChange: "transform, opacity" }}
           className="
             w-[100vw] sm:w-[600px] h-[30vh] sm:h-[400px]
             bg-emerald-400/10 dark:bg-cyan-500/10
-            blur-[100px] sm:blur-[120px] rounded-full
+            blur-[80px] sm:blur-[100px] rounded-full   /* reduced blur slightly */
             mix-blend-multiply dark:mix-blend-screen
           "
         />
       </div>
 
-      {/* Luxury Grid Texture */}
+      {/* Luxury Grid Texture – unchanged */}
       <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
 
       <div className="mx-auto max-w-5xl relative z-10 flex flex-col items-center">
-
         {/* ===================================== */}
         {/* HEADER CONTENT */}
         {/* ===================================== */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: smoothEase }}
+          variants={fadeUpVariants}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           className="text-center flex flex-col items-center max-w-3xl"
         >
-          {/* Glassmorphic Pill */}
+          {/* Glassmorphic Pill – cheap, pure CSS */}
           <div className="mb-6 sm:mb-8 inline-flex items-center px-4 py-1.5 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-white/40 dark:bg-black/40 backdrop-blur-xl shadow-sm">
             <span className="text-xs sm:text-sm font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">
               Project Overview
@@ -83,16 +110,17 @@ export default function NimodOverview() {
         </motion.div>
 
         {/* ===================================== */}
-        {/* THE BENTO STATS GRID */}
+        {/* BENTO STATS GRID – Optimized */}
         {/* ===================================== */}
         <div className="mt-16 sm:mt-24 w-full grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {overviewStats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15, duration: 1.5, ease: smoothEase }}
+              variants={fadeUpVariants}
+              initial="hidden"
+              whileInView="show"
               viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: index * 0.15 }} // delay only, duration from variant
               className="
                 group relative flex flex-col justify-center
                 rounded-3xl sm:rounded-[2rem]
@@ -108,7 +136,7 @@ export default function NimodOverview() {
                 overflow-hidden
               "
             >
-              {/* Subtle top light highlight inside the card */}
+              {/* Subtle top light highlight */}
               <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/5 to-transparent pointer-events-none" />
               
               <div className="relative z-10">
@@ -120,12 +148,11 @@ export default function NimodOverview() {
                 </p>
               </div>
 
-              {/* Glowing bottom line on hover */}
+              {/* Glowing bottom line on hover – CSS transform, cheap */}
               <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/30 dark:via-emerald-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out rounded-t-full" />
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
