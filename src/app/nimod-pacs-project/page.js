@@ -1,5 +1,7 @@
 // src/app/nimod-pacs-project/page.js
 
+import React from "react";
+
 import NimodHero from "@/components/sections/nimod/NimodHero";
 import NimodOverview from "@/components/sections/nimod/NimodOverview";
 import NimodScreenshots from "@/components/sections/nimod/NimodScreenshots";
