@@ -46,7 +46,7 @@ export default function NimodOverview() {
         {/* BENTO GRID */}
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
 
-          {/* CLIENT CARD (large) */}
+          {/* CLIENT CARD */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -78,13 +78,14 @@ export default function NimodOverview() {
           </motion.div>
 
 
-          {/* YEAR */}
+          {/* ROLE (BIG RIGHT CARD) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="
+            row-span-2
             rounded-[2rem]
             bg-white/70 dark:bg-white/[0.03]
             backdrop-blur-xl
@@ -94,17 +95,17 @@ export default function NimodOverview() {
             "
           >
             <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-3">
-              Year
+              Role
             </p>
 
-            <p className="text-2xl font-bold text-neutral-900 dark:text-white">
-              {details?.year || "2024"}
+            <p className="text-xl font-semibold text-neutral-900 dark:text-white">
+              {details?.role || "Design & Development"}
             </p>
 
           </motion.div>
 
 
-          {/* PROJECT TYPE */}
+          {/* PROJECT TYPE (SMALL) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,40 +116,41 @@ export default function NimodOverview() {
             bg-white/70 dark:bg-white/[0.03]
             backdrop-blur-xl
             ring-1 ring-black/5 dark:ring-white/10
-            p-8
+            p-6
             "
           >
-            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-3">
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-2">
               Project Type
             </p>
 
-            <p className="text-lg font-semibold text-neutral-900 dark:text-white">
+            <p className="text-sm font-semibold text-neutral-900 dark:text-white">
               {details?.projectType || "Web Platform"}
             </p>
 
           </motion.div>
 
 
-          {/* ROLE */}
+          {/* YEAR (SMALL) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="
             rounded-[2rem]
             bg-white/70 dark:bg-white/[0.03]
             backdrop-blur-xl
             ring-1 ring-black/5 dark:ring-white/10
-            p-8
+            p-6
+            flex flex-col justify-center
             "
           >
-            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-3">
-              Role
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-2">
+              Year
             </p>
 
-            <p className="text-lg font-semibold text-neutral-900 dark:text-white">
-              {details?.role || "Design & Development"}
+            <p className="text-lg font-bold text-neutral-900 dark:text-white">
+              {details?.year || "2024"}
             </p>
 
           </motion.div>
