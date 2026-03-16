@@ -1,136 +1,134 @@
 // src/components/sections/nimod/NimodProjectStructure.js
 "use client";
 
-import React from "react";
-import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Folder, FolderOpen, FileCode, FileJson, Image as ImageIcon, File } from "lucide-react";
-import useMediaQuery from "@/hooks/useMediaQuery";
+import React, { useState } from "react";
 
-// ==========================================
-// OPTIMIZED NODE COMPONENT (Memoized)
-// ==========================================
-const Node = React.memo(function Node({ name, children, defaultOpen = false }) {
+function Node({ name, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
-
-  const { Icon, iconColor } = useMemo(() => {
-    let IconComponent = File;
-    let color = "text-neutral-500 dark:text-neutral-400";
-
-    if (children) {
-      IconComponent = open ? FolderOpen : Folder;
-      color = "text-emerald-600 dark:text-emerald-400";
-    } else if (name.endsWith(".js") || name.endsWith(".mjs")) {
-      IconComponent = FileCode;
-      color = "text-cyan-600 dark:text-cyan-400";
-    } else if (name.endsWith(".json")) {
-      IconComponent = FileJson;
-      color = "text-amber-500 dark:text-amber-400";
-    } else if (name.endsWith(".png") || name.endsWith(".jpg")) {
-      IconComponent = ImageIcon;
-      color = "text-purple-500 dark:text-purple-400";
-    } else if (name.endsWith(".css")) {
-      IconComponent = FileCode;
-      color = "text-blue-500 dark:text-blue-400";
-    }
-
-    return { Icon: IconComponent, iconColor: color };
-  }, [name, children, open]);
+  const isFolder = Boolean(children);
 
   return (
-    <div className="font-mono text-sm sm:text-base">
+    <div className="font-mono text-sm">
       <div
-        onClick={() => children && setOpen(!open)}
+        onClick={() => isFolder && setOpen(!open)}
         className={`
-          flex items-center gap-2 px-2 py-1.5 rounded-lg select-none transition-colors duration-200
-          ${children ? "cursor-pointer hover:bg-black/5 dark:hover:bg-white/5" : ""}
-          text-neutral-700 dark:text-neutral-300
+          flex items-center gap-2 px-2 py-1 rounded-md
+          ${isFolder ? "cursor-pointer hover:bg-neutral-100" : ""}
         `}
       >
-        <Icon size={16} className={iconColor} strokeWidth={2} />
-        <span className={`${children ? "font-semibold" : "font-medium"} transition-colors group-hover:text-black dark:group-hover:text-white`}>
+        {/* simple icon */}
+        <span className="text-emerald-600">
+          {isFolder ? (open ? "📂" : "📁") : "📄"}
+        </span>
+
+        <span className={isFolder ? "font-semibold" : "font-medium"}>
           {name}
         </span>
       </div>
 
-      <AnimatePresence initial={false}>
-        {children && open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="ml-[9px] pl-4 border-l border-neutral-200 dark:border-neutral-800 flex flex-col gap-0.5 mt-0.5 mb-1.5">
-              {children}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isFolder && open && (
+        <div className="ml-4 pl-3 border-l border-neutral-200 flex flex-col gap-1">
+          {children}
+        </div>
+      )}
     </div>
   );
-});
+}
 
 export default function NimodProjectStructure() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
-
-  const fadeUpVariants = useMemo(
-    () => ({
-      hidden: { opacity: 0, y: 30 },
-      show: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: isMobile ? 1.0 : 1.2,
-          ease: "easeOut",
-        },
-      },
-    }),
-    [isMobile]
-  );
-
-  const cardVariants = useMemo(
-    () => ({
-      hidden: { opacity: 0, y: 40 },
-      show: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: isMobile ? 1.0 : 1.2,
-          ease: "easeOut",
-        },
-      },
-    }),
-    [isMobile]
-  );
-
-  const glow1Animation = useMemo(
-    () => ({
-      scale: isMobile ? [1, 1.03, 1] : [1, 1.05, 1],
-      opacity: isMobile ? [0.15, 0.2, 0.15] : [0.15, 0.25, 0.15],
-    }),
-    [isMobile]
-  );
-
-  const glow2Animation = useMemo(
-    () => ({
-      scale: isMobile ? [1, 1.05, 1] : [1, 1.1, 1],
-      opacity: isMobile ? [0.15, 0.2, 0.15] : [0.15, 0.25, 0.15],
-    }),
-    [isMobile]
-  );
-
   return (
-    <section
-      className="
-      relative isolate overflow-hidden
-      px-6 py-32 sm:py-40
-      bg-[#fafafa] dark:bg-[#050505]
-      transition-colors duration-500
-      "
-    >
-      {/* rest of your code unchanged */}
+    <section className="px-6 py-24 bg-[#fafafa]">
+      <div className="max-w-4xl mx-auto">
+
+        {/* header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex px-4 py-1 rounded-full bg-white border text-xs font-semibold tracking-widest text-emerald-600 mb-6">
+            Architecture
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl font-bold">
+            Full Project Structure
+          </h2>
+
+          <p className="mt-4 text-neutral-500">
+            Modular Next.js architecture with reusable components.
+          </p>
+        </div>
+
+        {/* file tree */}
+        <div className="bg-white rounded-xl border p-6 shadow-sm overflow-x-auto">
+
+          <Node name="nimod-cooperative-bank" defaultOpen>
+
+            <Node name="public" defaultOpen>
+              <Node name="images" defaultOpen>
+                <Node name="logo-dark.png" />
+                <Node name="logo-light.png" />
+                <Node name="nimod-gate.jpg" />
+              </Node>
+            </Node>
+
+            <Node name="src" defaultOpen>
+
+              <Node name="app">
+                <Node name="about/page.js" />
+                <Node name="contact/page.js" />
+                <Node name="faq/page.js" />
+                <Node name="projects/page.js" />
+                <Node name="services/page.js" />
+                <Node name="globals.css" />
+                <Node name="layout.js" />
+                <Node name="page.js" />
+              </Node>
+
+              <Node name="components">
+                <Node name="about">
+                  <Node name="AboutHero.js" />
+                  <Node name="AboutIntro.js" />
+                </Node>
+
+                <Node name="contact">
+                  <Node name="ContactHero.js" />
+                  <Node name="ContactForm.js" />
+                </Node>
+
+                <Node name="layout">
+                  <Node name="Navbar.js" />
+                  <Node name="Footer.js" />
+                </Node>
+
+                <Node name="nimod">
+                  <Node name="NimodHero.js" />
+                  <Node name="NimodOverview.js" />
+                  <Node name="NimodProjectStructure.js" />
+                </Node>
+
+                <Node name="ui">
+                  <Node name="ThemeToggle.js" />
+                  <Node name="ShineButton.js" />
+                </Node>
+              </Node>
+
+              <Node name="data">
+                <Node name="nimodProject.js" />
+              </Node>
+
+              <Node name="lib">
+                <Node name="utils.js" />
+              </Node>
+
+            </Node>
+
+            <Node name="jsconfig.json" />
+            <Node name="next.config.mjs" />
+            <Node name="package.json" />
+            <Node name="tailwind.config.js" />
+
+          </Node>
+
+        </div>
+
+      </div>
     </section>
   );
 }
