@@ -3,146 +3,158 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import nimodProject from "@/data/nimodProject";
 
 export default function NimodOverview() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const client = nimodProject?.client || {};
   const details = nimodProject?.details || {};
 
-  const overviewStats = [
-    { label: "Client", value: client?.name || "Nimod Society" },
-    { label: "Project Type", value: details?.projectType || "Web Platform" },
-    { label: "Role", value: details?.role || "Development" },
-    { label: "Year", value: details?.year || "2024" },
-  ];
-
-  const fadeUpVariants = useMemo(
-    () => ({
-      hidden: { opacity: 0, y: 30 },
-      show: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: isMobile ? 0.9 : 1.1,
-          ease: "easeOut",
-        },
-      },
-    }),
-    [isMobile]
-  );
-
-  const glowAnimation = useMemo(
-    () => ({
-      scale: isMobile ? [1, 1.02, 1] : [1, 1.05, 1],
-      opacity: isMobile ? [0.1, 0.15, 0.1] : [0.1, 0.2, 0.1],
-    }),
-    [isMobile]
-  );
-
   return (
-    <section
-      className="
-      relative isolate overflow-hidden
-      px-6 py-32 sm:py-40
-      bg-[#fafafa] dark:bg-[#050505]
-      transition-colors duration-500
-      "
-    >
-      {/* Ambient Glow */}
-      <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-hidden">
-        <motion.div
-          animate={glowAnimation}
-          transition={{
-            duration: isMobile ? 18 : 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="
-            w-[100vw] sm:w-[600px] h-[30vh] sm:h-[400px]
-            bg-emerald-400/10 dark:bg-cyan-500/10
-            blur-[90px] sm:blur-[110px]
-            rounded-full
-            mix-blend-multiply dark:mix-blend-screen
-          "
-        />
+    <section className="relative px-6 py-32 bg-[#fafafa] dark:bg-[#050505] transition-colors overflow-hidden">
+
+      {/* ambient glow */}
+      <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
+        <div className="w-[70vw] h-[70vw] max-w-[520px] rounded-full bg-emerald-300/20 dark:bg-emerald-500/10 blur-[120px]" />
       </div>
 
-      {/* Grid Texture */}
-      <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
 
-      <div className="mx-auto max-w-5xl relative z-10 flex flex-col items-center">
+        {/* header */}
+        <div className="text-center max-w-3xl">
 
-        {/* Header */}
-        <motion.div
-          variants={fadeUpVariants}
-          initial="hidden"
-          animate="show"
-          className="text-center flex flex-col items-center max-w-3xl"
-        >
-          <div className="mb-6 sm:mb-8 inline-flex items-center px-4 py-1.5 rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-white/40 dark:bg-black/40 backdrop-blur-xl shadow-sm">
-            <span className="text-xs sm:text-sm font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">
-              Project Overview
-            </span>
+          <div className="inline-flex px-4 py-1.5 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur text-xs font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 mb-6">
+            Project Overview
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter text-neutral-900 dark:text-white leading-[1.1]">
-            A Digital Platform for a <br className="hidden sm:block" />
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-neutral-900 dark:text-white leading-tight">
+            A Digital Platform for a
+            <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-500 dark:from-emerald-400 dark:to-cyan-300">
-              Rural Cooperative.
+              Rural Cooperative
             </span>
           </h2>
 
-          <p className="mt-8 text-lg sm:text-xl font-medium leading-relaxed text-neutral-500 dark:text-neutral-400">
-            This project focused on building a modern digital presence
-            for a cooperative society serving local farmers and rural
-            families. The goal was to present services, initiatives,
-            and financial support programs in a simple and accessible
-            format for the community.
+          <p className="mt-6 text-lg text-neutral-500 dark:text-neutral-400">
+            This project focused on building a modern digital presence for a
+            cooperative society serving farmers and rural families.
           </p>
-        </motion.div>
 
-        {/* Stats Grid */}
-        <div className="mt-16 sm:mt-24 w-full grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {overviewStats?.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              variants={fadeUpVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: index * 0.12 }}
-              className="
-                group relative flex flex-col justify-center
-                rounded-3xl sm:rounded-[2rem]
-                bg-white/40 dark:bg-white/[0.02]
-                ring-1 ring-inset ring-black/5 dark:ring-white/10
-                backdrop-blur-2xl
-                p-6 sm:p-8
-                transition-all duration-500 ease-out
-                hover:-translate-y-1
-                hover:bg-white/60 dark:hover:bg-white/[0.04]
-                hover:shadow-[0_24px_48px_-12px_rgba(16,185,129,0.08)]
-                overflow-hidden
-              "
-            >
-              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/30 dark:from-white/5 to-transparent pointer-events-none" />
-
-              <div className="relative z-10">
-                <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-neutral-500 dark:text-neutral-400 mb-2 sm:mb-3">
-                  {stat.label}
-                </p>
-                <p className="text-lg sm:text-xl font-bold tracking-tight text-neutral-900 dark:text-white">
-                  {stat.value}
-                </p>
-              </div>
-
-              <div className="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 rounded-t-full" />
-            </motion.div>
-          ))}
         </div>
+
+
+        {/* BENTO GRID */}
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+
+          {/* CLIENT CARD (large) */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="
+            sm:col-span-2
+            rounded-[2rem]
+            bg-white/70 dark:bg-white/[0.03]
+            backdrop-blur-xl
+            ring-1 ring-black/5 dark:ring-white/10
+            p-8
+            hover:shadow-[0_30px_60px_-10px_rgba(16,185,129,0.12)]
+            transition-all
+            "
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-3">
+              Client
+            </p>
+
+            <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-white">
+              {client?.name || "Nimod Society"}
+            </h3>
+
+            <p className="mt-3 text-neutral-500 dark:text-neutral-400">
+              {client?.location || "Rajasthan, India"}
+            </p>
+
+          </motion.div>
+
+
+          {/* YEAR */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="
+            rounded-[2rem]
+            bg-white/70 dark:bg-white/[0.03]
+            backdrop-blur-xl
+            ring-1 ring-black/5 dark:ring-white/10
+            p-8
+            flex flex-col justify-center
+            "
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-3">
+              Year
+            </p>
+
+            <p className="text-2xl font-bold text-neutral-900 dark:text-white">
+              {details?.year || "2024"}
+            </p>
+
+          </motion.div>
+
+
+          {/* PROJECT TYPE */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="
+            rounded-[2rem]
+            bg-white/70 dark:bg-white/[0.03]
+            backdrop-blur-xl
+            ring-1 ring-black/5 dark:ring-white/10
+            p-8
+            "
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-3">
+              Project Type
+            </p>
+
+            <p className="text-lg font-semibold text-neutral-900 dark:text-white">
+              {details?.projectType || "Web Platform"}
+            </p>
+
+          </motion.div>
+
+
+          {/* ROLE */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="
+            rounded-[2rem]
+            bg-white/70 dark:bg-white/[0.03]
+            backdrop-blur-xl
+            ring-1 ring-black/5 dark:ring-white/10
+            p-8
+            "
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase text-neutral-500 dark:text-neutral-400 mb-3">
+              Role
+            </p>
+
+            <p className="text-lg font-semibold text-neutral-900 dark:text-white">
+              {details?.role || "Design & Development"}
+            </p>
+
+          </motion.div>
+
+        </div>
+
       </div>
     </section>
   );

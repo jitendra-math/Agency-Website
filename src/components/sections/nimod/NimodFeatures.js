@@ -3,176 +3,103 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import nimodProject from "@/data/nimodProject";
 
 export default function NimodFeatures() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const highlights = nimodProject?.highlights || [];
 
-  const fadeUp = useMemo(
-    () => ({
-      hidden: { opacity: 0, y: 30 },
-      show: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: isMobile ? 0.9 : 1.1,
-          ease: "easeOut",
-        },
-      },
-    }),
-    [isMobile]
-  );
-
-  const card = useMemo(
-    () => ({
-      hidden: { opacity: 0, y: 40 },
-      show: {
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: isMobile ? 0.8 : 1,
-          ease: "easeOut",
-        },
-      },
-    }),
-    [isMobile]
-  );
-
-  const glow1 = useMemo(
-    () => ({
-      scale: isMobile ? [1, 1.03, 1] : [1, 1.06, 1],
-      opacity: isMobile ? [0.15, 0.2, 0.15] : [0.2, 0.3, 0.2],
-    }),
-    [isMobile]
-  );
-
-  const glow2 = useMemo(
-    () => ({
-      scale: isMobile ? [1, 1.04, 1] : [1, 1.08, 1],
-      opacity: isMobile ? [0.15, 0.2, 0.15] : [0.2, 0.28, 0.2],
-    }),
-    [isMobile]
-  );
-
   return (
-    <section
-      className="
-      relative isolate overflow-hidden
-      px-6 py-28 sm:py-36
-      bg-[#fafafa]
-      transition-colors duration-500
-      "
-    >
-      {/* Ambient glow */}
-      <div className="absolute inset-0 -z-10 flex items-center justify-center overflow-hidden pointer-events-none">
-        <motion.div
-          animate={glow1}
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-          className="
-          absolute left-[10%] top-[20%]
-          w-[80vw] sm:w-[520px]
-          h-[80vw] sm:h-[520px]
-          rounded-full
-          bg-emerald-400/20
-          blur-[110px]
-          "
-        />
+    <section className="relative px-6 py-28 bg-[#fafafa] dark:bg-[#050505] transition-colors overflow-hidden">
 
-        <motion.div
-          animate={glow2}
-          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
-          className="
-          absolute right-[10%] bottom-[10%]
-          w-[70vw] sm:w-[480px]
-          h-[70vw] sm:h-[480px]
-          rounded-full
-          bg-cyan-300/20
-          blur-[110px]
-          "
-        />
+      {/* ambient glow */}
+      <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
+        <div className="w-[70vw] h-[70vw] max-w-[520px] rounded-full bg-emerald-300/20 dark:bg-emerald-500/10 blur-[120px]" />
       </div>
 
-      {/* Grid texture */}
-      <div className="absolute inset-0 -z-20 opacity-[0.04] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:52px_52px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
+      {/* grid texture */}
+      <div className="absolute inset-0 -z-20 opacity-[0.04] dark:opacity-[0.06] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:52px_52px]" />
 
-      <div className="mx-auto max-w-6xl relative z-10">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Header */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          className="text-center max-w-3xl mx-auto flex flex-col items-center"
-        >
-          <div className="mb-6 sm:mb-8 inline-flex items-center px-4 py-1.5 rounded-full border border-black/10 bg-white/60 backdrop-blur-xl shadow-sm">
-            <span className="text-xs sm:text-sm font-semibold tracking-widest text-emerald-600 uppercase">
-              Key Features
-            </span>
+        {/* header */}
+        <div className="text-center max-w-3xl mx-auto">
+
+          <div className="inline-flex px-4 py-1 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur text-xs font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 mb-6">
+            Key Features
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-900 leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white leading-tight">
             What Makes This Platform
-            <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500">
-              Powerful.
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 dark:from-emerald-400 dark:via-teal-300 dark:to-cyan-300">
+              Powerful
             </span>
           </h2>
 
-          <p className="mt-8 text-lg sm:text-xl font-medium leading-relaxed text-neutral-500">
+          <p className="mt-6 text-lg text-neutral-500 dark:text-neutral-400">
             Built for clarity, accessibility, and performance while keeping
             the experience simple for rural communities.
           </p>
-        </motion.div>
 
-        {/* Feature cards */}
-        <div className="mt-16 sm:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+
+
+        {/* feature cards */}
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {highlights.map((feature, index) => (
+
             <motion.div
               key={feature}
-              variants={card}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: index * 0.12 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="
               group relative
-              rounded-[2rem]
-              bg-white/60
+              rounded-[1.8rem]
+              bg-white/70 dark:bg-white/[0.03]
               backdrop-blur-xl
-              ring-1 ring-black/5
+              ring-1 ring-black/5 dark:ring-white/10
               p-8
               transition-all duration-500
               hover:-translate-y-2
-              hover:bg-white
+              hover:bg-white dark:hover:bg-white/[0.05]
               hover:shadow-[0_30px_60px_-10px_rgba(16,185,129,0.15)]
+              dark:hover:shadow-[0_30px_60px_-10px_rgba(16,185,129,0.08)]
               "
             >
-              {/* top highlight */}
-              <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-white/40 to-transparent rounded-t-[2rem]" />
 
-              {/* number badge */}
+              {/* number */}
               <div className="flex items-center justify-between mb-6">
+
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.7)]" />
 
-                <span className="text-xs font-bold tracking-widest text-neutral-400">
+                <span className="text-xs font-bold tracking-widest text-neutral-400 dark:text-neutral-600">
                   0{index + 1}
                 </span>
+
               </div>
 
-              <p className="text-base sm:text-lg font-medium leading-relaxed text-neutral-700">
+
+              {/* feature text */}
+              <p className="text-base sm:text-lg font-medium leading-relaxed text-neutral-700 dark:text-neutral-300">
                 {feature}
               </p>
 
-              {/* glowing bottom line */}
+
+              {/* bottom glow */}
               <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 rounded-full" />
+
             </motion.div>
+
           ))}
 
         </div>
+
       </div>
+
     </section>
   );
 }
