@@ -44,8 +44,6 @@ export default function NimodHero() {
   const stagger = useStagger();
   const fadeUp = useFadeUp();
 
-  const highlightText = nimodProject.highlightText || "";
-
   const blob1Animation = useMemo(
     () =>
       isMobile
@@ -118,17 +116,24 @@ export default function NimodHero() {
             variants={fadeUp}
             className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter leading-[1] text-neutral-900 dark:text-white"
           >
-            {highlightText ? (
-              <>
-                {nimodProject.name.replace(highlightText, "")}
-                <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-lime-400 dark:from-emerald-400 dark:via-teal-300 dark:to-lime-300">
-                  {highlightText}
-                </span>
-              </>
-            ) : (
-              nimodProject.name
-            )}
+            Nimod{" "}
+            <span
+              className="
+              font-[Oatmeal Sans]
+              text-transparent
+              bg-clip-text
+              bg-gradient-to-r
+              from-emerald-600
+              via-teal-500
+              to-cyan-500
+              dark:from-emerald-400
+              dark:via-teal-300
+              dark:to-cyan-300
+              "
+            >
+              Cooperative
+            </span>{" "}
+            Society
           </motion.h1>
 
           {/* Description */}
