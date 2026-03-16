@@ -5,6 +5,7 @@
 import { motion } from "framer-motion";
 import ShineButton from "@/components/ui/ShineButton";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 export default function HeroSection() {
   // Ultra-smooth cinematic Apple-style easing (only for content animations)
@@ -155,16 +156,24 @@ export default function HeroSection() {
         "
         >
           <div className="w-full sm:w-auto">
-             <ShineButton size="lg" className="w-full sm:w-auto">
-              View Projects
-            </ShineButton>
-          </div>
+  <Link href="/projects">
+    <ShineButton size="lg" className="w-full sm:w-auto">
+      View Projects
+    </ShineButton>
+  </Link>
+</div>
 
           <div className="w-full sm:w-auto">
-            <Button variant="secondary" size="lg" className="w-full sm:w-auto bg-white/50 dark:bg-black/50 backdrop-blur-md border border-neutral-200 dark:border-neutral-800">
-              Join Us
-            </Button>
-          </div>
+  <Link href="/join">
+    <Button
+      variant="secondary"
+      size="lg"
+      className="w-full sm:w-auto bg-white/50 dark:bg-black/50 backdrop-blur-md border border-neutral-200 dark:border-neutral-800"
+    >
+      Join Us
+    </Button>
+  </Link>
+</div>
         </motion.div>
 
       </div>
