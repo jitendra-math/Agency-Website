@@ -3,6 +3,7 @@
 import HeroSection from "@/components/sections/HeroSection";
 import AboutPreview from "@/components/sections/AboutPreview";
 import ProjectsPreview from "@/components/sections/ProjectsPreview";
+import PricingPlans from "@/components/sections/work/PricingPlans";
 import JoinUsCTA from "@/components/sections/JoinUsCTA";
 import ContactCTA from "@/components/sections/ContactCTA";
 
@@ -12,6 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <AboutPreview />
       <ProjectsPreview />
+      <PricingPlans />
       <JoinUsCTA />
       <ContactCTA />
     </>
