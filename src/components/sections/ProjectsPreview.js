@@ -1,4 +1,4 @@
-// src/components/sections/ProjectsPreview.js (Optimized)
+// src/components/sections/ProjectsPreview.js
 
 "use client";
 
@@ -9,37 +9,36 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 
 export default function ProjectsPreview() {
-  // Ultra-smooth cinematic Apple-style easing
   const smoothEase = [0.16, 1, 0.3, 1];
+
+  // 🔥 Redirect handler
+  const handleRedirect = (project) => {
+    if (project.slug === "jitubanna-wiki") {
+      window.open("https://wiki.jitubanna.com", "_blank");
+    } else if (project.slug === "jitubanna-seo-identity") {
+      window.open("https://me.jitubanna.com", "_blank");
+    } else if (project.slug === "vca-school") {
+      window.open("https://vcaschool.jssoriginals.in", "_blank");
+    }
+  };
 
   return (
     <section className="relative isolate overflow-hidden px-6 pt-24 pb-32 bg-[#fafafa] dark:bg-[#050505] transition-colors duration-500">
       
       {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (GPU Accelerated) */}
+      {/* RICH AMBIENT GLOWS */}
       {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Indigo (CSS animated) */}
-        <div
-          className="absolute top-[10%] right-[-5%] w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px] rounded-full bg-indigo-300/20 dark:bg-indigo-900/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-float-slow-xy will-change-transform"
-        />
-
-        {/* Glow 2 - Cyan (CSS animated) */}
-        <div
-          className="absolute bottom-[-10%] left-[-10%] w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px] rounded-full bg-cyan-200/20 dark:bg-cyan-900/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-float-slower-xy will-change-transform"
-        />
+        <div className="absolute top-[10%] right-[-5%] w-[80vw] sm:w-[500px] h-[80vw] sm:h-[500px] rounded-full bg-indigo-300/20 dark:bg-indigo-900/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-float-slow-xy will-change-transform" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[90vw] sm:w-[600px] h-[90vw] sm:h-[600px] rounded-full bg-cyan-200/20 dark:bg-cyan-900/15 blur-[120px] mix-blend-multiply dark:mix-blend-screen animate-float-slower-xy will-change-transform" />
       </div>
 
-      {/* ===================================== */}
-      {/* SUBTLE GRID DEPTH */}
-      {/* ===================================== */}
+      {/* GRID */}
       <div className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]" />
 
       <div className="relative z-10 mx-auto max-w-6xl">
 
-        {/* ===================================== */}
-        {/* SECTION HEADER */}
-        {/* ===================================== */}
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,9 +62,7 @@ export default function ProjectsPreview() {
           </p>
         </motion.div>
 
-        {/* ===================================== */}
-        {/* PROJECTS GRID (BENTO STYLE) */}
-        {/* ===================================== */}
+        {/* PROJECTS GRID */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -74,16 +71,15 @@ export default function ProjectsPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 1.5, ease: smoothEase }}
               viewport={{ once: true, margin: "-50px" }}
-              className="h-full"
+              className="h-full cursor-pointer"
+              onClick={() => handleRedirect(project)}
             >
               <ProjectCard project={project} />
             </motion.div>
           ))}
         </div>
 
-        {/* ===================================== */}
-        {/* CALL TO ACTION */}
-        {/* ===================================== */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

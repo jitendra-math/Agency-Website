@@ -7,6 +7,7 @@ import Button from "@/components/ui/Button";
 
 const plans = [
   {
+    id: "starter",
     name: "Starter Presence",
     desc: "For individuals and small brands starting their digital journey.",
     features: [
@@ -17,6 +18,7 @@ const plans = [
     price: "Starting from ₹7,999",
   },
   {
+    id: "growth",
     name: "Growth Platform",
     desc: "For businesses looking to build a strong online presence.",
     features: [
@@ -28,6 +30,7 @@ const plans = [
     highlight: true,
   },
   {
+    id: "premium",
     name: "Premium Identity",
     desc: "For brands that want a complete digital identity.",
     features: [
@@ -86,7 +89,7 @@ export default function PricingPlans() {
               `}
             >
 
-              {/* subtle highlight */}
+              {/* highlight */}
               {plan.highlight && (
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 pointer-events-none" />
               )}
@@ -117,7 +120,13 @@ export default function PricingPlans() {
 
                 {/* CTA */}
                 <div className="mt-6">
-                  <Button size="md" className="w-full">
+                  <Button
+                    size="md"
+                    className="w-full"
+                    onClick={() =>
+                      window.location.href = `https://client.jssoriginals.in/start?plan=${plan.id}`
+                    }
+                  >
                     Start a Project
                   </Button>
                 </div>
