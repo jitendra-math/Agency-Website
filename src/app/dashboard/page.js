@@ -1,79 +1,92 @@
 // src/app/dashboard/page.js
 
+import Image from "next/image";
+
 export default function DashboardPage() {
   return (
-    <div className="w-full min-h-screen bg-[#020617] flex items-center justify-center px-3">
+    <div className="w-full min-h-screen bg-[#020617] flex items-center justify-center">
 
-      {/* Story Container */}
-      <div className="w-[270px] h-[480px] bg-[#020617] rounded-2xl p-4 flex flex-col justify-between shadow-2xl border border-white/10">
+      {/* Mobile Story Frame */}
+      <div className="w-[270px] h-[480px] bg-[#020617] text-white p-3 flex flex-col justify-between border border-white/10 rounded-xl">
 
         {/* Header */}
-        <div>
-          <p className="text-[10px] text-white/50">MatchPulse • Live</p>
-          <h1 className="text-white text-lg font-semibold mt-1">Performance Dashboard</h1>
-
-          <div className="mt-3 bg-white/5 rounded-xl p-3 border border-white/10">
-            <p className="text-[10px] text-white/50">Total Growth</p>
-            <h2 className="text-white text-xl font-bold">₹18,450</h2>
-            <p className="text-emerald-400 text-xs mt-1">+12.4% This Month</p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Image
+              src="https://i.ibb.co/YBCwwxVx/8f30978833d12295fb16aa0b0d3bbb4d.jpg"
+              alt="logo"
+              width={18}
+              height={18}
+              className="rounded-full"
+            />
+            <p className="text-[10px] text-white/70">MatchPulse</p>
           </div>
+          <p className="text-[9px] text-white/40">Updated 2m ago</p>
         </div>
 
-        {/* Recent Matches */}
-        <div className="flex-1 mt-3">
-          <p className="text-[10px] text-white/50 mb-2">Recent Performance</p>
+        {/* Total Section */}
+        <div className="mt-2">
+          <p className="text-[10px] text-white/50">Total Performance</p>
+          <h1 className="text-lg font-semibold">₹21,860</h1>
+          <p className="text-emerald-400 text-[10px]">+9.8% last 10 days</p>
+        </div>
 
-          <div className="space-y-2 text-xs">
+        {/* History */}
+        <div className="flex-1 mt-2 overflow-hidden">
+          <p className="text-[10px] text-white/50 mb-1">Recent Matches</p>
 
-            <div className="flex justify-between bg-white/5 p-2 rounded-lg border border-white/10">
-              <span className="text-white/70">MI vs CSK</span>
-              <span className="text-emerald-400">+₹2,400</span>
-            </div>
+          <div className="space-y-[6px] text-[10px] leading-tight">
 
-            <div className="flex justify-between bg-white/5 p-2 rounded-lg border border-white/10">
-              <span className="text-white/70">RCB vs KKR</span>
-              <span className="text-emerald-400">+₹3,100</span>
-            </div>
-
-            <div className="flex justify-between bg-white/5 p-2 rounded-lg border border-white/10">
-              <span className="text-white/70">RR vs GT</span>
-              <span className="text-red-400">-₹900</span>
-            </div>
-
-            <div className="flex justify-between bg-white/5 p-2 rounded-lg border border-white/10">
-              <span className="text-white/70">SRH vs LSG</span>
-              <span className="text-emerald-400">+₹1,750</span>
-            </div>
-
-            <div className="flex justify-between bg-white/5 p-2 rounded-lg border border-white/10">
-              <span className="text-white/70">DC vs PBKS</span>
-              <span className="text-emerald-400">+₹2,050</span>
-            </div>
+            <Row match="RR vs MI" result="+₹2,300" win />
+            <Row match="GT vs DC" result="+₹1,850" win />
+            <Row match="KKR vs LSG" result="-₹700" />
+            <Row match="RCB vs RR" result="+₹2,100" win />
+            <Row match="SRH vs PBKS" result="+₹1,600" win />
+            <Row match="CSK vs DC" result="+₹1,950" win />
+            <Row match="LSG vs GT" result="-₹500" />
+            <Row match="RCB vs MI" result="+₹2,400" win />
+            <Row match="SRH vs RR" result="+₹1,300" win />
+            <Row match="CSK vs KKR" result="+₹1,780" win />
+            <Row match="LSG vs RCB" result="+₹1,250" win />
+            <Row match="MI vs PBKS" result="+₹1,430" win />
 
           </div>
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-3 grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-1 mt-2 text-[10px]">
 
-          <div className="bg-white/5 p-2 rounded-lg border border-white/10">
-            <p className="text-[10px] text-white/50">Win Rate</p>
-            <p className="text-white text-sm font-semibold">78%</p>
-          </div>
+          <Stat label="Win Rate" value="83%" />
+          <Stat label="Best Streak" value="6" />
 
-          <div className="bg-white/5 p-2 rounded-lg border border-white/10">
-            <p className="text-[10px] text-white/50">Best Streak</p>
-            <p className="text-white text-sm font-semibold">5</p>
-          </div>
-
-          <div className="bg-white/5 p-2 rounded-lg border border-white/10 col-span-2">
-            <p className="text-[10px] text-white/50">Today’s Net</p>
-            <p className="text-emerald-400 text-sm font-semibold">+₹1,120</p>
+          <div className="col-span-2 bg-white/5 p-2 rounded-md border border-white/10">
+            <p className="text-white/50 text-[9px]">Today</p>
+            <p className="text-emerald-400 font-medium">+₹1,280</p>
           </div>
 
         </div>
 
       </div>
+    </div>
+  );
+}
+
+function Row({ match, result, win }) {
+  return (
+    <div className="flex justify-between bg-white/5 px-2 py-[6px] rounded-md border border-white/10">
+      <span className="text-white/70">{match}</span>
+      <span className={win ? "text-emerald-400" : "text-red-400"}>
+        {result}
+      </span>
+    </div>
+  );
+}
+
+function Stat({ label, value }) {
+  return (
+    <div className="bg-white/5 p-2 rounded-md border border-white/10">
+      <p className="text-white/50 text-[9px]">{label}</p>
+      <p className="font-medium">{value}</p>
     </div>
   );
 }
