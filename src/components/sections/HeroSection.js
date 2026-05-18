@@ -1,4 +1,4 @@
-// src/components/sections/HeroSection.js (Optimized)
+// src/components/sections/HeroSection.js
 
 "use client";
 
@@ -8,189 +8,199 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 
 export default function HeroSection() {
-  // Ultra-smooth cinematic Apple-style easing (only for content animations)
   const smoothEase = [0.16, 1, 0.3, 1];
 
   return (
     <section
       className="
-      relative isolate overflow-hidden
-      flex flex-col items-center justify-center
-      min-h-[95vh] px-4 pt-28 pb-20
-      text-center
-      bg-[#fafafa] dark:bg-[#050505]
-      transition-colors duration-500
-    "
-    >
-      {/* ===================================== */}
-      {/* OPTIMIZED RICH GRADIENTS (GPU Accelerated) */}
-      {/* ===================================== */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Violet / Indigo (CSS animated) */}
-        <div
-          className="
-            absolute top-[-10%] left-[-10%] sm:top-0 sm:left-1/4
-            w-[120vw] h-[120vw] sm:w-[600px] sm:h-[600px]
-            rounded-full
-            bg-purple-300/40 dark:bg-violet-900/30
-            blur-[100px] sm:blur-[140px]
-            mix-blend-multiply dark:mix-blend-screen
-            animate-float-slow
-            will-change-transform
-          "
-        />
-
-        {/* Glow 2 - Cyan / Sky Blue (CSS animated) */}
-        <div
-          className="
-            absolute bottom-[-10%] right-[-10%] sm:bottom-0 sm:right-1/4
-            w-[100vw] h-[100vw] sm:w-[500px] sm:h-[500px]
-            rounded-full
-            bg-blue-200/50 dark:bg-cyan-900/20
-            blur-[100px] sm:blur-[140px]
-            mix-blend-multiply dark:mix-blend-screen
-            animate-float-slower
-            will-change-transform
-          "
-        />
-        
-        {/* Glow 3 removed – same visual impact with 2 glows only */}
-        {/* Extra warmth added via radial gradient in the grid texture */}
-      </div>
-
-      {/* ===================================== */}
-      {/* LUXURY GRID TEXTURE WITH RADIAL MASK + WARM CENTER */}
-      {/* ===================================== */}
-      <div
-        className="
-        absolute inset-0 -z-20
-        opacity-[0.04] dark:opacity-[0.06]
-        bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
-        bg-[size:48px_48px] sm:bg-[size:64px_64px]
-        [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_40%,transparent_100%)]
+        relative isolate overflow-hidden
+        min-h-screen
+        flex items-center justify-center
+        px-4 pt-24 pb-14
+        bg-[#fafafa] dark:bg-[#050505]
       "
-      >
-        {/* Added subtle warm center via pseudo-element (no extra div) */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.15)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(232,121,249,0.1)_0%,transparent_70%)] pointer-events-none" />
+    >
+      {/* Background Glows */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+
+        <div
+          className="
+            absolute -top-20 -left-20
+            w-[320px] h-[320px]
+            rounded-full
+            bg-violet-400/25
+            dark:bg-violet-700/20
+            blur-[100px]
+          "
+        />
+
+        <div
+          className="
+            absolute bottom-0 right-0
+            w-[280px] h-[280px]
+            rounded-full
+            bg-cyan-300/20
+            dark:bg-cyan-600/15
+            blur-[100px]
+          "
+        />
+
       </div>
 
-      {/* ===================================== */}
-      {/* HERO CONTENT (SAME PREMIUM, LIGHTWEIGHT) */}
-      {/* ===================================== */}
+      {/* Content */}
+      <div className="relative z-20 w-full max-w-5xl mx-auto text-center">
 
-      <div className="relative z-10 flex flex-col items-center w-full max-w-5xl mx-auto">
-        
-        {/* Glassmorphic Announcement Pill (keep as is) */}
+        {/* Announcement */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: smoothEase }}
+          transition={{ duration: 1.2, ease: smoothEase }}
           className="
-            mb-8 inline-flex items-center gap-2.5 px-4 py-1.5 
-            rounded-full 
-            border border-black/[0.08] dark:border-white/[0.08]
-            bg-white/40 dark:bg-black/40 
-            backdrop-blur-xl shadow-sm
+            inline-flex items-center gap-2
+            px-4 py-2 mb-6
+            rounded-full
+            bg-white/60 dark:bg-white/[0.04]
+            backdrop-blur-xl
+            border border-black/5 dark:border-white/10
           "
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600 dark:bg-blue-400"></span>
-          </span>
-          <span className="text-xs sm:text-sm font-semibold tracking-wide text-neutral-700 dark:text-neutral-200 uppercase">
-            Introducing the new standard
+          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+
+          <span
+            className="
+              text-[11px]
+              font-semibold
+              uppercase
+              tracking-wide
+              text-neutral-700 dark:text-neutral-300
+            "
+          >
+            Design • Development • Branding
           </span>
         </motion.div>
 
-        {/* Main Heading */}
+        {/* Heading */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.1, ease: smoothEase }}
+          transition={{
+            duration: 1.2,
+            delay: 0.1,
+            ease: smoothEase,
+          }}
           className="
-          text-5xl sm:text-7xl md:text-[5.5rem]
-          font-extrabold
-          tracking-tighter
-          leading-[1.1] md:leading-[1.05]
-          text-neutral-900 dark:text-white
-          drop-shadow-sm dark:drop-shadow-[0_0_15px_rgba(255,255,255,0.05)]
-          py-2
-        "
+            text-[2.2rem]
+            sm:text-6xl
+            md:text-7xl
+
+            font-black
+            tracking-tighter
+            leading-[1.05]
+
+            text-neutral-900
+            dark:text-white
+          "
         >
-          Crafting What the <br className="hidden sm:block" /> 
-          <span className="text-transparent font-oatmeal tracking-normal bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
-            Web Deserves.
+          Build Brands That
+          <br />
+
+          <span
+            className="
+              text-transparent
+              bg-clip-text
+              bg-gradient-to-r
+              from-violet-600
+              via-blue-600
+              to-cyan-500
+            "
+          >
+            People Remember.
           </span>
         </motion.h1>
 
         {/* Subheading */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.25, ease: smoothEase }}
+          transition={{
+            duration: 1.2,
+            delay: 0.2,
+            ease: smoothEase,
+          }}
           className="
-          mt-8
-          max-w-2xl
-          text-lg sm:text-xl md:text-2xl
-          font-medium
-          tracking-tight
-          text-neutral-600
-          dark:text-neutral-300
-        "
+            mt-5
+            max-w-xl mx-auto
+
+            text-[15px]
+            sm:text-lg
+
+            leading-relaxed
+            text-neutral-600
+            dark:text-neutral-400
+          "
         >
-          Meaningful projects, thoughtfully built. <br className="hidden sm:block" />
-          <span className="text-neutral-500 dark:text-neutral-500 font-normal">
-            Exploring ideas and shaping digital spaces.
-          </span>
+          We create premium websites, bold identities, and digital
+          experiences that feel expensive before anyone checks the price.
         </motion.p>
 
-        {/* Buttons */}
+        {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.4, ease: smoothEase }}
+          transition={{
+            duration: 1.2,
+            delay: 0.35,
+            ease: smoothEase,
+          }}
           className="
-          mt-12
-          flex flex-col sm:flex-row items-center gap-4
-          w-full sm:w-auto px-4 sm:px-0
-        "
-        >
-          <div className="w-full sm:w-auto">
-  <Link href="/projects">
-    <ShineButton size="lg" className="w-full sm:w-auto">
-      View Projects
-    </ShineButton>
-  </Link>
-</div>
+            mt-8
 
-          <div className="w-full sm:w-auto">
-  <Link href="/join">
-    <Button
-      variant="secondary"
-      size="lg"
-      className="w-full sm:w-auto bg-white/50 dark:bg-black/50 backdrop-blur-md border border-neutral-200 dark:border-neutral-800"
-    >
-      Join Us
-    </Button>
-  </Link>
-</div>
+            flex flex-col
+            sm:flex-row
+
+            gap-3
+            justify-center
+
+            w-full
+            max-w-md
+            mx-auto
+          "
+        >
+
+          {/* Primary */}
+          <Link href="/projects" className="w-full sm:w-auto">
+            <ShineButton className="w-full sm:w-auto px-8 py-4">
+              View Projects
+            </ShineButton>
+          </Link>
+
+          {/* Secondary */}
+          <Link href="/contact" className="w-full sm:w-auto">
+            <Button
+              className="
+                w-full sm:w-auto
+                px-8 py-4
+
+                bg-white/70
+                dark:bg-white/[0.04]
+
+                backdrop-blur-xl
+
+                border
+                border-black/10
+                dark:border-white/10
+
+                text-neutral-900
+                dark:text-white
+              "
+            >
+              Let's Talk
+            </Button>
+          </Link>
+
         </motion.div>
 
       </div>
-
-      {/* ===================================== */}
-      {/* BOTTOM SEAMLESS FADE */}
-      {/* ===================================== */}
-      <div
-        className="
-        pointer-events-none
-        absolute bottom-0 left-0 right-0
-        h-32 md:h-48
-        bg-gradient-to-t
-        from-[#fafafa] dark:from-[#050505]
-        to-transparent
-      "
-      />
     </section>
   );
 }
