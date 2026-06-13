@@ -77,7 +77,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Heading */}
+        {/* Heading - NEW */}
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,15 +93,13 @@ export default function HeroSection() {
 
             font-black
             tracking-tighter
-            leading-[1.05]
+            leading-[1.15]
 
             text-neutral-900
             dark:text-white
           "
         >
-          Build Brands That
-          <br />
-
+          Your Business Deserves More Than{" "}
           <span
             className="
               text-transparent
@@ -112,11 +110,11 @@ export default function HeroSection() {
               to-cyan-500
             "
           >
-            People Remember.
+            a Social Media Page.
           </span>
         </motion.h1>
 
-        {/* Subheading */}
+        {/* Subheading - NEW */}
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -126,8 +124,8 @@ export default function HeroSection() {
             ease: smoothEase,
           }}
           className="
-            mt-5
-            max-w-xl mx-auto
+            mt-6
+            max-w-2xl mx-auto
 
             text-[15px]
             sm:text-lg
@@ -137,8 +135,7 @@ export default function HeroSection() {
             dark:text-neutral-400
           "
         >
-          We create premium websites, bold identities, and digital
-          experiences that feel expensive before anyone checks the price.
+          Instagram helps people discover your business, but a website gives your brand a place to be trusted, remembered, and chosen. Build a digital presence that works for you 24/7, turning curious visitors into confident customers. ✨
         </motion.p>
 
         {/* CTA Buttons - Refined & Elegant */}
