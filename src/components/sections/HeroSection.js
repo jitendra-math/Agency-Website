@@ -48,36 +48,36 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-20 w-full max-w-5xl mx-auto text-center">
 
-        {/* Announcement */}
+        {/* Announcement - New smaller badge */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: smoothEase }}
           className="
-            inline-flex items-center gap-2
-            px-4 py-2 mb-5
+            inline-flex items-center gap-1.5
+            px-3 py-1.5 mb-3
             rounded-full
             bg-white/60 dark:bg-white/[0.04]
             backdrop-blur-xl
             border border-black/5 dark:border-white/10
           "
         >
-          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
 
           <span
             className="
-              text-[11px]
+              text-[10px]
               font-semibold
               uppercase
               tracking-wide
               text-neutral-700 dark:text-neutral-300
             "
           >
-            Design • Development • Branding
+            Digital Presence • Real Results
           </span>
         </motion.div>
 
-        {/* Heading - with multiple highlights */}
+        {/* Heading - "Deserves" no longer highlighted */}
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,19 +112,7 @@ export default function HeroSection() {
           >
             Business
           </span>{" "}
-          <span
-            className="
-              text-transparent
-              bg-clip-text
-              bg-gradient-to-r
-              from-violet-600
-              via-blue-600
-              to-cyan-500
-            "
-          >
-            Deserves
-          </span>{" "}
-          More Than a{" "}
+          Deserves More Than a{" "}
           <span
             className="
               text-transparent
@@ -140,7 +128,7 @@ export default function HeroSection() {
           Page.
         </motion.h1>
 
-        {/* Subheading - slightly smaller */}
+        {/* Subheading */}
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -164,7 +152,7 @@ export default function HeroSection() {
           Instagram helps people discover your business, but a website gives your brand a place to be trusted, remembered, and chosen. Build a digital presence that works for you 24/7, turning curious visitors into confident customers. ✨
         </motion.p>
 
-        {/* CTA Buttons - Refined & Elegant */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -212,12 +200,11 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
-              {/* Subtle shine overlay */}
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             </button>
           </Link>
 
-          {/* Secondary Button - Let's Talk (Glassmorphic) */}
+          {/* Secondary Button - Let's Talk */}
           <Link href="/contact" className="group w-full sm:w-auto">
             <button
               className="
