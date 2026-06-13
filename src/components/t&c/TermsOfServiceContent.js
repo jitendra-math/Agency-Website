@@ -4,10 +4,10 @@
 
 export default function TermsOfServiceContent() {
   const currentYear = new Date().getFullYear();
-  // Using realistic past/current date (not future-dated)
-  const effectiveDate = "June 14, 2026";
-  const lastUpdated = "June 14, 2026";
-  const version = "2.1";
+  // Updated dates and version
+  const effectiveDate = "June 13, 2026";
+  const lastUpdated = "June 13, 2026";
+  const version = "2.2";
 
   return (
     // Outer page background – neutral, minimal
@@ -46,8 +46,7 @@ export default function TermsOfServiceContent() {
                   These Terms of Service (“Terms”) constitute a legally binding agreement between
                   <span className="font-medium text-black dark:text-white"> JSS Originals </span>
                   (“Service Provider”, “we”, “us”) and the individual or entity (“Client”, “you”)
-                  engaging our services. By proceeding with an invoice payment, advance fee, or instructing us to commence work,
-                  you explicitly acknowledge that you have read, understood, and agree to be bound by these Terms.
+                  engaging our services. By accepting a proposal, approving a quotation, approving or paying an invoice, making an advance payment, providing written authorisation, or instructing JSS Originals to commence work, you acknowledge that you have read, understood, and agree to be bound by these Terms.
                 </p>
               </section>
 
@@ -273,18 +272,28 @@ export default function TermsOfServiceContent() {
                 </p>
               </section>
 
-              {/* 18. Governing Law */}
+              {/* NEW SECTION: 18. Changes to These Terms */}
               <section>
                 <h2 className="text-base font-semibold text-black dark:text-white border-b border-neutral-200 dark:border-neutral-800 pb-2 mb-3">
-                  18. Governing Law
+                  18. Changes to These Terms
                 </h2>
                 <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-justify">
-                  These Terms shall be governed by the laws of India. Any disputes arising under these Terms shall be subject to the
-                  exclusive jurisdiction of the courts located in Jaipur, Rajasthan, India.
+                  We reserve the right to modify these Terms from time to time. Updated versions will be published on our official website together with the revised "Last Updated" date. Continued use of our services after such updates constitutes acceptance of the revised Terms.
                 </p>
               </section>
 
-              {/* 19. Digital Acceptance */}
+              {/* 19. Governing Law (renumbered from 18) */}
+              <section>
+                <h2 className="text-base font-semibold text-black dark:text-white border-b border-neutral-200 dark:border-neutral-800 pb-2 mb-3">
+                  19. Governing Law
+                </h2>
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-justify">
+                  These Terms shall be governed by the laws of India. Any disputes arising under these Terms shall be subject to the
+                  exclusive jurisdiction of the competent courts of Rajasthan, India.
+                </p>
+              </section>
+
+              {/* 20. Digital Acceptance (renumbered from 19) */}
               <div className="mt-10 p-5 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl border border-neutral-200 dark:border-neutral-700">
                 <h3 className="text-base font-semibold text-black dark:text-white mb-2">
                   Digital Acceptance
