@@ -125,7 +125,7 @@ export default function AboutPreview() {
 
           <h2
             className="
-            text-4xl sm:text-5xl md:text-6xl 
+            text-3xl sm:text-4xl md:text-5xl 
             font-bold tracking-tighter
             text-neutral-900 dark:text-white
             leading-[1.1]
