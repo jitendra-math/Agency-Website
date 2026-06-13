@@ -34,7 +34,7 @@ export default function AboutPreview() {
     <section
       className="
         relative isolate overflow-hidden
-        px-6 pt-24 pb-32
+        px-6 pt-16 pb-16
         bg-[#fafafa] dark:bg-[#050505]
         transition-colors duration-500
       "
@@ -119,7 +119,7 @@ export default function AboutPreview() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center max-w-3xl mx-auto"
         >
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-3">
             Beyond Social Media
           </p>
 
@@ -139,7 +139,7 @@ export default function AboutPreview() {
 
           <p
             className="
-            mt-8 text-base sm:text-lg md:text-xl leading-relaxed
+            mt-4 text-[14px] sm:text-base leading-relaxed
             text-neutral-600 dark:text-neutral-400
             font-medium max-w-2xl mx-auto
           "
@@ -151,7 +151,7 @@ export default function AboutPreview() {
         {/* ===================================== */}
         {/* LIGHTWEIGHT BENTO BOX CARDS */}
         {/* ===================================== */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {items.map((item, index) => {
             const Icon = item.icon;
 

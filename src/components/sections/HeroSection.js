@@ -14,7 +14,7 @@ export default function HeroSection() {
         relative isolate overflow-hidden
         min-h-[85vh]
         flex items-center justify-center
-        px-4 pt-16 pb-8
+        px-4 pt-16 pb-2
         bg-[#fafafa] dark:bg-[#050505]
       "
     >
