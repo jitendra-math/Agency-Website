@@ -12,21 +12,21 @@ export default function AboutPreview() {
   const items = [
     {
       icon: Laptop,
-      title: "Digital Experiences",
+      title: "Exceptional Experiences",
       description:
-        "Websites designed to reflect the quality, ambition, and professionalism behind your brand while creating exceptional first impressions.",
+        "Premium websites crafted to reflect the quality of your brand and leave lasting first impressions.",
     },
     {
       icon: Search,
       title: "Visibility by Design",
       description:
-        "Strategic foundations that improve discoverability and strengthen your business's long-term online presence.",
+        "Thoughtful SEO foundations that help your business stay discoverable when customers are ready to take action.",
     },
     {
       icon: TrendingUp,
       title: "Growth With Purpose",
       description:
-        "Every decision, from performance to structure, is made to support sustainable business growth with confidence.",
+        "Every detail is designed to support meaningful growth, helping your business move forward with confidence.",
     },
   ];
 
@@ -120,7 +120,7 @@ export default function AboutPreview() {
           className="text-center max-w-3xl mx-auto"
         >
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6">
-            The Difference
+            Beyond Social Media
           </p>
 
           <h2
@@ -131,9 +131,9 @@ export default function AboutPreview() {
             leading-[1.1]
           "
           >
-            Attention Gets You Seen. <br className="hidden md:block" />
+            Attention Opens Doors. <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 drop-shadow-sm">
-              Trust Moves People Forward.
+              Trust Builds Businesses.
             </span>
           </h2>
 
@@ -144,7 +144,7 @@ export default function AboutPreview() {
             font-medium max-w-2xl mx-auto
           "
           >
-            Social media creates attention, but sustainable businesses are built on trust, credibility, and ownership. We help brands establish a digital presence that feels professional, performs exceptionally, and continues to create opportunities long after the next trend fades away.
+            Social platforms help people discover your business, but lasting growth depends on credibility, clarity, and trust. We create digital experiences designed to strengthen your brand, inspire confidence, and support your business for years to come.
           </p>
         </motion.div>
 
