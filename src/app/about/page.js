@@ -1,13 +1,13 @@
 // src/app/about/page.js
 
 import AboutHero from "@/components/sections/about/AboutHero";
-import AboutStory from "@/components/sections/about/AboutStory";
-import WhatWeBuild from "@/components/sections/about/WhatWeBuild";
-import Philosophy from "@/components/sections/about/Philosophy";
-import ProjectApproach from "@/components/sections/about/ProjectApproach";
+import PhilosophySection from "@/components/sections/about/PhilosophySection";
+import ProblemSection from "@/components/sections/about/ProblemSection";
+import ThinkingSection from "@/components/sections/about/ThinkingSection";
 import FounderSection from "@/components/sections/about/FounderSection";
-import FutureVision from "@/components/sections/about/FutureVision";
-import ClosingStatement from "@/components/sections/about/ClosingStatement";
+import StandardsSection from "@/components/sections/about/StandardsSection";
+import ProcessSection from "@/components/sections/about/ProcessSection";
+import AboutCTA from "@/components/sections/about/AboutCTA";
 
 export const metadata = {
   title: "About | JSS Originals",
@@ -19,13 +19,13 @@ export default function AboutPage() {
   return (
     <main>
       <AboutHero />
-      <AboutStory />
-      <WhatWeBuild />
-      <Philosophy />
-      <ProjectApproach />
+      <PhilosophySection />
+      <ProblemSection />
+      <ThinkingSection />
       <FounderSection />
-      <FutureVision />
-      <ClosingStatement />
+      <StandardsSection />
+      <ProcessSection />
+      <AboutCTA />
     </main>
   );
 }
