@@ -3,7 +3,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Layers, Sparkles } from "lucide-react";
+import { Laptop, Search, TrendingUp } from "lucide-react";
 
 export default function AboutPreview() {
   // Ultra-smooth cinematic Apple-style easing
@@ -11,33 +11,33 @@ export default function AboutPreview() {
 
   const items = [
     {
-      icon: Globe,
-      title: "Web Platforms",
+      icon: Laptop,
+      title: "Digital Experiences",
       description:
-        "Modern websites and digital platforms designed for performance, scalability, and an unshakeable online presence.",
+        "Websites designed to reflect the quality, ambition, and professionalism behind your brand while creating exceptional first impressions.",
     },
     {
-      icon: Layers,
-      title: "SEO Identity Systems",
+      icon: Search,
+      title: "Visibility by Design",
       description:
-        "Structured digital identity systems that strengthen search visibility and dominate long-term web presence.",
+        "Strategic foundations that improve discoverability and strengthen your business's long-term online presence.",
     },
     {
-      icon: Sparkles,
-      title: "Experimental Projects",
+      icon: TrendingUp,
+      title: "Growth With Purpose",
       description:
-        "Independent digital experiments exploring open knowledge systems and shaping next-generation web ideas.",
+        "Every decision, from performance to structure, is made to support sustainable business growth with confidence.",
     },
   ];
 
   return (
     <section
       className="
-      relative isolate overflow-hidden
-      px-6 pt-24 pb-32
-      bg-[#fafafa] dark:bg-[#050505]
-      transition-colors duration-500
-    "
+        relative isolate overflow-hidden
+        px-6 pt-24 pb-32
+        bg-[#fafafa] dark:bg-[#050505]
+        transition-colors duration-500
+      "
     >
       {/* ===================================== */}
       {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
@@ -120,7 +120,7 @@ export default function AboutPreview() {
           className="text-center max-w-3xl mx-auto"
         >
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6">
-            The Foundation
+            The Difference
           </p>
 
           <h2
@@ -131,9 +131,9 @@ export default function AboutPreview() {
             leading-[1.1]
           "
           >
-            Building systems that shape <br className="hidden md:block" />
+            Attention Gets You Seen. <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 drop-shadow-sm">
-              digital identity.
+              Trust Moves People Forward.
             </span>
           </h2>
 
@@ -144,7 +144,7 @@ export default function AboutPreview() {
             font-medium max-w-2xl mx-auto
           "
           >
-            JSS Originals develops scalable web platforms, experimental knowledge systems, and SEO architectures designed for a lasting internet presence.
+            Social media creates attention, but sustainable businesses are built on trust, credibility, and ownership. We help brands establish a digital presence that feels professional, performs exceptionally, and continues to create opportunities long after the next trend fades away.
           </p>
         </motion.div>
 
@@ -161,8 +161,8 @@ export default function AboutPreview() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: index * 0.2, // Slightly more delay for a waterfall effect
-                  duration: 1.5, // Cinematic slow
+                  delay: index * 0.2,
+                  duration: 1.5,
                   ease: smoothEase,
                 }}
                 viewport={{ once: true, margin: "-50px" }}
