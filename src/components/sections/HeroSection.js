@@ -12,9 +12,9 @@ export default function HeroSection() {
     <section
       className="
         relative isolate overflow-hidden
-        min-h-screen
+        min-h-[90vh]
         flex items-center justify-center
-        px-4 pt-24 pb-14
+        px-4 pt-16 pb-14
         bg-[#fafafa] dark:bg-[#050505]
       "
     >
@@ -55,7 +55,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, ease: smoothEase }}
           className="
             inline-flex items-center gap-2
-            px-4 py-2 mb-6
+            px-4 py-2 mb-5
             rounded-full
             bg-white/60 dark:bg-white/[0.04]
             backdrop-blur-xl
@@ -77,7 +77,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Heading - NEW */}
+        {/* Heading - with multiple highlights */}
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,19 +87,19 @@ export default function HeroSection() {
             ease: smoothEase,
           }}
           className="
-            text-[2.2rem]
-            sm:text-6xl
-            md:text-7xl
+            text-[2rem]
+            sm:text-5xl
+            md:text-6xl
 
             font-black
             tracking-tighter
-            leading-[1.15]
+            leading-[1.2]
 
             text-neutral-900
             dark:text-white
           "
         >
-          Your Business Deserves More Than{" "}
+          Your{" "}
           <span
             className="
               text-transparent
@@ -110,11 +110,37 @@ export default function HeroSection() {
               to-cyan-500
             "
           >
-            a Social Media Page.
-          </span>
+            Business
+          </span>{" "}
+          <span
+            className="
+              text-transparent
+              bg-clip-text
+              bg-gradient-to-r
+              from-violet-600
+              via-blue-600
+              to-cyan-500
+            "
+          >
+            Deserves
+          </span>{" "}
+          More Than a{" "}
+          <span
+            className="
+              text-transparent
+              bg-clip-text
+              bg-gradient-to-r
+              from-violet-600
+              via-blue-600
+              to-cyan-500
+            "
+          >
+            Social Media
+          </span>{" "}
+          Page.
         </motion.h1>
 
-        {/* Subheading - NEW */}
+        {/* Subheading - slightly smaller */}
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,11 +150,11 @@ export default function HeroSection() {
             ease: smoothEase,
           }}
           className="
-            mt-6
+            mt-5
             max-w-2xl mx-auto
 
-            text-[15px]
-            sm:text-lg
+            text-[14px]
+            sm:text-base
 
             leading-relaxed
             text-neutral-600
@@ -148,7 +174,7 @@ export default function HeroSection() {
             ease: smoothEase,
           }}
           className="
-            mt-10
+            mt-8
             flex flex-col
             sm:flex-row
             gap-4
