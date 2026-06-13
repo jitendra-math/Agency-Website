@@ -6,9 +6,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import WhyChooseSection from "@/components/sections/WhyChooseSection";
 // import ProjectsPreview from "@/components/sections/ProjectsPreview";
 import PricingPlans from "@/components/sections/work/PricingPlans";
-// import JoinUsCTA from "@/components/sections/JoinUsCTA";
 import FinalCTA from "@/components/sections/FinalCTA";
-import ContactCTA from "@/components/sections/ContactCTA";
 
 export default function HomePage() {
   return (
@@ -21,15 +19,13 @@ export default function HomePage() {
 
       <WhyChooseSection />
 
-      {/* Add this back once you have strong case studies */}
+      {/* Re-enable this once you have strong case studies */}
       {/* <ProjectsPreview /> */}
 
       <PricingPlans />
 
       {/* Final conversion-focused CTA */}
       <FinalCTA />
-
-      <ContactCTA />
     </>
   );
 }

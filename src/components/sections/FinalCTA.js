@@ -12,16 +12,12 @@ export default function FinalCTA() {
     <section
       className="
         relative isolate overflow-hidden
-        px-6 py-24 sm:py-32
+        px-6 pt-16 pb-16
         bg-[#fafafa] dark:bg-[#050505]
         transition-colors duration-500
       "
     >
-      {/* ===================================== */}
-      {/* RICH AMBIENT GLOWS (Cinematic Slow) */}
-      {/* ===================================== */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        {/* Glow 1 - Deep Blue/Indigo */}
         <motion.div
           animate={{
             x: [0, -30, 0],
@@ -39,7 +35,6 @@ export default function FinalCTA() {
           "
         />
 
-        {/* Glow 2 - Cyan/Teal */}
         <motion.div
           animate={{
             x: [0, 40, 0],
@@ -57,7 +52,6 @@ export default function FinalCTA() {
           "
         />
 
-        {/* Glow 3 - Subtle Purple Center */}
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
@@ -72,9 +66,6 @@ export default function FinalCTA() {
         />
       </div>
 
-      {/* ===================================== */}
-      {/* SUBTLE GRID DEPTH */}
-      {/* ===================================== */}
       <div
         className="
         absolute inset-0 -z-20
@@ -86,9 +77,6 @@ export default function FinalCTA() {
       />
 
       <div className="relative z-10 mx-auto max-w-4xl">
-        {/* ===================================== */}
-        {/* FLOATING GLASS CARD */}
-        {/* ===================================== */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -105,34 +93,27 @@ export default function FinalCTA() {
             overflow-hidden
           "
         >
-          {/* Inner ambient glow for depth */}
           <div className="absolute inset-0 -z-10 opacity-30 dark:opacity-20 bg-gradient-to-br from-blue-500/20 via-transparent to-cyan-500/20 blur-3xl" />
 
-          {/* ===================================== */}
-          {/* BADGE */}
-          {/* ===================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: smoothEase }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-black/5 dark:border-white/10 mb-8"
+            className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-black/5 dark:border-white/10 mb-4"
           >
             <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
               Ready When You Are
             </span>
           </motion.div>
 
-          {/* ===================================== */}
-          {/* HEADING */}
-          {/* ===================================== */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2, ease: smoothEase }}
             viewport={{ once: true }}
             className="
-              text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+              text-3xl sm:text-4xl md:text-5xl
               font-bold tracking-tighter
               text-neutral-900 dark:text-white
               leading-[1.1]
@@ -144,17 +125,14 @@ export default function FinalCTA() {
             </span>
           </motion.h2>
 
-          {/* ===================================== */}
-          {/* SUBHEADING */}
-          {/* ===================================== */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: smoothEase }}
             viewport={{ once: true }}
             className="
-              mt-6 sm:mt-8
-              text-base sm:text-lg md:text-xl
+              mt-4
+              text-[14px] sm:text-base
               leading-relaxed
               text-neutral-600 dark:text-neutral-400
               max-w-2xl mx-auto
@@ -165,15 +143,12 @@ export default function FinalCTA() {
             strengthen trust and move your business forward.
           </motion.p>
 
-          {/* ===================================== */}
-          {/* TRUST INDICATORS */}
-          {/* ===================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: smoothEase }}
             viewport={{ once: true }}
-            className="mt-10 flex flex-wrap justify-center gap-3"
+            className="mt-8 flex flex-wrap justify-center gap-3"
           >
             {["Strategy", "Design", "Development"].map((item) => (
               <span
@@ -193,17 +168,13 @@ export default function FinalCTA() {
             ))}
           </motion.div>
 
-          {/* ===================================== */}
-          {/* CTA BUTTONS */}
-          {/* ===================================== */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: smoothEase }}
             viewport={{ once: true }}
-            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            {/* Primary CTA */}
             <a
               href="https://client.jssoriginals.in/start"
               target="_blank"
@@ -244,7 +215,6 @@ export default function FinalCTA() {
               </button>
             </a>
 
-            {/* Secondary CTA */}
             <Link href="/contact" className="group">
               <button
                 className="
@@ -267,15 +237,12 @@ export default function FinalCTA() {
             </Link>
           </motion.div>
 
-          {/* ===================================== */}
-          {/* SUPPORTING TEXT */}
-          {/* ===================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: smoothEase }}
             viewport={{ once: true }}
-            className="mt-10"
+            className="mt-8"
           >
             <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-500 max-w-md mx-auto">
               Every project begins with a conversation about your goals,
