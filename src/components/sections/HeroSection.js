@@ -3,8 +3,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ShineButton from "@/components/ui/ShineButton";
-import Button from "@/components/ui/Button";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -143,7 +141,7 @@ export default function HeroSection() {
           experiences that feel expensive before anyone checks the price.
         </motion.p>
 
-        {/* CTA */}
+        {/* CTA Buttons - Refined & Elegant */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -153,51 +151,79 @@ export default function HeroSection() {
             ease: smoothEase,
           }}
           className="
-            mt-8
-
+            mt-10
             flex flex-col
             sm:flex-row
-
-            gap-3
+            gap-4
             justify-center
-
             w-full
             max-w-md
             mx-auto
           "
         >
-
-          {/* Primary */}
-          <Link href="/projects" className="w-full sm:w-auto">
-            <ShineButton className="w-full sm:w-auto px-8 py-4">
-              View Projects
-            </ShineButton>
+          {/* Primary Button - View Projects */}
+          <Link href="/projects" className="group relative w-full sm:w-auto">
+            <button
+              className="
+                relative w-full sm:w-auto
+                px-6 py-2.5 sm:px-7 sm:py-3
+                rounded-full
+                bg-gradient-to-r from-blue-600 to-indigo-600
+                text-white text-sm sm:text-base font-medium tracking-wide
+                shadow-md shadow-blue-500/20
+                transition-all duration-300
+                hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30
+                active:scale-95
+                overflow-hidden
+                flex items-center justify-center gap-2
+              "
+            >
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                View Projects
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+              {/* Subtle shine overlay */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            </button>
           </Link>
 
-          {/* Secondary */}
-          <Link href="/contact" className="w-full sm:w-auto">
-            <Button
+          {/* Secondary Button - Let's Talk (Glassmorphic) */}
+          <Link href="/contact" className="group w-full sm:w-auto">
+            <button
               className="
                 w-full sm:w-auto
-                px-8 py-4
-
-                bg-white/70
-                dark:bg-white/[0.04]
-
-                backdrop-blur-xl
-
-                border
-                border-black/10
-                dark:border-white/10
-
-                text-neutral-900
-                dark:text-white
+                px-6 py-2.5 sm:px-7 sm:py-3
+                rounded-full
+                bg-white/40 dark:bg-white/5
+                backdrop-blur-md
+                border border-white/40 dark:border-white/10
+                text-neutral-800 dark:text-white
+                text-sm sm:text-base font-medium
+                transition-all duration-300
+                hover:bg-white/60 dark:hover:bg-white/10
+                hover:scale-105 hover:shadow-lg
+                active:scale-95
+                flex items-center justify-center gap-2
               "
             >
               Let's Talk
-            </Button>
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
           </Link>
-
         </motion.div>
 
       </div>
