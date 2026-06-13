@@ -115,7 +115,7 @@ export default function ServicesSection() {
     <section
       className="
         relative isolate overflow-hidden
-        px-6 py-24 sm:py-32
+        px-6 pt-16 pb-16
         bg-[#fafafa] dark:bg-[#050505]
         transition-colors duration-500
       "
@@ -191,139 +191,139 @@ export default function ServicesSection() {
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* ===================================== */}
         {/* SECTION HEADER */}
-      {/* ===================================== */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5, ease: smoothEase }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="text-center max-w-3xl mx-auto mb-20"
-      >
-        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-6">
-          How We Help Businesses Grow
-        </p>
-
-        <h2
-          className="
-            text-4xl sm:text-5xl md:text-6xl
-            font-bold tracking-tighter
-            text-neutral-900 dark:text-white
-            leading-[1.1]
-          "
+        {/* ===================================== */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: smoothEase }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center max-w-3xl mx-auto mb-12"
         >
-          Built to Do More Than{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 drop-shadow-sm">
-            Just Look Good.
-          </span>
-        </h2>
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-3">
+            How We Help Businesses Grow
+          </p>
 
-        <p
-          className="
-            mt-8 text-base sm:text-lg md:text-xl leading-relaxed
-            text-neutral-600 dark:text-neutral-400
-            font-medium max-w-2xl mx-auto
-          "
+          <h2
+            className="
+              text-3xl sm:text-4xl md:text-5xl
+              font-bold tracking-tighter
+              text-neutral-900 dark:text-white
+              leading-[1.1]
+            "
+          >
+            Built to Do More Than{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300 drop-shadow-sm">
+              Just Look Good.
+            </span>
+          </h2>
+
+          <p
+            className="
+              mt-4 text-[14px] sm:text-base leading-relaxed
+              text-neutral-600 dark:text-neutral-400
+              font-medium max-w-2xl mx-auto
+            "
+          >
+            Every service we offer is designed to strengthen your brand, improve
+            discoverability, and help your business grow with confidence in an
+            increasingly digital world.
+          </p>
+        </motion.div>
+
+        {/* ===================================== */}
+        {/* SERVICES GRID */}
+        {/* ===================================== */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          Every service we offer is designed to strengthen your brand, improve
-          discoverability, and help your business grow with confidence in an
-          increasingly digital world.
-        </p>
-      </motion.div>
-
-      {/* ===================================== */}
-      {/* SERVICES GRID */}
-      {/* ===================================== */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-      >
-        {services.map((service, index) => {
-          const Icon = service.icon;
-          return (
-            <motion.div
-              key={service.title}
-              variants={cardVariants}
-              className="
-                group relative
-                flex flex-col
-                rounded-3xl
-                p-8
-                bg-white/30 dark:bg-white/[0.02]
-                ring-1 ring-inset ring-black/5 dark:ring-white/10
-                backdrop-blur-2xl
-                transition-all duration-700 ease-out
-                hover:-translate-y-1
-                hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.05)]
-                dark:hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.03)]
-                hover:bg-white/40 dark:hover:bg-white/[0.04]
-              "
-            >
-              {/* Icon Wrapper */}
-              <div
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.title}
+                variants={cardVariants}
                 className="
-                  mb-8
-                  flex h-14 w-14 items-center justify-center
-                  rounded-2xl
-                  bg-white/50 dark:bg-neutral-800/50
+                  group relative
+                  flex flex-col
+                  rounded-3xl
+                  p-8
+                  bg-white/30 dark:bg-white/[0.02]
                   ring-1 ring-inset ring-black/5 dark:ring-white/10
-                  group-hover:-translate-y-1 transition-transform duration-700 ease-out
+                  backdrop-blur-2xl
+                  transition-all duration-700 ease-out
+                  hover:-translate-y-1
+                  hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.05)]
+                  dark:hover:shadow-[0_20px_40px_-15px_rgba(59,130,246,0.03)]
+                  hover:bg-white/40 dark:hover:bg-white/[0.04]
                 "
               >
-                <Icon
-                  size={24}
-                  strokeWidth={1.5}
-                  className="text-blue-600 dark:text-blue-400 transition-colors duration-500"
-                />
-              </div>
+                {/* Icon Wrapper */}
+                <div
+                  className="
+                    mb-8
+                    flex h-14 w-14 items-center justify-center
+                    rounded-2xl
+                    bg-white/50 dark:bg-neutral-800/50
+                    ring-1 ring-inset ring-black/5 dark:ring-white/10
+                    group-hover:-translate-y-1 transition-transform duration-700 ease-out
+                  "
+                >
+                  <Icon
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-blue-600 dark:text-blue-400 transition-colors duration-500"
+                  />
+                </div>
 
-              {/* Title */}
-              <h3
-                className="
-                  text-xl font-semibold tracking-tight
-                  text-neutral-900 dark:text-neutral-100
-                  mb-3
-                "
-              >
-                {service.title}
-              </h3>
+                {/* Title */}
+                <h3
+                  className="
+                    text-xl font-semibold tracking-tight
+                    text-neutral-900 dark:text-neutral-100
+                    mb-3
+                  "
+                >
+                  {service.title}
+                </h3>
 
-              {/* Description */}
-              <p
-                className="
-                  text-sm leading-relaxed
-                  text-neutral-600 dark:text-neutral-400
-                  mb-6
-                "
-              >
-                {service.description}
-              </p>
+                {/* Description */}
+                <p
+                  className="
+                    text-sm leading-relaxed
+                    text-neutral-600 dark:text-neutral-400
+                    mb-6
+                  "
+                >
+                  {service.description}
+                </p>
 
-              {/* Supporting Points */}
-              <ul className="space-y-2 mt-auto">
-                {service.points.map((point, idx) => (
-                  <li
-                    key={idx}
-                    className="
-                      flex items-center gap-2
-                      text-xs text-neutral-500 dark:text-neutral-500
-                    "
-                  >
-                    <span className="w-1 h-1 rounded-full bg-blue-500/60 dark:bg-blue-400/60" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
+                {/* Supporting Points */}
+                <ul className="space-y-2 mt-auto">
+                  {service.points.map((point, idx) => (
+                    <li
+                      key={idx}
+                      className="
+                        flex items-center gap-2
+                        text-xs text-neutral-500 dark:text-neutral-500
+                      "
+                    >
+                      <span className="w-1 h-1 rounded-full bg-blue-500/60 dark:bg-blue-400/60" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
 
-              {/* Subtle bottom highlight */}
-              <div className="absolute bottom-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 dark:via-blue-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out rounded-t-full" />
-            </motion.div>
-          );
-        })}
-      </motion.div>
-    </div>
-  </section>
+                {/* Subtle bottom highlight */}
+                <div className="absolute bottom-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 dark:via-blue-400/30 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out rounded-t-full" />
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
   );
 }
