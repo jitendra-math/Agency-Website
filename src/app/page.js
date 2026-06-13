@@ -5,7 +5,8 @@ import AboutPreview from "@/components/sections/AboutPreview";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhyChooseSection from "@/components/sections/WhyChooseSection";
 // import ProjectsPreview from "@/components/sections/ProjectsPreview";
-import PricingPlans from "@/components/sections/work/PricingPlans";
+import PricingPlans from "@/components/sections/PricingPlans";
+import FAQSection from "@/components/sections/FAQSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function HomePage() {
@@ -23,6 +24,8 @@ export default function HomePage() {
       {/* <ProjectsPreview /> */}
 
       <PricingPlans />
+
+      <FAQSection />
 
       {/* Final conversion-focused CTA */}
       <FinalCTA />
