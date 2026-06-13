@@ -7,17 +7,16 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const base =
-  "relative inline-flex items-center justify-center font-medium tracking-wide select-none rounded-full overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 isolate";
+  "relative inline-flex items-center justify-center font-medium tracking-wide select-none rounded-full overflow-hidden isolate focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50";
 
 const variants = {
   primary: cn(
-    "bg-blue-600 text-white",
-    "dark:bg-blue-500 dark:text-white",
+    // Same gradient as HeroSection primary button
+    "bg-gradient-to-r from-blue-600 to-indigo-600 text-white",
     "shadow-[0_8px_20px_-6px_rgba(37,99,235,0.4)]",
-    "dark:shadow-[0_8px_20px_-6px_rgba(59,130,246,0.3)]",
+    "dark:shadow-[0_8px_20px_-6px_rgba(99,102,241,0.3)]",
     "border border-white/20 dark:border-white/10",
-    "transition-all duration-300",
-    "hover:bg-blue-700 dark:hover:bg-blue-600"
+    "transition-all duration-300"
   ),
 
   secondary: cn(
@@ -30,8 +29,7 @@ const variants = {
     "hover:shadow-[0_8px_20px_-6px_rgba(0,0,0,0.05)]",
     "dark:hover:shadow-[0_8px_20px_-6px_rgba(255,255,255,0.02)]"
   ),
-  
-  // Bonus: Added a ghost variant for very subtle links
+
   ghost: cn(
     "text-neutral-700 dark:text-neutral-300",
     "transition-colors duration-300",
@@ -39,10 +37,9 @@ const variants = {
   )
 };
 
-// Sizes perfectly synced with Mobile-First ShineButton
 const sizes = {
   sm: "px-4 py-2 text-sm",
-  md: "px-6 py-2.5 text-sm sm:text-base",
+  md: "px-6 py-2.5 text-sm sm:text-base",   // matches HeroSection primary size
   lg: "px-8 py-3.5 text-base sm:text-lg",
 };
 
@@ -67,16 +64,18 @@ const Button = forwardRef(
         className={cn(base, variants[variant], sizes[size], className)}
         {...props}
       >
-        {/* Updated to use the clean Pro Max Shine if passed as true */}
+        {/* Infinite shine effect – identical to HeroSection */}
         {shine && (
-          <div 
-            className="absolute inset-0 -z-10 flex h-full w-full justify-center pointer-events-none"
+          <div
+            className="
+              absolute inset-0
+              -translate-x-full
+              animate-[shine_3s_linear_infinite]
+              bg-gradient-to-r from-transparent via-white/30 to-transparent
+              pointer-events-none
+            "
             aria-hidden="true"
-          >
-            <div 
-              className="absolute top-0 -left-[100%] h-full w-[150%] animate-pro-shine bg-gradient-to-r from-transparent via-white/30 to-transparent" 
-            />
-          </div>
+          />
         )}
 
         <span className="relative z-10 flex items-center gap-2">
@@ -89,4 +88,17 @@ const Button = forwardRef(
 
 Button.displayName = "Button";
 
+// Keyframes for the infinite shine animation
 export default Button;
+
+// Required style tag (matches the HeroSection approach)
+// Add this inside your page or layout if you prefer a global keyframe,
+// or keep it here as a styled-jsx block.
+// Since the component is client-side, you can embed it like this:
+//
+// <style jsx>{`
+//   @keyframes shine {
+//     0%   { transform: translateX(-100%); }
+//     100% { transform: translateX(100%); }
+//   }
+// `}</style>
