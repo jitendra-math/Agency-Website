@@ -12,9 +12,9 @@ export default function HeroSection() {
     <section
       className="
         relative isolate overflow-hidden
-        min-h-[90vh]
+        min-h-[85vh]
         flex items-center justify-center
-        px-4 pt-16 pb-14
+        px-4 pt-16 pb-8
         bg-[#fafafa] dark:bg-[#050505]
       "
     >
@@ -48,7 +48,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-20 w-full max-w-5xl mx-auto text-center">
 
-        {/* Announcement - New smaller badge */}
+        {/* Announcement - smaller badge */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Heading - "Deserves" no longer highlighted */}
+        {/* Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -162,7 +162,7 @@ export default function HeroSection() {
             ease: smoothEase,
           }}
           className="
-            mt-8
+            mt-6
             flex flex-col
             sm:flex-row
             gap-4
@@ -172,7 +172,7 @@ export default function HeroSection() {
             mx-auto
           "
         >
-          {/* Primary Button - View Projects */}
+          {/* Primary Button - View Projects (with infinite shine) */}
           <Link href="/projects" className="group relative w-full sm:w-auto">
             <button
               className="
@@ -181,10 +181,6 @@ export default function HeroSection() {
                 rounded-full
                 bg-gradient-to-r from-blue-600 to-indigo-600
                 text-white text-sm sm:text-base font-medium tracking-wide
-                shadow-md shadow-blue-500/20
-                transition-all duration-300
-                hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30
-                active:scale-95
                 overflow-hidden
                 flex items-center justify-center gap-2
               "
@@ -200,26 +196,24 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+              {/* Infinite shine effect */}
+              <div className="absolute inset-0 -translate-x-full animate-[shine_3s_linear_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
             </button>
           </Link>
 
-          {/* Secondary Button - Let's Talk */}
+          {/* Secondary Button - Let's Talk (visible in light theme) */}
           <Link href="/contact" className="group w-full sm:w-auto">
             <button
               className="
                 w-full sm:w-auto
                 px-6 py-2.5 sm:px-7 sm:py-3
                 rounded-full
-                bg-white/40 dark:bg-white/5
-                backdrop-blur-md
-                border border-white/40 dark:border-white/10
+                bg-white/90 dark:bg-white/10
+                backdrop-blur-sm
+                border border-black/20 dark:border-white/20
                 text-neutral-800 dark:text-white
                 text-sm sm:text-base font-medium
                 transition-all duration-300
-                hover:bg-white/60 dark:hover:bg-white/10
-                hover:scale-105 hover:shadow-lg
-                active:scale-95
                 flex items-center justify-center gap-2
               "
             >
@@ -237,6 +231,21 @@ export default function HeroSection() {
         </motion.div>
 
       </div>
+
+      {/* Keyframes for infinite shine */}
+      <style jsx>{`
+        @keyframes shine {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        .animate-\\[shine_3s_linear_infinite\\] {
+          animation: shine 3s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }
