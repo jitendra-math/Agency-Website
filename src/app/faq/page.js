@@ -1,12 +1,12 @@
 // src/app/faq/page.js
 
-import FAQHero from "@/components/faq/FAQHero";
-import FAQCategories from "@/components/faq/FAQCategories";
-import FAQAccordion from "@/components/faq/FAQAccordion";
-import WorkingWithUs from "@/components/faq/WorkingWithUs";
-import CommonMisconceptions from "@/components/faq/CommonMisconceptions";
-import ContactPrompt from "@/components/faq/ContactPrompt";
-import FAQCTA from "@/components/faq/FAQCTA";
+import FAQHero from "@/components/sections/faq/FAQHero";
+import FAQCategories from "@/components/sections/faq/FAQCategories";
+import FAQAccordion from "@/components/sections/faq/FAQAccordion";
+import WorkingWithUs from "@/components/sections/faq/WorkingWithUs";
+import CommonMisconceptions from "@/components/sections/faq/CommonMisconceptions";
+import ContactPrompt from "@/components/sections/faq/ContactPrompt";
+import FAQCTA from "@/components/sections/faq/FAQCTA";
 
 export const metadata = {
   title: "FAQ | JSS Originals",
