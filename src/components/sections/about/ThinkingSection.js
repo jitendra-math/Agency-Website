@@ -106,62 +106,76 @@ export default function ThinkingSection() {
 
         {/* Editorial Timeline */}
         <div className="space-y-12 sm:space-y-16">
-          {thinkingPoints.map((point, index) => (
-            <motion.div
-              key={point.number}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: index * 0.15,
-                duration: 1.2,
-                ease: smoothEase,
-              }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative flex flex-col md:flex-row md:items-start gap-6 md:gap-10"
-            >
-              {/* Large Translucent Number */}
-              <div className="relative flex-shrink-0 md:w-32">
-                <span
-                  className="
-                    text-6xl sm:text-7xl md:text-8xl
-                    font-black tracking-tighter
-                    text-neutral-900/5 dark:text-white/5
-                    select-none
-                  "
-                >
-                  {point.number}
-                </span>
-              </div>
+          {thinkingPoints.map((point, index) => {
+            const titleWords = point.title.split(" ");
+            const firstWord = titleWords[0];
+            const restWords = titleWords.slice(1).join(" ");
 
-              {/* Content */}
-              <div className="flex-1">
-                <h3
-                  className="
-                    text-xl sm:text-2xl md:text-3xl
-                    font-bold tracking-tight
-                    text-neutral-900 dark:text-white
-                    mb-3
-                  "
-                >
-                  {point.title}
-                </h3>
-                <p
-                  className="
-                    text-base sm:text-lg
-                    leading-relaxed
-                    text-neutral-600 dark:text-neutral-400
-                    max-w-xl
-                  "
-                >
-                  {point.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+            return (
+              <motion.div
+                key={point.number}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 1.2,
+                  ease: smoothEase,
+                }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="relative flex flex-col md:flex-row md:items-start gap-6 md:gap-10"
+              >
+                {/* Large Translucent Number */}
+                <div className="relative flex-shrink-0 md:w-32">
+                  <span
+                    className="
+                      text-6xl sm:text-7xl md:text-8xl
+                      font-black tracking-tighter
+                      text-neutral-900/5 dark:text-white/5
+                      select-none
+                    "
+                  >
+                    {point.number}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1">
+                  <h3
+                    className="
+                      text-xl sm:text-2xl md:text-3xl
+                      font-bold tracking-tight
+                      text-neutral-900 dark:text-white
+                      mb-3
+                    "
+                  >
+                    <span
+                      className="
+                        text-transparent bg-clip-text
+                        bg-gradient-to-r from-blue-600 to-cyan-500
+                        dark:from-blue-400 dark:to-cyan-300
+                      "
+                    >
+                      {firstWord}
+                    </span>
+                    {restWords && ` ${restWords}`}
+                  </h3>
+                  <p
+                    className="
+                      text-base sm:text-lg
+                      leading-relaxed
+                      text-neutral-600 dark:text-neutral-400
+                      max-w-xl
+                    "
+                  >
+                    {point.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Elegant separator */}
-        <div className="mt-16 h-px w-12 mx-auto bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+        {/* Divider removed */}
       </div>
     </section>
   );

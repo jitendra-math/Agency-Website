@@ -139,8 +139,7 @@ export default function ProcessSection() {
         <div className="relative mt-8">
           {/* Desktop Horizontal Timeline */}
           <div className="hidden lg:block relative">
-            {/* Connecting Line */}
-            <div className="absolute top-[72px] left-0 right-0 h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent" />
+            {/* Connecting line removed */}
             <div className="grid grid-cols-5 gap-6">
               {processSteps.map((step, index) => (
                 <motion.div
@@ -200,7 +199,7 @@ export default function ProcessSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 className="relative flex gap-5"
               >
-                {/* Left Column - Number with connector */}
+                {/* Left Column - Number (connector removed) */}
                 <div className="flex-shrink-0 w-16 text-right">
                   <span
                     className="
@@ -210,9 +209,7 @@ export default function ProcessSection() {
                   >
                     {step.number}
                   </span>
-                  {index < processSteps.length - 1 && (
-                    <div className="w-px h-10 mx-auto mt-2 bg-gradient-to-b from-neutral-300 dark:from-neutral-700 to-transparent" />
-                  )}
+                  {/* Vertical connector line removed */}
                 </div>
                 {/* Right Column - Content */}
                 <div className="flex-1 pb-8">
@@ -234,8 +231,7 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        {/* Elegant Separator */}
-        <div className="mt-16 h-px w-12 mx-auto bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+        {/* Bottom separator removed */}
       </div>
     </section>
   );
