@@ -125,7 +125,7 @@ export default function ProblemSection() {
               >
                 We help businesses build digital foundations they truly own.
               </p>
-              <div className="mt-8 h-px w-12 bg-gradient-to-r from-blue-500/60 to-transparent" />
+              {/* Decorative line removed */}
             </div>
           </motion.div>
 

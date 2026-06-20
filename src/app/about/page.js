@@ -4,7 +4,7 @@ import AboutHero from "@/components/sections/about/AboutHero";
 import PhilosophySection from "@/components/sections/about/PhilosophySection";
 import ProblemSection from "@/components/sections/about/ProblemSection";
 import ThinkingSection from "@/components/sections/about/ThinkingSection";
-import FounderSection from "@/components/sections/about/FounderSection";
+// import FounderSection from "@/components/sections/about/FounderSection";
 import StandardsSection from "@/components/sections/about/StandardsSection";
 import ProcessSection from "@/components/sections/about/ProcessSection";
 import AboutCTA from "@/components/sections/about/AboutCTA";
@@ -22,7 +22,9 @@ export default function AboutPage() {
       <PhilosophySection />
       <ProblemSection />
       <ThinkingSection />
-      <FounderSection />
+
+      {/* <FounderSection /> */}
+
       <StandardsSection />
       <ProcessSection />
       <AboutCTA />
