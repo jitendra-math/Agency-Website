@@ -96,7 +96,8 @@ export default function PhilosophySection() {
                 font-medium
               "
             >
-              Social media introduces people to your business. Trust gives them a reason to choose you.
+              Social media introduces people to your business. Trust gives them a
+              reason to choose you.
             </p>
             <p
               className="
@@ -106,12 +107,10 @@ export default function PhilosophySection() {
                 text-neutral-600 dark:text-neutral-400
               "
             >
-              We believe digital experiences should communicate professionalism, inspire confidence, and support meaningful growth.
+              We believe digital experiences should communicate professionalism,
+              inspire confidence, and support meaningful growth.
             </p>
           </div>
-
-          {/* Elegant accent line */}
-          <div className="mt-12 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
         </motion.div>
       </div>
     </section>
