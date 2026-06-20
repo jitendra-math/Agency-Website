@@ -11,7 +11,7 @@ export default function PhilosophySection() {
     <section
       className="
         relative isolate overflow-hidden
-        px-6 pt-16 pb-16
+        px-6 pt-14 pb-14
         bg-[#fafafa] dark:bg-[#050505]
         transition-colors duration-500
       "
@@ -90,8 +90,8 @@ export default function PhilosophySection() {
           <div className="mt-10 sm:mt-12 max-w-2xl mx-auto">
             <p
               className="
-                text-base sm:text-lg md:text-xl
-                leading-relaxed sm:leading-relaxed
+                text-[14px] sm:text-base
+                leading-relaxed
                 text-neutral-600 dark:text-neutral-400
                 font-medium
               "
@@ -102,8 +102,8 @@ export default function PhilosophySection() {
             <p
               className="
                 mt-6
-                text-base sm:text-lg md:text-xl
-                leading-relaxed sm:leading-relaxed
+                text-[14px] sm:text-base
+                leading-relaxed
                 text-neutral-600 dark:text-neutral-400
               "
             >

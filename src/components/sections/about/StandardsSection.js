@@ -122,8 +122,7 @@ export default function StandardsSection() {
               >
                 {standard}
               </p>
-              {/* Subtle accent line on hover */}
-              <div className="mt-2 h-px w-0 group-hover:w-12 bg-gradient-to-r from-blue-500/50 to-transparent transition-all duration-700 ease-out" />
+              {/* Hover underline removed */}
             </motion.div>
           ))}
         </div>
@@ -136,7 +135,7 @@ export default function StandardsSection() {
           viewport={{ once: true }}
           className="mt-16 pt-8 text-center"
         >
-          <div className="h-px w-12 mx-auto bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+          {/* Decorative divider removed */}
           <p className="mt-6 text-xs text-neutral-400 dark:text-neutral-500 tracking-wide">
             These principles define every project we undertake.
           </p>
