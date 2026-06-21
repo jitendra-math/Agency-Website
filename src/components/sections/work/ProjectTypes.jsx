@@ -5,7 +5,7 @@
 import { motion } from "framer-motion";
 import {
   Building2,
-  MousePointerSquare,
+  SquareMousePointer,
   Briefcase,
   Code2,
   CalendarDays,
@@ -20,7 +20,7 @@ const projectTypes = [
       "Professional websites designed to strengthen trust and credibility.",
   },
   {
-    icon: MousePointerSquare,
+    icon: SquareMousePointer,
     title: "Landing Pages",
     description:
       "Focused experiences built to convert visitors into customers.",
