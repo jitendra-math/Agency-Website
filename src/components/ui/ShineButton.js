@@ -44,13 +44,7 @@ export default function ShineButton({
       >
         {/* Infinite shine effect – identical to hero section */}
         <div
-          className="
-            absolute inset-0
-            -translate-x-full
-            animate-[shine_3s_linear_infinite]
-            bg-gradient-to-r from-transparent via-white/30 to-transparent
-            pointer-events-none
-          "
+          className="absolute inset-0 -translate-x-full animate-[shine_3s_linear_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none"
           aria-hidden="true"
         />
 

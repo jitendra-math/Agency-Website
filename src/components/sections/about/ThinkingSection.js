@@ -36,12 +36,7 @@ export default function ThinkingSection() {
 
   return (
     <section
-      className="
-        relative isolate overflow-hidden
-        px-6 pt-16 pb-16
-        bg-[#fafafa] dark:bg-[#050505]
-        transition-colors duration-500
-      "
+      className="relative isolate overflow-hidden px-6 pt-16 pb-16 bg-[#fafafa] dark:bg-[#050505] transition-colors duration-500"
     >
       {/* Ambient Glows */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -52,14 +47,7 @@ export default function ThinkingSection() {
             scale: [1, 1.1, 1],
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute top-[10%] left-[-10%] sm:top-[20%] sm:left-[5%]
-            w-[80vw] h-[80vw] sm:w-[500px] sm:h-[500px]
-            rounded-full
-            bg-blue-300/30 dark:bg-indigo-900/20
-            blur-[80px] sm:blur-[120px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute top-[10%] left-[-10%] sm:top-[20%] sm:left-[5%] w-[80vw] h-[80vw] sm:w-[500px] sm:h-[500px] rounded-full bg-blue-300/30 dark:bg-indigo-900/20 blur-[80px] sm:blur-[120px] mix-blend-multiply dark:mix-blend-screen"
         />
         <motion.div
           animate={{
@@ -68,26 +56,13 @@ export default function ThinkingSection() {
             scale: [1, 1.15, 1],
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute bottom-[-10%] right-[-10%] sm:bottom-[10%] sm:right-[5%]
-            w-[90vw] h-[90vw] sm:w-[600px] sm:h-[600px]
-            rounded-full
-            bg-cyan-200/40 dark:bg-cyan-900/15
-            blur-[90px] sm:blur-[130px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute bottom-[-10%] right-[-10%] sm:bottom-[10%] sm:right-[5%] w-[90vw] h-[90vw] sm:w-[600px] sm:h-[600px] rounded-full bg-cyan-200/40 dark:bg-cyan-900/15 blur-[90px] sm:blur-[130px] mix-blend-multiply dark:mix-blend-screen"
         />
       </div>
 
       {/* Subtle Grid Depth */}
       <div
-        className="
-          absolute inset-0 -z-20
-          opacity-[0.03] dark:opacity-[0.05]
-          bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
-          bg-[size:48px_48px] sm:bg-[size:64px_64px]
-          [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]
-        "
+        className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]"
       />
 
       <div className="relative z-10 mx-auto max-w-5xl">
@@ -127,12 +102,7 @@ export default function ThinkingSection() {
                 {/* Large Translucent Number */}
                 <div className="relative flex-shrink-0 md:w-32">
                   <span
-                    className="
-                      text-6xl sm:text-7xl md:text-8xl
-                      font-black tracking-tighter
-                      text-neutral-900/5 dark:text-white/5
-                      select-none
-                    "
+                    className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-neutral-900/5 dark:text-white/5 select-none"
                   >
                     {point.number}
                   </span>
@@ -141,31 +111,17 @@ export default function ThinkingSection() {
                 {/* Content */}
                 <div className="flex-1">
                   <h3
-                    className="
-                      text-xl sm:text-2xl md:text-3xl
-                      font-bold tracking-tight
-                      text-neutral-900 dark:text-white
-                      mb-3
-                    "
+                    className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white mb-3"
                   >
                     <span
-                      className="
-                        text-transparent bg-clip-text
-                        bg-gradient-to-r from-blue-600 to-cyan-500
-                        dark:from-blue-400 dark:to-cyan-300
-                      "
+                      className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300"
                     >
                       {firstWord}
                     </span>
                     {restWords && ` ${restWords}`}
                   </h3>
                   <p
-                    className="
-                      text-base sm:text-lg
-                      leading-relaxed
-                      text-neutral-600 dark:text-neutral-400
-                      max-w-xl
-                    "
+                    className="text-base sm:text-lg leading-relaxed text-neutral-600 dark:text-neutral-400 max-w-xl"
                   >
                     {point.description}
                   </p>

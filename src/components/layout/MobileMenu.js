@@ -59,17 +59,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             animate="visible"
             exit="exit"
             style={{ willChange: 'transform' }} // GPU acceleration hint
-            className="
-              fixed right-0 top-0 z-50
-              h-screen w-full sm:w-[400px]
-              bg-white/70 dark:bg-[#050505]/70
-              backdrop-blur-2xl
-              shadow-2xl
-              border-l border-white/20 dark:border-white/5
-              px-6 pt-8 pb-10
-              flex flex-col
-              overflow-hidden
-            "
+            className="fixed right-0 top-0 z-50 h-screen w-full sm:w-[400px] bg-white/70 dark:bg-[#050505]/70 backdrop-blur-2xl shadow-2xl border-l border-white/20 dark:border-white/5 px-6 pt-8 pb-10 flex flex-col overflow-hidden"
           >
             {/* Static rich glows (no animation, so no performance hit) */}
             <div className="absolute inset-0 -z-10 pointer-events-none opacity-60 dark:opacity-40">
@@ -98,15 +88,7 @@ export default function MobileMenu({ isOpen, onClose }) {
 
               <button
                 onClick={onClose}
-                className="
-                  group flex h-11 w-11 items-center justify-center
-                  rounded-full
-                  border border-black/5 dark:border-white/10
-                  bg-white/60 dark:bg-black/60
-                  backdrop-blur-md
-                  transition-all duration-300
-                  active:scale-90
-                "
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-black/5 dark:border-white/10 bg-white/60 dark:bg-black/60 backdrop-blur-md transition-all duration-300 active:scale-90"
               >
                 <X size={20} className="text-neutral-700 dark:text-neutral-300 group-active:text-neutral-900 dark:group-active:text-white transition-colors" />
               </button>
@@ -114,12 +96,7 @@ export default function MobileMenu({ isOpen, onClose }) {
 
             {/* Navigation links with staggered animation */}
             <motion.nav
-              className="
-              mt-20 flex flex-col gap-6
-              text-4xl sm:text-5xl font-bold tracking-tighter
-              text-neutral-900 dark:text-neutral-100
-              relative z-10
-            "
+              className="mt-20 flex flex-col gap-6 text-4xl sm:text-5xl font-bold tracking-tighter text-neutral-900 dark:text-neutral-100 relative z-10"
             >
               {[
                 ["Home", "/"],
@@ -132,11 +109,7 @@ export default function MobileMenu({ isOpen, onClose }) {
                   <Link
                     href={href}
                     onClick={onClose}
-                    className="
-                      inline-block
-                      transition-all duration-300 ease-out
-                      active:scale-95 active:text-blue-600 dark:active:text-blue-400
-                    "
+                    className="inline-block transition-all duration-300 ease-out active:scale-95 active:text-blue-600 dark:active:text-blue-400"
                   >
                     {label}
                   </Link>
@@ -147,10 +120,7 @@ export default function MobileMenu({ isOpen, onClose }) {
             {/* Footer branding */}
             <motion.div
               variants={item}
-              className="
-              mt-auto pt-12 relative z-10
-              flex flex-col gap-1
-            "
+              className="mt-auto pt-12 relative z-10 flex flex-col gap-1"
             >
               <span className="text-sm font-semibold tracking-widest uppercase text-blue-600 dark:text-blue-400">
                 JSS Originals

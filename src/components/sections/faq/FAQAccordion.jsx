@@ -207,9 +207,7 @@ export default function FAQAccordion({ activeCategory }) {
                   </span>
                   <ChevronDown
                     size={18}
-                    className={`flex-shrink-0 text-neutral-500 transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
+                    className="flex-shrink-0 text-neutral-500 transition-transform duration-300 ${ isOpen ? "rotate-180" : "" }"
                   />
                 </button>
                 <AnimatePresence initial={false}>

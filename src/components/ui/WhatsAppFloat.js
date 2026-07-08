@@ -13,25 +13,12 @@ export default function WhatsAppFloat() {
 
       {/* outer pulse */}
       <span
-        className="
-        absolute inset-0
-        rounded-full
-        bg-[#25D366]/30
-        animate-pulse-soft
-        scale-[1.35]
-      "
+        className="absolute inset-0 rounded-full bg-[#25D366]/30 animate-pulse-soft scale-[1.35]"
       />
 
       {/* glow layer */}
       <span
-        className="
-        absolute inset-0
-        rounded-full
-        bg-[#25D366]
-        blur-xl
-        opacity-40
-        scale-125
-      "
+        className="absolute inset-0 rounded-full bg-[#25D366] blur-xl opacity-40 scale-125"
       />
 
       {/* button */}
@@ -47,40 +34,14 @@ export default function WhatsAppFloat() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="
-          relative
-          flex h-14 w-14 items-center justify-center
-          rounded-full
-          bg-[#25D366]
-          text-white
-          shadow-[0_12px_40px_rgba(0,0,0,0.35)]
-          transition-all duration-300
-          hover:scale-110
-          hover:shadow-[0_18px_55px_rgba(0,0,0,0.45)]
-        "
+        className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_40px_rgba(0,0,0,0.35)] transition-all duration-300 hover:scale-110 hover:shadow-[0_18px_55px_rgba(0,0,0,0.45)]"
       >
         <MessageCircle size={26} />
       </motion.a>
 
       {/* tooltip */}
       <span
-        className="
-        pointer-events-none
-        absolute right-16 top-1/2
-        -translate-y-1/2
-        whitespace-nowrap
-        rounded-lg
-        bg-neutral-900
-        px-3 py-1.5
-        text-xs
-        text-white
-        opacity-0
-        translate-x-2
-        transition-all duration-300
-        group-hover:opacity-100
-        group-hover:translate-x-0
-        dark:bg-neutral-700
-      "
+        className="pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-neutral-900 px-3 py-1.5 text-xs text-white opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 dark:bg-neutral-700"
       >
         Chat on WhatsApp
       </span>

@@ -64,12 +64,7 @@ export default function PricingPackages() {
 
   return (
     <section
-      className="
-        relative isolate overflow-hidden
-        px-6 py-16 sm:py-20
-        bg-[#fafafa] dark:bg-[#050505]
-        transition-colors duration-500
-      "
+      className="relative isolate overflow-hidden px-6 py-16 sm:py-20 bg-[#fafafa] dark:bg-[#050505] transition-colors duration-500"
     >
       {/* Ambient Glows */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -80,14 +75,7 @@ export default function PricingPackages() {
             scale: [1, 1.08, 1],
           }}
           transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute top-[10%] left-[-5%] sm:top-[20%] sm:left-[5%]
-            w-[80vw] h-[80vw] sm:w-[500px] sm:h-[500px]
-            rounded-full
-            bg-blue-300/25 dark:bg-indigo-900/15
-            blur-[90px] sm:blur-[130px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute top-[10%] left-[-5%] sm:top-[20%] sm:left-[5%] w-[80vw] h-[80vw] sm:w-[500px] sm:h-[500px] rounded-full bg-blue-300/25 dark:bg-indigo-900/15 blur-[90px] sm:blur-[130px] mix-blend-multiply dark:mix-blend-screen"
         />
         <motion.div
           animate={{
@@ -96,26 +84,13 @@ export default function PricingPackages() {
             scale: [1, 1.12, 1],
           }}
           transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute bottom-[10%] right-[-5%] sm:bottom-[20%] sm:right-[5%]
-            w-[85vw] h-[85vw] sm:w-[550px] sm:h-[550px]
-            rounded-full
-            bg-cyan-200/30 dark:bg-cyan-900/12
-            blur-[90px] sm:blur-[130px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute bottom-[10%] right-[-5%] sm:bottom-[20%] sm:right-[5%] w-[85vw] h-[85vw] sm:w-[550px] sm:h-[550px] rounded-full bg-cyan-200/30 dark:bg-cyan-900/12 blur-[90px] sm:blur-[130px] mix-blend-multiply dark:mix-blend-screen"
         />
       </div>
 
       {/* Subtle Grid Depth */}
       <div
-        className="
-          absolute inset-0 -z-20
-          opacity-[0.03] dark:opacity-[0.05]
-          bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
-          bg-[size:48px_48px] sm:bg-[size:64px_64px]
-          [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]
-        "
+        className="absolute inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_70%_at_50%_50%,#000_70%,transparent_100%)]"
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -135,12 +110,7 @@ export default function PricingPackages() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: smoothEase }}
             viewport={{ once: true, margin: "-80px" }}
-            className="
-              text-3xl sm:text-4xl md:text-5xl
-              font-bold tracking-tight
-              text-black dark:text-white
-              mt-2 leading-[1.1]
-            "
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white mt-2 leading-[1.1]"
           >
             Investment Options For{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
@@ -158,20 +128,7 @@ export default function PricingPackages() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 1, ease: smoothEase }}
               viewport={{ once: true, margin: "-50px" }}
-              className={`
-                group relative
-                flex flex-col
-                rounded-2xl
-                p-8
-                backdrop-blur-sm
-                transition-all duration-300
-                hover:-translate-y-1
-                ${
-                  pkg.highlighted
-                    ? "bg-white/80 dark:bg-white/[0.06] ring-2 ring-blue-500/40 dark:ring-blue-400/30 shadow-xl shadow-blue-500/5"
-                    : "bg-white/60 dark:bg-white/[0.02] ring-1 ring-inset ring-black/5 dark:ring-white/10"
-                }
-              `}
+              className="group relative flex flex-col rounded-2xl p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${ pkg.highlighted ? "bg-white/80 dark:bg-white/[0.06] ring-2 ring-blue-500/40 dark:ring-blue-400/30 shadow-xl shadow-blue-500/5" : "bg-white/60 dark:bg-white/[0.02] ring-1 ring-inset ring-black/5 dark:ring-white/10" }"
             >
               {/* Badge */}
               {pkg.badge && (
@@ -219,17 +176,7 @@ export default function PricingPackages() {
                   href={pkg.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`
-                    block w-full text-center
-                    px-6 py-3 rounded-full
-                    font-medium text-sm
-                    transition-all duration-300
-                    ${
-                      pkg.highlighted
-                        ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02]"
-                        : "bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/10 text-neutral-800 dark:text-white hover:bg-white dark:hover:bg-white/20 hover:scale-[1.02]"
-                    }
-                  `}
+                  className="block w-full text-center px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${ pkg.highlighted ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02]" : "bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/10 text-neutral-800 dark:text-white hover:bg-white dark:hover:bg-white/20 hover:scale-[1.02]" }"
                 >
                   {pkg.cta}
                 </Link>

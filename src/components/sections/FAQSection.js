@@ -39,12 +39,7 @@ export default function FAQSection() {
 
   return (
     <section
-      className="
-        relative isolate overflow-hidden
-        px-6 pt-16 pb-16
-        bg-[#fafafa] dark:bg-[#050505]
-        transition-colors duration-500
-      "
+      className="relative isolate overflow-hidden px-6 pt-16 pb-16 bg-[#fafafa] dark:bg-[#050505] transition-colors duration-500"
     >
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         <motion.div
@@ -96,15 +91,7 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6, ease: smoothEase }}
               viewport={{ once: true }}
-              className="
-                rounded-2xl
-                bg-white/40 dark:bg-white/[0.02]
-                ring-1 ring-inset ring-black/5 dark:ring-white/10
-                backdrop-blur-2xl
-                transition-all duration-300
-                hover:bg-white/50 dark:hover:bg-white/[0.04]
-                hover:shadow-md
-              "
+              className="rounded-2xl bg-white/40 dark:bg-white/[0.02] ring-1 ring-inset ring-black/5 dark:ring-white/10 backdrop-blur-2xl transition-all duration-300 hover:bg-white/50 dark:hover:bg-white/[0.04] hover:shadow-md"
             >
               <button
                 onClick={() => toggleFaq(index)}
@@ -115,10 +102,7 @@ export default function FAQSection() {
                 </span>
                 <ChevronDown
                   size={20}
-                  className={`
-                    transition-all duration-300 text-neutral-500
-                    ${openFaq === index ? "rotate-180 text-blue-600 dark:text-blue-400" : ""}
-                  `}
+                  className="transition-all duration-300 text-neutral-500 ${openFaq === index ? "rotate-180 text-blue-600 dark:text-blue-400" : ""}"
                 />
               </button>
               <AnimatePresence>

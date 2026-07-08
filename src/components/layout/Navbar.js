@@ -85,14 +85,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(true)}
               aria-label="Open Menu"
               aria-expanded={menuOpen}
-              className="
-              group flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center
-              rounded-full
-              bg-transparent outline-none
-              transition-all duration-300
-              hover:bg-black/5 dark:hover:bg-white/10
-              active:scale-90
-            "
+              className="group flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-transparent outline-none transition-all duration-300 hover:bg-black/5 dark:hover:bg-white/10 active:scale-90"
             >
               <Menu
                 size={20}

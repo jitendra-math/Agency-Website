@@ -37,12 +37,7 @@ export default function PricingPhilosophy() {
 
   return (
     <section
-      className="
-        relative isolate overflow-hidden
-        px-6 py-16 sm:py-20
-        bg-white dark:bg-[#050505]
-        transition-colors duration-500
-      "
+      className="relative isolate overflow-hidden px-6 py-16 sm:py-20 bg-white dark:bg-[#050505] transition-colors duration-500"
     >
       {/* Ambient Glows - Softer */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -53,14 +48,7 @@ export default function PricingPhilosophy() {
             scale: [1, 1.05, 1],
           }}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute top-[15%] left-[-5%] sm:top-[25%] sm:left-[5%]
-            w-[70vw] h-[70vw] sm:w-[450px] sm:h-[450px]
-            rounded-full
-            bg-blue-200/20 dark:bg-indigo-900/12
-            blur-[100px] sm:blur-[140px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute top-[15%] left-[-5%] sm:top-[25%] sm:left-[5%] w-[70vw] h-[70vw] sm:w-[450px] sm:h-[450px] rounded-full bg-blue-200/20 dark:bg-indigo-900/12 blur-[100px] sm:blur-[140px] mix-blend-multiply dark:mix-blend-screen"
         />
         <motion.div
           animate={{
@@ -69,26 +57,13 @@ export default function PricingPhilosophy() {
             scale: [1, 1.08, 1],
           }}
           transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute bottom-[10%] right-[-5%] sm:bottom-[20%] sm:right-[5%]
-            w-[75vw] h-[75vw] sm:w-[500px] sm:h-[500px]
-            rounded-full
-            bg-cyan-200/25 dark:bg-cyan-900/10
-            blur-[100px] sm:blur-[140px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute bottom-[10%] right-[-5%] sm:bottom-[20%] sm:right-[5%] w-[75vw] h-[75vw] sm:w-[500px] sm:h-[500px] rounded-full bg-cyan-200/25 dark:bg-cyan-900/10 blur-[100px] sm:blur-[140px] mix-blend-multiply dark:mix-blend-screen"
         />
       </div>
 
       {/* Subtle Grid Depth */}
       <div
-        className="
-          absolute inset-0 -z-20
-          opacity-[0.02] dark:opacity-[0.04]
-          bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
-          bg-[size:48px_48px] sm:bg-[size:64px_64px]
-          [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000_60%,transparent_100%)]
-        "
+        className="absolute inset-0 -z-20 opacity-[0.02] dark:opacity-[0.04] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000_60%,transparent_100%)]"
       />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -108,12 +83,7 @@ export default function PricingPhilosophy() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: smoothEase }}
             viewport={{ once: true, margin: "-80px" }}
-            className="
-              text-3xl sm:text-4xl md:text-5xl
-              font-bold tracking-tight
-              text-black dark:text-white
-              mt-2 leading-[1.1]
-            "
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white mt-2 leading-[1.1]"
           >
             A Website Is Not An Expense.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-300">
@@ -142,17 +112,7 @@ export default function PricingPhilosophy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.08, duration: 0.8, ease: smoothEase }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="
-                  group relative
-                  flex flex-col
-                  p-6 sm:p-8
-                  rounded-2xl
-                  bg-white/80 dark:bg-white/[0.04]
-                  backdrop-blur-sm
-                  border border-black/5 dark:border-white/10
-                  transition-all duration-300
-                  hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5 hover:-translate-y-1
-                "
+                className="group relative flex flex-col p-6 sm:p-8 rounded-2xl bg-white/80 dark:bg-white/[0.04] backdrop-blur-sm border border-black/5 dark:border-white/10 transition-all duration-300 hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/5 hover:-translate-y-1"
               >
                 <div className="p-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 w-fit mb-4">
                   <Icon size={22} strokeWidth={1.5} />

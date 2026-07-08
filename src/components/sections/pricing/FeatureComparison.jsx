@@ -24,12 +24,7 @@ export default function FeatureComparison() {
 
   return (
     <section
-      className="
-        relative isolate overflow-hidden
-        px-6 py-16 sm:py-20
-        bg-white dark:bg-[#050505]
-        transition-colors duration-500
-      "
+      className="relative isolate overflow-hidden px-6 py-16 sm:py-20 bg-white dark:bg-[#050505] transition-colors duration-500"
     >
       {/* Ambient Glows */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -40,14 +35,7 @@ export default function FeatureComparison() {
             scale: [1, 1.05, 1],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute top-[15%] left-[-5%] sm:top-[25%] sm:left-[10%]
-            w-[70vw] h-[70vw] sm:w-[450px] sm:h-[450px]
-            rounded-full
-            bg-blue-200/20 dark:bg-indigo-900/12
-            blur-[100px] sm:blur-[140px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute top-[15%] left-[-5%] sm:top-[25%] sm:left-[10%] w-[70vw] h-[70vw] sm:w-[450px] sm:h-[450px] rounded-full bg-blue-200/20 dark:bg-indigo-900/12 blur-[100px] sm:blur-[140px] mix-blend-multiply dark:mix-blend-screen"
         />
         <motion.div
           animate={{
@@ -56,26 +44,13 @@ export default function FeatureComparison() {
             scale: [1, 1.08, 1],
           }}
           transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-          className="
-            absolute bottom-[15%] right-[-5%] sm:bottom-[25%] sm:right-[10%]
-            w-[75vw] h-[75vw] sm:w-[500px] sm:h-[500px]
-            rounded-full
-            bg-cyan-200/25 dark:bg-cyan-900/10
-            blur-[100px] sm:blur-[140px]
-            mix-blend-multiply dark:mix-blend-screen
-          "
+          className="absolute bottom-[15%] right-[-5%] sm:bottom-[25%] sm:right-[10%] w-[75vw] h-[75vw] sm:w-[500px] sm:h-[500px] rounded-full bg-cyan-200/25 dark:bg-cyan-900/10 blur-[100px] sm:blur-[140px] mix-blend-multiply dark:mix-blend-screen"
         />
       </div>
 
       {/* Subtle Grid Depth */}
       <div
-        className="
-          absolute inset-0 -z-20
-          opacity-[0.02] dark:opacity-[0.04]
-          bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)]
-          bg-[size:48px_48px] sm:bg-[size:64px_64px]
-          [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000_60%,transparent_100%)]
-        "
+        className="absolute inset-0 -z-20 opacity-[0.02] dark:opacity-[0.04] bg-[linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] bg-[size:48px_48px] sm:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_45%,#000_60%,transparent_100%)]"
       />
 
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -95,12 +70,7 @@ export default function FeatureComparison() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: smoothEase }}
             viewport={{ once: true, margin: "-80px" }}
-            className="
-              text-3xl sm:text-4xl md:text-5xl
-              font-bold tracking-tight
-              text-black dark:text-white
-              mt-2 leading-[1.1]
-            "
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white mt-2 leading-[1.1]"
           >
             Compare Your Options
           </motion.h2>
@@ -144,11 +114,7 @@ export default function FeatureComparison() {
               {comparisonData.features.map((feature, idx) => (
                 <tr
                   key={idx}
-                  className={`
-                    border-b border-neutral-200/50 dark:border-neutral-800/50
-                    ${idx % 2 === 0 ? "bg-neutral-50/50 dark:bg-white/[0.02]" : ""}
-                    transition-colors duration-200 hover:bg-neutral-100/50 dark:hover:bg-white/[0.04]
-                  `}
+                  className="border-b border-neutral-200/50 dark:border-neutral-800/50 ${idx % 2 === 0 ? "bg-neutral-50/50 dark:bg-white/[0.02]" : ""} transition-colors duration-200 hover:bg-neutral-100/50 dark:hover:bg-white/[0.04]"
                 >
                   <td className="px-4 sm:px-6 py-3.5 text-sm font-medium text-black dark:text-white">
                     {feature.label}

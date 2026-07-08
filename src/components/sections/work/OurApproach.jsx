@@ -66,9 +66,7 @@ export default function OurApproach() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1, duration: 1, ease: smoothEase }}
                   viewport={{ once: true, margin: "-50px" }}
-                  className={`relative flex flex-col md:flex-row items-start gap-6 ${
-                    isEven ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                  className="relative flex flex-col md:flex-row items-start gap-6 ${ isEven ? "md:flex-row" : "md:flex-row-reverse" }"
                 >
                   {/* Timeline Circle */}
                   <div className="absolute left-0 top-1 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white font-semibold text-sm shadow-md shadow-blue-500/20 z-10">

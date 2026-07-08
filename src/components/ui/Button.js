@@ -67,13 +67,7 @@ const Button = forwardRef(
         {/* Infinite shine effect – identical to HeroSection */}
         {shine && (
           <div
-            className="
-              absolute inset-0
-              -translate-x-full
-              animate-[shine_3s_linear_infinite]
-              bg-gradient-to-r from-transparent via-white/30 to-transparent
-              pointer-events-none
-            "
+            className="absolute inset-0 -translate-x-full animate-[shine_3s_linear_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none"
             aria-hidden="true"
           />
         )}

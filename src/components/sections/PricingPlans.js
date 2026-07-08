@@ -60,12 +60,7 @@ export default function PricingPlans() {
 
   return (
     <section
-      className="
-        relative isolate overflow-hidden
-        px-6 pt-16 pb-16
-        bg-[#fafafa] dark:bg-[#050505]
-        transition-colors duration-500
-      "
+      className="relative isolate overflow-hidden px-6 pt-16 pb-16 bg-[#fafafa] dark:bg-[#050505] transition-colors duration-500"
     >
       {/* Background glows – same as original */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -136,18 +131,7 @@ export default function PricingPlans() {
                 ease: smoothEase,
               }}
               viewport={{ once: true, margin: "-50px" }}
-              className={`
-                group relative flex flex-col
-                rounded-3xl p-8
-                backdrop-blur-2xl
-                transition-all duration-700 ease-out
-                hover:-translate-y-1
-                ${
-                  plan.highlight
-                    ? "bg-white/40 dark:bg-white/[0.04] ring-2 ring-blue-500/30 dark:ring-blue-400/30 shadow-xl shadow-blue-500/5"
-                    : "bg-white/30 dark:bg-white/[0.02] ring-1 ring-inset ring-black/5 dark:ring-white/10"
-                }
-              `}
+              className="group relative flex flex-col rounded-3xl p-8 backdrop-blur-2xl transition-all duration-700 ease-out hover:-translate-y-1 ${ plan.highlight ? "bg-white/40 dark:bg-white/[0.04] ring-2 ring-blue-500/30 dark:ring-blue-400/30 shadow-xl shadow-blue-500/5" : "bg-white/30 dark:bg-white/[0.02] ring-1 ring-inset ring-black/5 dark:ring-white/10" }"
             >
               {plan.badge && (
                 <div className="absolute -top-3 left-6">
@@ -189,16 +173,7 @@ export default function PricingPlans() {
                   href={plan.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`
-                    block w-full text-center
-                    px-6 py-3 rounded-full
-                    font-medium transition-all duration-300
-                    ${
-                      plan.highlight
-                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02]"
-                        : "bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/10 text-neutral-800 dark:text-white hover:bg-white dark:hover:bg-white/20 hover:scale-[1.02]"
-                    }
-                  `}
+                  className="block w-full text-center px-6 py-3 rounded-full font-medium transition-all duration-300 ${ plan.highlight ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02]" : "bg-white/80 dark:bg-white/10 backdrop-blur-sm border border-black/10 dark:border-white/10 text-neutral-800 dark:text-white hover:bg-white dark:hover:bg-white/20 hover:scale-[1.02]" }"
                 >
                   {plan.cta}
                 </a>

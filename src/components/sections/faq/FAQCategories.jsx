@@ -21,18 +21,7 @@ export default function FAQCategories({ activeCategory, setActiveCategory }) {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`
-                px-4 sm:px-5 py-2
-                rounded-full
-                text-xs sm:text-sm
-                font-medium
-                transition-all duration-300
-                ${
-                  activeCategory === category.id
-                    ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-                    : "bg-white/80 dark:bg-white/[0.04] text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/[0.08] border border-black/5 dark:border-white/10"
-                }
-              `}
+              className="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${ activeCategory === category.id ? "bg-blue-600 text-white shadow-md shadow-blue-500/20" : "bg-white/80 dark:bg-white/[0.04] text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-white/[0.08] border border-black/5 dark:border-white/10" }"
             >
               {category.label}
             </button>
