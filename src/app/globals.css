@@ -1,13 +1,12 @@
 /* src/app/globals.css */
 
+/* Custom Animations - MUST be first */
+@import "../styles/animations.css";
+
 /* Tailwind Layers */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Custom Animations */
-@import "../styles/animations.css";
-
 
 /* ----------------------------- */
 /* Font Faces */
@@ -31,7 +30,6 @@
   font-display: swap;
 }
 
-
 /* Oatmeal Sans */
 
 @font-face {
@@ -42,7 +40,6 @@
   font-display: swap;
 }
 
-
 /* Royal Brand */
 
 @font-face {
@@ -52,7 +49,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 
 /* ----------------------------- */
 /* Base Styles */
@@ -70,7 +66,6 @@ body {
   @apply bg-neutral-950 text-neutral-100;
 }
 
-
 /* ----------------------------- */
 /* Selection Style */
 /* ----------------------------- */
@@ -79,7 +74,6 @@ body {
   background: #2563eb;
   color: white;
 }
-
 
 /* ----------------------------- */
 /* Scrollbar Styling */
